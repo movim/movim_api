@@ -27,14 +27,13 @@
 <p>To prevent spam and fake pods the API and the moderation team will perform several verification steps.</p>
 
 <ol>
-    <li>When you call <code>http://api.movim.eu/register</code> you need to send a parameter with your POST request :</li>
+    <li>When you call <code>http://api.movim.eu/pods/register</code> you need to send a parameter with your POST request :</li>
     <ul>
         <li><code>url</code> which contain the root URL of your Movim pod.</li>
     </ul>
     <li>We will check if a pod is already registered.</li>
     <li>The API will check if the URL is available and will try to get
-    informations on your pod by requesting <code>/infos</code> (or <code>/?q=infos</code>
-    if URL rewriting is disabled).</li>
+    informations on your pod by requesting <code>/?infos</code></li>
     <li>Then we will verifiy if you reach the limit of 3 pods registered
     per domain. <strong>This limit is only here to prevent spamming.</strong></li>
     <li>Finally a moderator will check your pod and enable it if all is ok :)</li>
