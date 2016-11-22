@@ -2,6 +2,8 @@
 
 return [
 
+    'registration_enabled' => env('REGISTRATION_ENABLED', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -180,6 +182,7 @@ return [
 
         Kozz\Laravel\Providers\Guzzle::class,
         Collective\Html\HtmlServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
     ],
 
     /*

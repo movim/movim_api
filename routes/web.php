@@ -22,6 +22,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+/* Accounts */
+Route::get('/accounts/register', 'AccountsController@create');
+Route::post('/accounts/', 'AccountsController@store');
+
 /* Pods */
 Route::get('/pods/favorite',    'PodsController@favorite');
 

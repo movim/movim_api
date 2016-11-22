@@ -4,7 +4,7 @@
 
 <h1>Edit Server</h1>
 
-{{ Form::model($server, array('route' => array('servers.update', $server->id), 'method' => 'put')) }}
+{{ Form::model($server, ['route' => ['servers.update', $server->id], 'method' => 'put']) }}
     {{ Form::hidden('domain', $server->domain) }}
     <div class="form-group">
         {{ Form::label('title', 'Title') }}
