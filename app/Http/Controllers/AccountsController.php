@@ -20,8 +20,8 @@ class AccountsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'g-recaptcha-response'  => 'required|captcha',
-            'username'              => 'required',
+            'username'              => 'required|between:4,20',
+            //'g-recaptcha-response'  => 'required|captcha',
             'password'              => 'required|confirmed|min:8'
         ]);
 
