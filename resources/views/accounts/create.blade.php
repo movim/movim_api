@@ -57,10 +57,10 @@
             </div>
             <div>
                 {{ Form::label('password', 'Password') }}
-                {{ Form::text('password', null, ['placeholder'=>'Your password']) }}
+                {{ Form::password('password', ['placeholder'=>'Your password']) }}
             </div>
             <div>
-                {{ Form::text('password_confirmation', null, ['placeholder'=>'Retype your password', 'style' => 'padding-top: 2rem']) }}
+                {{ Form::password('password_confirmation', ['placeholder'=>'Retype your password', 'style' => 'padding-top: 2rem']) }}
             </div>
 
             <div>
