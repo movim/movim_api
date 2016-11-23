@@ -6,7 +6,7 @@
 
     <h2>{{ $jid }}</h2>
 
-    <p>You can now login with it on your favorite client</p>
+    <p>You can now login on your favorite client</p>
 
     @if (!empty($referer))
     <a class="button color" href="{{ $referer }}">
