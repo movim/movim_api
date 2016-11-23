@@ -38,6 +38,7 @@
 
         {{ Form::open(['method' => 'POST', 'action' => ['AccountsController@store'], 'class' => 'padded_top_bottom']) }}
 
+            {{ Form::hidden('referer', $referer) }}
             <div>
                 <span style="color: gray;
                     font-weight: bold;
@@ -53,7 +54,7 @@
                     @movim.eu
                 </span>
                 {{ Form::label('username', 'Username') }}
-                {{ Form::text('username', null, ['placeholder'=>'username', 'style' => 'width: calc(100% - 15rem); text-align: right;']) }}
+                {{ Form::text('username', null, ['placeholder'=>'username', 'style' => 'width: calc(100% - 15rem); text-align: right;', 'pattern' => '^[^\u0000-\u001f\u0020\u0022\u0026\u0027\u002f\u003a\u003c\u003e\u0040\u007f\u0080-\u009f\u00a0]+$']) }}
             </div>
             <div>
                 {{ Form::label('password', 'Password') }}

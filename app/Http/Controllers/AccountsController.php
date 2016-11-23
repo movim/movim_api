@@ -12,7 +12,9 @@ class AccountsController extends Controller
     public function create(Request $request)
     {
         return response()
-            ->view('accounts.create');
+            ->view('accounts.create', [
+                'referer' => $request->header('referer')
+            ]);
     }
 
     public function store(Request $request)
@@ -33,13 +35,15 @@ class AccountsController extends Controller
             escapeshellarg($request->get('password'));
 
         $output = [];
-
         exec($command, $output);
 
         // Check if user could be registered
         foreach($output as $line) {
             if(preg_match('/User successfully added/i', $line)) {
-                return response()->view('accounts.created');
+                return response()->view('accounts.created', [
+                    'jid'       => $request->get('username').'@'.$this->domain,
+                    'referer'   => $request->get('referer')
+                ]);
             }
 
             if(preg_match('/User already exists/i', $line)) {
