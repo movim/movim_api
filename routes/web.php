@@ -33,14 +33,20 @@ Route::post('/pods/status',     'PodsController@status');
 Route::post('/pods/register',   'PodsController@store');
 
 Route::get('/pods',             'PodsController@index');
+Route::get('/servers',          'ServersController@index');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/pods/refreshAll',  'PodsController@refreshAll');
-    Route::resource('pods',         'PodsController');
 
-    Route::get('/pods/{id}/refresh', 'PodsController@refresh');
+    Route::get('/pods/{id}',        'PodsController@show');
+    Route::get('/pods/{id}/edit',   'PodsController@edit');
+    Route::put('/pods/{id}',        'PodsController@update')->name('pods.update');
+    Route::get('/pods/{id}/refresh','PodsController@refresh');
     Route::delete('/pods/{id}',     'PodsController@destroy');
 
-    Route::resource('servers',      'ServersController');
+    Route::get('/servers/{id}/edit','ServersController@edit');
+    Route::put('/servers/{id}',     'ServersController@update')->name('servers.update');
+    Route::get('/servers/create',   'ServersController@create');
+    Route::post('/servers',         'ServersController@store')->name('servers.store');
+    Route::delete('/servers/{id}',  'ServersController@destroy');
 });
-
