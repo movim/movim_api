@@ -6,7 +6,9 @@
 
     <h2>{{ $jid }}</h2>
 
-    @if (isset($referer))
+    <p>You can now login with it on your favorite client</p>
+
+    @if (!empty($referer))
     <a class="button color" href="{{ $referer }}">
         Go back to {{ parse_url($referer)['host'] }}
     </a>
