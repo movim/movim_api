@@ -928,12 +928,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/edhelas/feedcleaner.git",
-                "reference": "50c3d5a6e9f8ed4774a95c9366f29e57d0f1ff62"
+                "reference": "c4f68169516b4bfaa70d0c54e6247481b2f5b8c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/edhelas/feedcleaner/zipball/50c3d5a6e9f8ed4774a95c9366f29e57d0f1ff62",
-                "reference": "50c3d5a6e9f8ed4774a95c9366f29e57d0f1ff62",
+                "url": "https://api.github.com/repos/edhelas/feedcleaner/zipball/c4f68169516b4bfaa70d0c54e6247481b2f5b8c6",
+                "reference": "c4f68169516b4bfaa70d0c54e6247481b2f5b8c6",
                 "shasum": ""
             },
             "require": {
@@ -964,7 +964,7 @@
                 "feed",
                 "rss"
             ],
-            "time": "2016-12-07 22:21:54"
+            "time": "2016-12-08 07:57:07"
         },
         {
             "name": "mtdowling/cron-expression",
