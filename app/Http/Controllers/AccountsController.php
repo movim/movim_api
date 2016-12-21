@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use FeedCleaner\Parser;
 use Illuminate\Http\Request;
 
+use App\Pod;
+
 class AccountsController extends Controller
 {
     private $domain = 'movim.eu';
@@ -49,7 +51,10 @@ class AccountsController extends Controller
             if(preg_match('/User successfully added/i', $line)) {
                 return response()->view('accounts.created', [
                     'jid'       => $request->get('username').'@'.$this->domain,
-                    'referer'   => $request->get('referer')
+                    'referer'   => $request->get('referer'),
+                    'pods'      => Pod::where('activated','=', 1)
+                        ->where('favorite','=',1)
+                        ->get()
                 ]);
             }
 
