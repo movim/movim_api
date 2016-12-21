@@ -65,6 +65,23 @@
             </div>
 
             <div>
+                <ul class="list">
+                    <li>
+                        <span class="primary">
+                            <div class="action">
+                                <div class="checkbox">
+                                {{ Form::checkbox('legals', 'agreed', false, ['id' => 'legals']) }}
+                                {{ Form::label('legals', ' ') }}
+                                </div>
+                            </div>
+                        </span>
+                        <p class="line normal">Movim services Terms and Conditions</p>
+                        <p>I agree with the <a href="{{ action('AccountsController@legals') }}" target="_blank">Terms and Conditions</a></p>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
                 <br />
                 {!! app('captcha')->display(); !!}
             </div>

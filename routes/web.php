@@ -24,7 +24,9 @@ Route::get('/home', 'HomeController@index');
 
 /* Accounts */
 Route::get('/accounts/register', 'AccountsController@create');
+Route::get('/accounts', function() { return redirect('/accounts/register'); });
 Route::post('/accounts/', 'AccountsController@store');
+Route::get('/accounts/legals', 'AccountsController@legals');
 
 /* Pods */
 Route::get('/pods/favorite',    'PodsController@favorite');

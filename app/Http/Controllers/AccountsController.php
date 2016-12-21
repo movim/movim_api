@@ -17,11 +17,18 @@ class AccountsController extends Controller
             ]);
     }
 
+    public function legals(Request $request)
+    {
+        return response()
+            ->view('accounts.legals');
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
             'username'              => 'required|between:4,20',
-            //'g-recaptcha-response'  => 'required|captcha',
+            'legals'                => 'required',
+            'g-recaptcha-response'  => 'required|captcha',
             'password'              => 'required|confirmed|min:8'
         ]);
 
