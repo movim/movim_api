@@ -21,10 +21,10 @@
 
 @if(empty($referer))
 
-<ul class="list flex active card">
+<ul class="list flex active">
     @foreach ($pods as $pod)
-    <a href="{{ $pod->description }}">
-        <li class="block">
+    <a class="block" href="{{ $pod->description }}">
+        <li>
             <span class="control icon gray">
                 <i class="zmdi zmdi-chevron-right"></i>
             </span>
