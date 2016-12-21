@@ -23,7 +23,7 @@
 
 <ul class="list flex active">
     @foreach ($pods as $pod)
-    <a class="block" href="{{ $pod->description }}">
+    <a class="block" href="{{ $pod->url }}">
         <li>
             <span class="control icon gray">
                 <i class="zmdi zmdi-chevron-right"></i>
