@@ -15,7 +15,7 @@
     </a>
 
     @else
-    <p class="center">or use your account on the Movim pod of your choice</p>
+    <p class="center">or one of the following pods of your choice</p>
     @endif
 </div>
 
