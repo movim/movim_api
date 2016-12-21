@@ -28,7 +28,7 @@
             <span class="control icon gray">
                 <i class="zmdi zmdi-chevron-right"></i>
             </span>
-            <p>{{ parse_url($post->url)['host'] }}</p>
+            <p>{{ parse_url($pod->url)['host'] }}</p>
             <p>{{ $pod->description }}</p>
         </li>
     </a>
