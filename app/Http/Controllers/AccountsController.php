@@ -37,7 +37,7 @@ class AccountsController extends Controller
         $command = 'sudo -u ejabberd /opt/ejabberd-17.08/bin/ejabberdctl --no-timeout --config-dir /etc/ejabberd/ register '.
             escapeshellarg($request->get('username')).
             ' '.
-            $this->domain
+            $this->domain.
             ' '.
             escapeshellarg($request->get('password'));
 
