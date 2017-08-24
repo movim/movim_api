@@ -34,12 +34,10 @@ class AccountsController extends Controller
             'password'              => 'required|confirmed|min:8'
         ]);
 
-        $command = 'sudo metronomectl adduser '.
-            escapeshellarg(
-                $request->get('username').
-                '@'.
-                $this->domain
-            ).
+        $command = 'sudo -u ejabberd /opt/ejabberd-17.08/bin/ejabberdctl --no-timeout --config-dir /etc/ejabberd/ register '.
+            escapeshellarg($request->get('username')).
+            ' '.
+            $this->domain
             ' '.
             escapeshellarg($request->get('password'));
 
@@ -48,7 +46,7 @@ class AccountsController extends Controller
 
         // Check if user could be registered
         foreach($output as $line) {
-            if(preg_match('/User successfully added/i', $line)) {
+            if(preg_match('/User '.$request->get('username').'@'.$this->domain.' successfully registered/i', $line)) {
                 return response()->view('accounts.created', [
                     'jid'       => $request->get('username').'@'.$this->domain,
                     'referer'   => $request->get('referer'),
@@ -58,7 +56,7 @@ class AccountsController extends Controller
                 ]);
             }
 
-            if(preg_match('/User already exists/i', $line)) {
+            if(preg_match('/Error: conflict/i', $line)) {
                 return redirect()->back()->withInput()->withErrors(['user' => 'User already exists']);
             }
         }
