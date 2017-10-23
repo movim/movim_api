@@ -34,7 +34,7 @@ class AccountsController extends Controller
             'password'              => 'required|confirmed|min:8'
         ]);
 
-        $command = 'sudo -u ejabberd /opt/ejabberd-17.08/bin/ejabberdctl --no-timeout --config-dir /etc/ejabberd/ register '.
+        $command = 'sudo -u ejabberd /opt/ejabberd-17.09/bin/ejabberdctl --no-timeout --config-dir /etc/ejabberd/ register '.
             escapeshellarg($request->get('username')).
             ' '.
             $this->domain.
