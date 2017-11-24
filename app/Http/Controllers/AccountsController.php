@@ -15,7 +15,8 @@ class AccountsController extends Controller
     {
         return response()
             ->view('accounts.create', [
-                'referer' => $request->header('referer')
+                'referer' => $request->header('referer'),
+                'registration' => config('app.xmpp_registration')
             ]);
     }
 
@@ -27,6 +28,8 @@ class AccountsController extends Controller
 
     public function store(Request $request)
     {
+        if(!config('app.xmpp_registration')) return;
+
         $this->validate($request, [
             'username'              => 'required|between:4,20',
             'legals'                => 'required',
@@ -34,7 +37,7 @@ class AccountsController extends Controller
             'password'              => 'required|confirmed|min:8'
         ]);
 
-        $command = 'sudo -u ejabberd /opt/ejabberd-17.09/bin/ejabberdctl --no-timeout --config-dir /etc/ejabberd/ register '.
+        $command = 'sudo -u ejabberd ' . config('app.ejabberd_path') . ' --no-timeout --config-dir /etc/ejabberd/ register '.
             escapeshellarg($request->get('username')).
             ' '.
             $this->domain.

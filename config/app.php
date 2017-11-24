@@ -28,6 +28,8 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
+    'xmpp_registration' => env('XMPP_REGISTRATION', false),
+    'ejabberd_path' => env('EJABBERD_PATH', '/opt/ejabberd/bin/ejabberdctl'),
 
     /*
     |--------------------------------------------------------------------------

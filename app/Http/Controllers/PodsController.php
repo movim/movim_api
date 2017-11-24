@@ -259,7 +259,7 @@ class PodsController extends Controller
         $record = geoip_record_by_name($url['host']);
         if ($record) {
             $this->pod->geo_country    = strtolower($record['country_code']);
-            $this->pod->geo_city       = $record['city'];
+            $this->pod->geo_city       = '?'; //$record['city'];
         } else {
             $this->pod->geo_country = '?';
             $this->pod->geo_city = '?';
