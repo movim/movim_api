@@ -13,6 +13,10 @@ class AccountsController extends Controller
 
     public function create(Request $request)
     {
+        if($this->checkRestricted()) {
+            return response()->view('accounts.disabled');
+        }
+
         return response()
             ->view('accounts.create', [
                 'referer' => $request->header('referer'),
@@ -28,6 +32,10 @@ class AccountsController extends Controller
 
     public function store(Request $request)
     {
+        if($this->checkRestricted()) {
+            return response()->view('accounts.disabled');
+        }
+
         if(!config('app.xmpp_registration')) return;
 
         $this->validate($request, [
@@ -65,5 +73,13 @@ class AccountsController extends Controller
         }
 
         return redirect()->back()->withInput()->withErrors(['user' => 'Unknown error']);
+    }
+
+    private function checkRestricted()
+    {
+        $geo = geoip_record_by_name($_SERVER['REMOTE_ADDR']);
+
+        $restrictedCountries = explode(',', config('app.restricted_countries'));
+        return (is_array($geo) && in_array($geo['country_code'], $restrictedCountries));
     }
 }
