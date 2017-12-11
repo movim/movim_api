@@ -5,12 +5,14 @@
 <h2>XMPP Servers <small>{{ sizeof($servers) }}</small></h2>
 <div class="table-responsive table-striped">
     <table class="table">
-        <tr>
-            <th>#</th>
-            <th>Domain</th>
-            <th colspan="5">Infos</th>
-            <th colspan="2">Actions</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Domain</th>
+                <th colspan="5">Infos</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
         <tbody>
             @foreach ($servers as $server)
                 <tr>
@@ -23,7 +25,7 @@
                     <td>{{ $server->geo_city }}</td>
                     <td>
                         <a
-                            class="btn btn-warning btn-xs"
+                            class="btn btn-warning btn-sm"
                             href="{{ action('ServersController@edit', $server->id) }}"
                             role="button">
                             <i class="fa fa-pencil"></i> Edit
@@ -31,7 +33,7 @@
                     </td>
                     <td>
                         {{ Form::open(['method' => 'DELETE', 'action' => ['ServersController@destroy', $server->id]]) }}
-                            <button class="btn btn-danger btn-xs" type="submit">
+                            <button class="btn btn-danger btn-sm" type="submit">
                                 <i class="fa fa-times"></i> Delete
                             </button>
                         {{ Form::close() }}
