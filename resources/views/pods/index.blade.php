@@ -67,11 +67,11 @@
                     <td></td>
                     <td>{{ $pod->version }}</td>
 
-                    <td colspan="8" title="{{$pod->description}}">{{ $pod->description }}</td>
+                    <td colspan="7" title="{{$pod->description}}">{{ $pod->description }}</td>
 
                     <td>
                         {{ Form::open(['method' => 'DELETE', 'action' => ['PodsController@destroy', $pod->id]]) }}
-                            <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i> Delete</button>
+                            <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-times"></i> Delete</button>
                         {{ Form::close() }}
                     </td>
                 </tr>
