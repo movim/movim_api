@@ -3,7 +3,7 @@
 @section('content')
 <h2>Pods</h2>
 
-<div class="table-responsive">
+<div class="table-responsive table-striped">
     <table class="table">
         <tr>
             <th>#</th>
@@ -17,16 +17,16 @@
                     <td>{{ $pod->id }}</td>
                     <td>
                         @if($pod->activated)
-                            <span class="label label-success">Online</span>
+                            <span class="badge badge-success">On</span>
                         @else
-                            <span class="label label-danger">Offline</span>
+                            <span class="badge badge-danger">Off</span>
                         @endif
                     </td>
                     <td colspan="3">
                         @if($pod->favorite)
                             <i class="fa fa-star"></i>
                         @endif
-                        <a href="{{ $pod->url }}" target="_blank">{{ $pod->url }}</a>
+                        <a href="{{ $pod->url }}" target="_blank" title="">{{ $pod->url }}</a>
                         (<a href="http://whatismyipaddress.com/ip/{{ $pod->ip }}" target="_blank">{{ $pod->ip }}</a>)
                         @if($pod->rewrite)
                             <i class="fa fa-pencil"></i>
@@ -48,7 +48,7 @@
                     </td>
                     <td>
                         <a
-                            class="btn btn-info btn-xs"
+                            class="btn btn-info btn-sm"
                             href="{{ action('PodsController@refresh', $pod->id) }}"
                             role="button">
                             <i class="fa fa-refresh"></i> Refresh
@@ -56,7 +56,7 @@
                     </td>
                     <td>
                         <a
-                            class="btn btn-warning btn-xs"
+                            class="btn btn-warning btn-sm"
                             href="{{ action('PodsController@edit', $pod->id) }}"
                             role="button">
                             <i class="fa fa-pencil"></i> Edit
