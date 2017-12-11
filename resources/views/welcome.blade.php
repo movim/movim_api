@@ -51,8 +51,8 @@ PHP library.</p>
 <p>This tool is only for test purpose, we advice you to deploy your own feed-cleaner
 on your server if you need to do several requests per hour with this one.</p>
 
-<div class="panel panel-default">
-    <div class="panel-body">
+<div class="card">
+    <div class="card-body">
         {{ Form::open(['method' => 'POST', 'action' => ['FeedController@parse']]) }}
             <div class="form-group">
                 {{ Form::label('url', 'Your feed URL') }}
