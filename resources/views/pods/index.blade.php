@@ -7,19 +7,17 @@
     <table class="table">
         <tr>
             <th>#</th>
-            <th>Status</th>
-            <th colspan="7">Infos</th>
+            <th colspan="6">Infos</th>
             <th colspan="2">Actions</th>
         </tr>
         <tbody>
             @foreach ($pods as $pod)
                 <tr>
-                    <td>{{ $pod->id }}</td>
                     <td>
                         @if($pod->activated)
-                            <span class="badge badge-success">On</span>
+                            <span class="badge badge-success">{{ $pod->id }}</span>
                         @else
-                            <span class="badge badge-danger">Off</span>
+                            <span class="badge badge-danger">{{ $pod->id }}</span>
                         @endif
                     </td>
                     <td colspan="3">
