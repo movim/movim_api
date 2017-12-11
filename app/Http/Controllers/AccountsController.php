@@ -17,8 +17,7 @@ class AccountsController extends Controller
             return response()->view('accounts.disabled');
         }
 
-        return response()
-            ->view('accounts.create', [
+        return view('accounts.create', [
                 'referer' => $request->header('referer'),
                 'registration' => config('app.xmpp_registration')
             ]);
@@ -26,8 +25,7 @@ class AccountsController extends Controller
 
     public function legals(Request $request)
     {
-        return response()
-            ->view('accounts.legals');
+        return view('accounts.legals');
     }
 
     public function store(Request $request)
