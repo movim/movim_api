@@ -5,11 +5,13 @@
 
 <div class="table-responsive table-striped">
     <table class="table">
-        <tr>
-            <th>#</th>
-            <th colspan="6">Infos</th>
-            <th colspan="2">Actions</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th colspan="7">Infos</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
         <tbody>
             @foreach ($pods as $pod)
                 <tr>
