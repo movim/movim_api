@@ -6,6 +6,7 @@ use FeedCleaner\Parser;
 use Illuminate\Http\Request;
 
 use App\Pod;
+use App\Account;
 
 class AccountsController extends Controller
 {
@@ -13,7 +14,7 @@ class AccountsController extends Controller
 
     public function create(Request $request)
     {
-        if($this->checkRestricted()) {
+        if($this->checkRestricted(geoip_record_by_name($_SERVER['REMOTE_ADDR']))) {
             return response()->view('accounts.disabled');
         }
 
@@ -30,8 +31,10 @@ class AccountsController extends Controller
 
     public function store(Request $request)
     {
-        if($this->checkRestricted()) {
-            return response()->view('accounts.disabled');
+        $geo = geoip_record_by_name($_SERVER['REMOTE_ADDR']);
+
+        if($this->checkRestricted($geo)) {
+            return view('accounts.disabled');
         }
 
         if(!config('app.xmpp_registration')) return;
@@ -56,7 +59,22 @@ class AccountsController extends Controller
         // Check if user could be registered
         foreach($output as $line) {
             if(preg_match('/User '.$request->get('username').'@'.$this->domain.' successfully registered/i', $line)) {
-                return response()->view('accounts.created', [
+
+                $account = new Account;
+                $account->username = $request->get('username');
+                $account->ip = $_SERVER['REMOTE_ADDR'];
+
+                if($geo) {
+                    $account->country_code = $geo['country_code'];
+                    $account->region = $geo['region'];
+                    $account->city = $geo['city'];
+                    $account->latitude = $geo['latitude'];
+                    $account->longitude = $geo['longitude'];
+                }
+
+                $account->save();
+
+                return view('accounts.created', [
                     'jid'       => $request->get('username').'@'.$this->domain,
                     'referer'   => $request->get('referer'),
                     'pods'      => Pod::where('activated','=', 1)
@@ -73,10 +91,8 @@ class AccountsController extends Controller
         return redirect()->back()->withInput()->withErrors(['user' => 'Unknown error']);
     }
 
-    private function checkRestricted()
+    private function checkRestricted($geo)
     {
-        $geo = geoip_record_by_name($_SERVER['REMOTE_ADDR']);
-
         $restrictedCountries = explode(',', config('app.restricted_countries'));
         return (is_array($geo) && in_array($geo['country_code'], $restrictedCountries));
     }
