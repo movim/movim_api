@@ -1,7 +1,9 @@
 @extends('layouts.movim')
 
 @section('content')
-<div class="placeholder icon clipboard">
+<div class="placeholder">
+    <i class="material-icons">done</i>
+
     <h4>Account successfully created</h4>
 
     <h2>{{ $jid }}</h2>

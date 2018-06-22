@@ -13,10 +13,11 @@
 <div class="flex">
 
     <div class="block on_desktop">
-            <div class="placeholder icon account">
+        <div class="placeholder">
+            <i class="material-icons">person_add</i>
             <h4>Create a new account</h4>
             <h4>…and start playing</h4>
-            </div>
+        </div>
     </div>
 
     <div class="block">
