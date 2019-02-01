@@ -7,9 +7,9 @@
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",
-        "movim/feedcleaner": "dev-master",
+        "movim/feedcleaner": "dev-master#3c239b8",
         "laravelcollective/html": "^5.3.0",
-	"kozz/laravel-guzzle-provider": "~6.0",
+        "kozz/laravel-guzzle-provider": "~6.0",
         "anhskohbo/no-captcha": "^2.1"
     },
     "require-dev": {
