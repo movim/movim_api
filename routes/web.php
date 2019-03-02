@@ -38,8 +38,6 @@ Route::get('/pods',             'PodsController@index');
 Route::get('/servers',          'ServersController@index');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/pods/refreshAll',  'PodsController@refreshAll');
-
     Route::get('/pods/{id}',        'PodsController@show');
     Route::get('/pods/{id}/edit',   'PodsController@edit');
     Route::put('/pods/{id}',        'PodsController@update')->name('pods.update');

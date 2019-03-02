@@ -74,6 +74,9 @@
         </nav>
 
         <div class="container">
+            @if(Session::has('status'))
+                <p class="alert alert-info">{{ Session::get('status') }}</p>
+            @endif
             @yield('content')
         </div>
     </div>

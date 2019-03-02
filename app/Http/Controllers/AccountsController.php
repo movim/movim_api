@@ -14,7 +14,7 @@ class AccountsController extends Controller
 
     public function create(Request $request)
     {
-        if($this->checkRestricted(geoip_record_by_name($_SERVER['REMOTE_ADDR']))) {
+        if($this->checkRestricted(\geoip_record_by_name($_SERVER['REMOTE_ADDR']))) {
             return response()->view('accounts.disabled');
         }
 

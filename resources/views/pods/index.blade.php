@@ -9,12 +9,12 @@
             <tr>
                 <th>#</th>
                 <th colspan="7">Infos</th>
-                <th colspan="2">Actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($pods as $pod)
-                <tr>
+                <tr id="{{ $pod->id }}">
                     <td>
                         @if($pod->activated)
                             <span class="badge badge-success">{{ $pod->id }}</span>
@@ -24,10 +24,9 @@
                     </td>
                     <td colspan="3">
                         @if($pod->favorite)
-                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i> 🌟
                         @endif
-                        <a href="{{ $pod->url }}" target="_blank" title="">{{ $pod->url }}</a>
-                        (<a href="http://whatismyipaddress.com/ip/{{ $pod->ip }}" target="_blank">{{ $pod->ip }}</a>)
+                        <a href="{{ $pod->url }}" target="_blank">{{ $pod->url }}</a>
                         @if($pod->rewrite)
                             <i class="fa fa-pencil"></i>
                         @endif
@@ -37,7 +36,7 @@
                         <i class="fa fa-users"></i>
                         {{ $pod->connected }}/{{ $pod->population }}
                     </td>
-                    <td title="{{$pod->php_version}}"><b>PHP</b> {{ $pod->php_version }}</td>
+                    <td title="{{$pod->php_version}}"><b>PHP</b> {{ substr($pod->php_version, 0, 8) }}</td>
                     <td>
                         <i class="fa fa-flag"></i>
                         {{ $pod->language }}
@@ -51,15 +50,13 @@
                             class="btn btn-info btn-sm"
                             href="{{ action('PodsController@refresh', $pod->id) }}"
                             role="button">
-                            <i class="fa fa-refresh"></i> Refresh
+                            🔁
                         </a>
-                    </td>
-                    <td>
                         <a
                             class="btn btn-warning btn-sm"
                             href="{{ action('PodsController@edit', $pod->id) }}"
                             role="button">
-                            <i class="fa fa-pencil"></i> Edit
+                            ✏️
                         </a>
                     </td>
                 </tr>
@@ -67,11 +64,11 @@
                     <td></td>
                     <td>{{ $pod->version }}</td>
 
-                    <td colspan="7" title="{{$pod->description}}">{{ $pod->description }}</td>
+                    <td colspan="6" title="{{$pod->description}}">{{ $pod->description }}</td>
 
                     <td>
                         {{ Form::open(['method' => 'DELETE', 'action' => ['PodsController@destroy', $pod->id]]) }}
-                            <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-times"></i> Delete</button>
+                            <button class="btn btn-danger btn-sm" type="submit">🗑️</button>
                         {{ Form::close() }}
                     </td>
                 </tr>

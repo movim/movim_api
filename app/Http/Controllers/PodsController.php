@@ -105,7 +105,7 @@ class PodsController extends Controller
             ]);
         }
 
-        $this->request();
+        $this->request($request);
         $this->geo();
 
         $this->pod->domain      = $domain;
@@ -203,27 +203,14 @@ class PodsController extends Controller
         }
     }
 
-    public function refresh($id)
+    public function refresh(Request $request, $id)
     {
         $this->pod = Pod::find($id);
-        $this->request();
+        $this->request($request);
         $this->geo();
         $this->pod->save();
 
-        return redirect()->action('PodsController@index');
-    }
-
-    public function refreshAll()
-    {
-        $pods = Pod::all();
-        foreach($pods as $pod) {
-            $this->_pod = $pod;
-            $this->request();
-            $this->geo();
-            $this->_pod->save();
-        }
-
-        return redirect()->action('PodsController@index');
+        return redirect()->to(url()->previous() . '#' . $id);
     }
 
     /**
@@ -266,21 +253,26 @@ class PodsController extends Controller
         }
     }
 
-    private function request()
+    private function request(request $request)
     {
         $url = $this->pod->url . '/?infos';
 
-        $response = \Guzzle::get($url, [
-            'headers' => [
-                'User-Agent' => 'testing/1.0',
-                'Accept'     => 'application/json',
-            ]
-        ]);
+        try {
+            $response = \Guzzle::get($url, [
+                'headers' => [
+                    'User-Agent' => 'testing/1.0',
+                    'Accept'     => 'application/json',
+                ]
+            ]);
+        } catch (\Exception $e) {
+            $request->session()->flash('status',  $e->getMessage());
+            return;
+        }
 
         $result = json_decode($response->getBody()->getContents());
 
-        if($result) {
-            $this->pod->description    = $result->description;
+        if ($result) {
+            $this->pod->description    = $result->description ?? 'Empty description';
             $this->pod->population     = $result->population;
             $this->pod->connected      = $result->connected;
             $this->pod->version        = $result->version;
@@ -291,9 +283,9 @@ class PodsController extends Controller
             if($result->unregister == true) {
                 $this->destroy($this->pod->id);
             }
-        } else {
-            return false;
         }
+
+        return false;
     }
 
 }
