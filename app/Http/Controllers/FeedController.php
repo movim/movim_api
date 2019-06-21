@@ -22,7 +22,7 @@ class FeedController extends Controller
 
         $response = \Guzzle::get($url, [
             'headers' => [
-                'User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0',
+                'User-Agent' => 'Baidu UA ("Mozilla/5.0 (compatible; Baiduspider; +http://www.baidu.com/search/spider.html)',
                 'Accept'     => 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
             ]
         ]);
