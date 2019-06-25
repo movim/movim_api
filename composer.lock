@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75468ad512a6060abfb8048f6682566a",
+    "content-hash": "e7d43aaa15fcbe004b3048063e93e916",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -191,16 +191,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.8",
+            "version": "2.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "c26463ff9241f27907112fbcd0c86fa670cfef98"
+                "reference": "128cc721d771ec2c46ce59698f4ca42b73f71b25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/c26463ff9241f27907112fbcd0c86fa670cfef98",
-                "reference": "c26463ff9241f27907112fbcd0c86fa670cfef98",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/128cc721d771ec2c46ce59698f4ca42b73f71b25",
+                "reference": "128cc721d771ec2c46ce59698f4ca42b73f71b25",
                 "shasum": ""
             },
             "require": {
@@ -244,7 +244,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2019-05-16T22:02:54+00:00"
+            "time": "2019-06-23T10:14:27+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -954,12 +954,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/edhelas/feedcleaner.git",
-                "reference": "3c239b8"
+                "reference": "3c239b8934ddb3d0ea056938c67e4f7f6e34bc88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/edhelas/feedcleaner/zipball/3c239b8",
-                "reference": "3c239b8",
+                "url": "https://api.github.com/repos/edhelas/feedcleaner/zipball/3c239b8934ddb3d0ea056938c67e4f7f6e34bc88",
+                "reference": "3c239b8934ddb3d0ea056938c67e4f7f6e34bc88",
                 "shasum": ""
             },
             "require": {
@@ -990,7 +990,7 @@
                 "feed",
                 "rss"
             ],
-            "time": "2016-12-08T07:57:07+00:00"
+            "time": "2019-02-01T07:51:12+00:00"
         },
         {
             "name": "mtdowling/cron-expression",
