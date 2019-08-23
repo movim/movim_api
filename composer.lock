@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c563fbc42551a748ace47d0122dac3f7",
+    "content-hash": "8a4459dbb2c1ee23cc1ce1ca5741d958",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -1008,12 +1008,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/edhelas/feedcleaner.git",
-                "reference": "a52040e6ed596d004b1ac5a97ece6a948f7f74d0"
+                "reference": "4cd046c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/edhelas/feedcleaner/zipball/a52040e6ed596d004b1ac5a97ece6a948f7f74d0",
-                "reference": "a52040e6ed596d004b1ac5a97ece6a948f7f74d0",
+                "url": "https://api.github.com/repos/edhelas/feedcleaner/zipball/4cd046c",
+                "reference": "4cd046c",
                 "shasum": ""
             },
             "require": {
