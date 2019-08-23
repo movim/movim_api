@@ -10,6 +10,7 @@
         "movim/feedcleaner": "dev-master",
         "laravelcollective/html": "^5.3.0",
         "kozz/laravel-guzzle-provider": "~6.0",
+        "ezyang/htmlpurifier": "^4.11",
         "anhskohbo/no-captcha": "^2.1"
     },
     "require-dev": {
