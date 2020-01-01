@@ -28,7 +28,7 @@
     <a class="block" href="{{ $pod->url }}">
         <li>
             <span class="control icon gray">
-                <i class="zmdi zmdi-chevron-right"></i>
+                <i class="material-icons">chevron_right</i>
             </span>
             <p>{{ parse_url($pod->url)['host'] }}</p>
             <p>{{ $pod->description }}</p>

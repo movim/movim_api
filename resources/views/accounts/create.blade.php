@@ -28,7 +28,7 @@
                 <ul class="list middle">
                     <li>
                         <span class="primary icon color bubble red">
-                            <i class="zmdi zmdi-info"></i>
+                            <i class="material-icons">warning</i>
                         </span>
                         <p>Invalid form</p>
                         <p>
