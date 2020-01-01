@@ -40,7 +40,7 @@ class AccountsController extends Controller
         if(!config('app.xmpp_registration')) return;
 
         $this->validate($request, [
-            'username'              => 'required|between:4,20',
+            'username'              => 'required|alpha_dash|between:4,20',
             'legals'                => 'required',
             'g-recaptcha-response'  => 'required|captcha',
             'password'              => 'required|confirmed|min:8'
