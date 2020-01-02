@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use FeedCleaner\Parser;
 use Illuminate\Http\Request;
 
 use App\Pod;
@@ -67,7 +66,7 @@ class AccountsController extends Controller
                 if($geo) {
                     $account->country_code = $geo['country_code'];
                     $account->region = $geo['region'];
-                    $account->city = $geo['city'];
+                    $account->city = utf8_encode($geo['city']);
                     $account->latitude = $geo['latitude'];
                     $account->longitude = $geo['longitude'];
                 }
