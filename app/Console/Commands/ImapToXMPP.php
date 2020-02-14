@@ -60,7 +60,7 @@ class ImapToXMPP extends Command
 
             foreach ($mailsIds as $mailsId) {
                 $mail = $mailbox->getMail($mailsId, true);
-dd($mail);
+
                 $tos = array_merge(array_keys($mail->to), array_keys($mail->cc), array_keys($mail->bcc));
                 $extractedTo = false;
                 foreach($tos as $to) {
