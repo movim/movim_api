@@ -1,22 +1,28 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.6.4",
-        "laravel/framework": "5.5.*",
+        "php": ">=7.2",
+        "laravel/framework": "^6.2.0",
         "movim/feedcleaner": "dev-master#5dfef24",
-        "laravelcollective/html": "^5.3.0",
+        "laravelcollective/html": "^6.0",
         "kozz/laravel-guzzle-provider": "~6.0",
-        "ezyang/htmlpurifier": "^4.11",
-        "anhskohbo/no-captcha": "^2.1"
+        "ezyang/htmlpurifier": "^4.12",
+        "anhskohbo/no-captcha": "^3.1.1",
+        "php-imap/php-imap": "^3.0",
+        "guzzlehttp/guzzle": "^6.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*"
+        "symfony/dom-crawler": "3.1.*",
+        "composer/composer": "^1.9"
     },
     "autoload": {
         "classmap": [
