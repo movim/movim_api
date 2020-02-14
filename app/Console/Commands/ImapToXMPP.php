@@ -40,8 +40,10 @@ class ImapToXMPP extends Command
      */
     public function handle()
     {
+        $server = '{'.config('imaptoxmpp.server').':'.config('imaptoxmpp.port').'/imap/tls/novalidate-cert}INBOX';
+        $this->info('Connecting to '.$server.' username = '.config('imaptoxmpp.username'));
         $mailbox = new Mailbox(
-            '{'.config('imaptoxmpp.server').':'.config('imaptoxmpp.port').'/imap/tls/novalidate-cert}INBOX', // IMAP server and mailbox folder
+            $server, // IMAP server and mailbox folder
             config('imaptoxmpp.username'), // Username for the before configured mailbox
             config('imaptoxmpp.password'), // Password for the before configured username
             __DIR__, // Directory, where attachments will be saved (optional)
@@ -58,6 +60,7 @@ class ImapToXMPP extends Command
 
             foreach ($mailsIds as $mailsId) {
                 $mail = $mailbox->getMail($mailsId, true);
+
                 $tos = array_merge(array_keys($mail->to), array_keys($mail->cc), array_keys($mail->bcc));
                 $extractedTo = false;
                 foreach($tos as $to) {
