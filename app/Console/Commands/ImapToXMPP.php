@@ -58,16 +58,30 @@ class ImapToXMPP extends Command
 
             foreach ($mailsIds as $mailsId) {
                 $mail = $mailbox->getMail($mailsId, true);
+                $tos = array_merge(array_keys($mail->to), array_keys($mail->cc), array_keys($mail->bcc));
+                $extractedTo = false;
+                foreach($tos as $to) {
+                    $var = explode('@', $to);
+                    $domain = array_pop($var);
+                    if ($domain == config('imaptoxmpp.xmpp_domain')) {
+                        $extractedTo = $to;
+                        break;
+                    }
+                }
 
-                $client->request('POST', 'send_message', [
-                    'json' => [
-                        'type' => 'chat',
-                        'from' => config('imaptoxmpp.xmpp_from'),
-                        'to' => array_keys($mail->to)[0],
-                        'subject' => $mail->subject,
-                        'body' => $mail->textPlain,
-                    ]
-                ]);
+                if ($extractedTo) {
+                    $client->request('POST', 'send_message', [
+                        'json' => [
+                            'type' => 'chat',
+                            'from' => config('imaptoxmpp.xmpp_from'),
+                            'to' => $extractedTo,
+                            'subject' => $mail->subject,
+                            'body' => $mail->textPlain,
+                        ]
+                    ]);
+
+                    $this->info('Mail sent to '.array_keys($mail->to)[0].', subject: '.$mail->subject);
+                }
             }
         } catch(\PhpImap\Exceptions\ConnectionException $ex) {
             echo "IMAP connection failed: " . $ex;
