@@ -79,7 +79,7 @@ class ImapToXMPP extends Command
                             'from' => config('imaptoxmpp.xmpp_from'),
                             'to' => $extractedTo,
                             'subject' => $mail->subject,
-                            'body' => $mail->textPlain,
+                            'body' => '📥 New email received: "'.$mail->subject.'"'
                         ]
                     ]);
 
