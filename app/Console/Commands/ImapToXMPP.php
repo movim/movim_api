@@ -85,6 +85,8 @@ class ImapToXMPP extends Command
                         ]
                     ]);
 
+                    $mailbox->markMailAsRead($mailsId);
+
                     $this->info('Mail sent to '.array_keys($mail->to)[0].', subject: '.$mail->subject);
                 }
             }
