@@ -80,7 +80,7 @@ class ImapToXMPP extends Command
                             'to' => $extractedTo,
                             'subject' => $mail->subject,
                             'body' => '📥 '.$mail->subject.'
-'.$mail->fromName.' <'.$mail->fromAddress.'>
+✍️ '.$mail->fromName.' <'.$mail->fromAddress.'>
 '.Str::words($mail->textPlain, 250,'…')
                         ]
                     ]);
