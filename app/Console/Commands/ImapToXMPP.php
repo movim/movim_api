@@ -79,9 +79,9 @@ class ImapToXMPP extends Command
                             'from' => config('imaptoxmpp.xmpp_from'),
                             'to' => $extractedTo,
                             'subject' => $mail->subject,
-                            'body' => '📥 '.$mail->subject.
-$mail->fromName.'('.$mail->fromAddress.')'.
-Str::words($mail->textPlain, 250,'…')
+                            'body' => '📥 '.$mail->subject.'
+'.$mail->fromName.' <'.$mail->fromAddress.'>
+'.Str::words($mail->textPlain, 250,'…')
                         ]
                     ]);
 
