@@ -3,9 +3,10 @@
 namespace App\Console\Commands;
 
 use PhpImap\Mailbox;
+use GuzzleHttp\Client;
 
 use Illuminate\Console\Command;
-use GuzzleHttp\Client;
+use Illuminate\Support\Str;
 
 class ImapToXMPP extends Command
 {
@@ -43,11 +44,11 @@ class ImapToXMPP extends Command
         $server = '{'.config('imaptoxmpp.server').':'.config('imaptoxmpp.port').'/imap/tls/novalidate-cert}INBOX';
         $this->info('Connecting to '.$server.' username = '.config('imaptoxmpp.username'));
         $mailbox = new Mailbox(
-            $server, // IMAP server and mailbox folder
-            config('imaptoxmpp.username'), // Username for the before configured mailbox
-            config('imaptoxmpp.password'), // Password for the before configured username
-            __DIR__, // Directory, where attachments will be saved (optional)
-            'UTF-8' // Server encoding (optional)
+            $server,
+            config('imaptoxmpp.username'),
+            config('imaptoxmpp.password'),
+            __DIR__,
+            'UTF-8'
         );
 
         try {
@@ -60,7 +61,6 @@ class ImapToXMPP extends Command
 
             foreach ($mailsIds as $mailsId) {
                 $mail = $mailbox->getMail($mailsId, true);
-
                 $tos = array_merge(array_keys($mail->to), array_keys($mail->cc), array_keys($mail->bcc));
                 $extractedTo = false;
                 foreach($tos as $to) {
@@ -79,7 +79,9 @@ class ImapToXMPP extends Command
                             'from' => config('imaptoxmpp.xmpp_from'),
                             'to' => $extractedTo,
                             'subject' => $mail->subject,
-                            'body' => '📥 New email from '.$mail->fromAddress.': "'.$mail->subject.'"'
+                            'body' => '📥 '.$mail->subject.
+$mail->fromName.'('.$mail->fromAddress.')'.
+Str::words($mail->textPlain, 250,'…')
                         ]
                     ]);
 
