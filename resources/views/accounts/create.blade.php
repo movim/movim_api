@@ -89,7 +89,8 @@
 
                 <div>
                     <br />
-                    {!! app('captcha')->display(); !!}
+                    {!! NoCaptcha::renderJs() !!}
+                    {!! NoCaptcha::display() !!}
                 </div>
 
                 {{ Form::submit('Create', ['class'=>'button color oppose', 'style' => 'margin-top: 3rem;'])}}
