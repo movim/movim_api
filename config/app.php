@@ -30,6 +30,8 @@ return [
     'env' => env('APP_ENV', 'production'),
     'xmpp_registration' => env('XMPP_REGISTRATION', false),
     'ejabberd_path' => env('EJABBERD_PATH', '/opt/ejabberd/bin/ejabberdctl'),
+    'ejabberd_upload_path' => env('EJABBERD_UPLOAD_PATH', '/upload'),
+    'ejabberd_upload_base' => env('EJABBERD_UPLOAD_BASE', 'https://upload/'),
     'restricted_countries' => env('RESTRICTED_COUNTRIES', ''),
 
     /*

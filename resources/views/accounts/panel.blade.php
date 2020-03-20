@@ -45,6 +45,17 @@
             @endif
         </p>
     </li>
+
+    <li class="active" onclick="redirect('{{ route('accounts.uploaded') }}')">
+        <span class="primary icon gray">
+            <i class="material-icons">folder_shared</i>
+        </span>
+        <span class="control icon gray">
+            <i class="material-icons">chevron_right</i>
+        </span>
+        <p>Uploaded files</p>
+        <p>Browser and manage your uploaded files</p>
+    </li>
 </ul>
 
 @endsection
