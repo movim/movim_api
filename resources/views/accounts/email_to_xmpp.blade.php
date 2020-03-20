@@ -48,7 +48,7 @@
     @if ($account->email_notification)
         <li class="active" onclick="redirect('{{ route('accounts.setEmailToXMPP', 0) }}')">
             <span class="primary icon gray">
-                <i class="material-icons">notifications_none</i>
+                <i class="material-icons">notifications_active</i>
             </span>
             <span class="control icon gray">
                 <i class="material-icons">chevron_right</i>
@@ -59,7 +59,7 @@
     @else
         <li class="active" onclick="redirect('{{ route('accounts.setEmailToXMPP', 1) }}')">
             <span class="primary icon gray">
-                <i class="material-icons">notifications_active</i>
+                <i class="material-icons">notifications_none</i>
             </span>
             <span class="control icon gray">
                 <i class="material-icons">chevron_right</i>
