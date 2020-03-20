@@ -41,7 +41,7 @@ class ImapToXMPP extends Command
      */
     public function handle()
     {
-        $server = '{'.config('imaptoxmpp.server').':'.config('imaptoxmpp.port').'/imap/tls/novalidate-cert}INBOX';
+        $server = '{'.config('imaptoxmpp.server').':'.config('imaptoxmpp.port').'/imap/tls}INBOX';
         $this->info('Connecting to '.$server.' username = '.config('imaptoxmpp.username'));
         $mailbox = new Mailbox(
             $server,
@@ -50,6 +50,8 @@ class ImapToXMPP extends Command
             __DIR__,
             'UTF-8'
         );
+
+        $mailbox->setAttachmentsIgnore(true);
 
         $enabledAccountsJids = [];
         foreach (Account::where('email_notification', true)->get() as $account) {
@@ -87,7 +89,7 @@ class ImapToXMPP extends Command
                     $mailbox->markMailAsRead($mailsId);
                 }
             }
-        } catch(\PhpImap\Exceptions\ConnectionException $ex) {
+        } catch(\Exception $ex) {
             echo "IMAP connection failed: " . $ex;
             die();
         }

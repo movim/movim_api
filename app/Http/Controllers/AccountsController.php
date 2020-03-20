@@ -59,7 +59,7 @@ class AccountsController extends Controller
         $api->sendMessage(
             $account->jid,
             'Authentication request',
-            'You are trying to authenticate to the Movim Account Panel, here is the unique to confirm your authentication: '.route('accounts.authenticate', $account->auth_key)
+            'You are trying to authenticate to the Movim Account Panel, here is the unique link to confirm your authentication: '.route('accounts.authenticate', $account->auth_key)
         );
 
         return view('accounts.auth_requested');
