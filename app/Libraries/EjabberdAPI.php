@@ -19,12 +19,12 @@ class EjabberdAPI
 
     public function checkAccount(string $username, string $domain): bool
     {
-        return ((int)$this->client->request('POST', 'check_account', [
+        return ((string)$this->client->request('POST', 'check_account', [
             'json' => [
                 'user' => $username,
                 'host' => $domain,
             ]
-        ]) == 1);
+        ])->getBody() == '0');
     }
 
     public function sendMessage(string $to, string $subject, string $body)

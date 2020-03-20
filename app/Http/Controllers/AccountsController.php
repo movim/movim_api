@@ -64,7 +64,7 @@ class AccountsController extends Controller
     {
         $account = Account::where('auth_key', $key)->firstOrFail();
 
-        Auth::login($account);
+        Auth::guard('panel')->login($account);
 
         $account->auth_key = null;
         $account->save();
