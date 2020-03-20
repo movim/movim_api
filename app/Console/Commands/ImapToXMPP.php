@@ -84,7 +84,7 @@ class ImapToXMPP extends Command
                         $this->info('Mail delivered to '.$extractedTo.', subject: '.$mail->subject);
                     }
 
-                    $this->error('Feature not exabled for '.$extractedTo.', email not delivered, subject: '.$mail->subject);
+                    $this->error('Feature not enabled for '.$extractedTo.', email not delivered, subject: '.$mail->subject);
                     $mailbox->markMailAsRead($mailsId);
                 }
             }
