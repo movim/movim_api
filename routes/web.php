@@ -23,11 +23,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 /* Accounts */
-Route::get('/accounts', 'AccountsController@home')->name('accounts.home');
+Route::get('/accounts', 'AccountsController@login')->name('accounts.login');
 Route::post('/accounts/authenticate', 'AccountsController@requestAuthentication')->name('accounts.requestAuthentication');
 Route::get('/accounts/authenticate/{key}', 'AccountsController@authenticate')->name('accounts.authenticate');
 
-Route::group(['middleware' => 'auth.account'], function () {
+Route::group(['middleware' => ['auth:panel'/*, 'auth.account'*/]], function () {
+    Route::get('/accounts/panel', 'AccountsController@panel')->name('accounts.panel');
     Route::get('/accounts/logout', 'AccountsController@logout')->name('accounts.logout');
     Route::get('/accounts/emailtoxmpp', 'AccountsController@emailToXMPP')->name('accounts.emailToXMPP');
     Route::get('/accounts/emailtoxmpp/{enabled}', 'AccountsController@setEmailToXMPP')->name('accounts.setEmailToXMPP');

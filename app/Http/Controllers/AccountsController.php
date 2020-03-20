@@ -14,15 +14,20 @@ class AccountsController extends Controller
 {
     private $domain = 'movim.eu';
 
-    public function home(Request $request)
+    public function login(Request $request)
     {
-        if ($request->user() && get_class($request->user()) == 'App\Account') {
-            return view('accounts.home', [
-                'account' => $request->user()
-            ]);
+        if (Auth::guard('panel')->check()) {
+            return redirect()->route('accounts.panel');
         }
 
         return view('accounts.login');
+    }
+
+    public function panel(Request $request)
+    {
+        return view('accounts.panel', [
+            'account' => $request->user()
+        ]);
     }
 
     public function requestAuthentication(Request $request)
@@ -69,7 +74,7 @@ class AccountsController extends Controller
         $account->auth_key = null;
         $account->save();
 
-        return redirect()->route('accounts.home');
+        return redirect()->route('accounts.panel');
     }
 
     public function emailToXMPP(Request $request)
@@ -92,7 +97,7 @@ class AccountsController extends Controller
     {
         Auth::logout();
 
-        return redirect()->route('accounts.home');
+        return redirect()->route('accounts.login');
     }
 
     public function create(Request $request)

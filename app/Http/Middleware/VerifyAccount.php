@@ -12,6 +12,6 @@ class VerifyAccount
             return $next($request);
         }
 
-        return redirect()->route('accounts.home');
+        return redirect()->route('accounts.login');
     }
 }

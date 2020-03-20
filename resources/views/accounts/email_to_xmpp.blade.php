@@ -5,7 +5,7 @@
 <header>
     <ul class="list middle">
         <li>
-            <span onclick="redirect('{{ route('accounts.home') }}')" class="active primary icon gray">
+            <span onclick="redirect('{{ route('accounts.panel') }}')" class="active primary icon gray">
                 <i class="material-icons">chevron_left</i>
             </span>
             <p class="center">Account Panel</p>
