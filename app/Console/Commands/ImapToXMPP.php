@@ -84,9 +84,10 @@ class ImapToXMPP extends Command
                         if (in_array($extractedTo, $enabledAccountsJids)) {
                             $api->sendMail($extractedTo, $mail);
                             $this->info('Mail delivered to '.$extractedTo.', subject: '.$mail->subject);
+                        } else {
+                            $this->error('Feature not enabled for '.$extractedTo.', email not delivered, subject: '.$mail->subject);
                         }
 
-                        $this->error('Feature not enabled for '.$extractedTo.', email not delivered, subject: '.$mail->subject);
                         $mailbox->markMailAsRead($mailsId);
                     }
                 }
