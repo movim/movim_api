@@ -64,11 +64,10 @@ class ImapToXMPP extends Command
             $api = new EjabberdAPI;
 
             foreach ($mailsIds as $mailsId) {
-                $mail = $mailbox->getMailHeader($mailsId);
-                $mail->textPlain = $mailbox->getRawMail($mailsId);
-
+                $mail = $mailbox->getMail($mailsId);
                 $tos = array_merge(array_keys($mail->to), array_keys($mail->cc), array_keys($mail->bcc));
                 $extractedTo = false;
+
                 foreach($tos as $to) {
                     $var = explode('@', $to);
                     $domain = array_pop($var);
