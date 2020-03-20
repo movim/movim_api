@@ -3,13 +3,97 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 use App\Pod;
 use App\Account;
+use App\Libraries\EjabberdAPI;
 
 class AccountsController extends Controller
 {
     private $domain = 'movim.eu';
+
+    public function home(Request $request)
+    {
+        if ($request->user() && get_class($request->user()) == 'App\Account') {
+            return view('accounts.home', [
+                'account' => $request->user()
+            ]);
+        }
+
+        return view('accounts.login');
+    }
+
+    public function requestAuthentication(Request $request)
+    {
+        $request->validate(['username' => 'required|ends_with:@movim.eu,@jappix.com']);
+
+        list($username, $domain) = explode('@', $request->input('username'));
+
+        $api = new EjabberdAPI;
+        if (!$api->checkAccount($username, $domain)) {
+            return view('accounts.login')->withErrors(['username' => 'Invalid account']);
+        }
+
+        $account = Account::where([
+            'username' => $username,
+            'domain' => $domain,
+        ])->first();
+
+        if (!$account) {
+            $account = new Account;
+            $account->username = $username;
+            $account->domain = $domain;
+        }
+
+        $account->auth_key = Str::random(40);
+        $account->save();
+
+        // Send the XMPP message to the related account
+        $api->sendMessage(
+            $account->jid,
+            'Authentication request',
+            'You are trying to authenticate to the Movim Account Panel, here is the unique to confirm your authentication: '.route('accounts.authenticate', $account->auth_key)
+        );
+
+        return view('accounts.auth_requested');
+    }
+
+    public function authenticate(Request $request, string $key)
+    {
+        $account = Account::where('auth_key', $key)->firstOrFail();
+
+        Auth::login($account);
+
+        $account->auth_key = null;
+        $account->save();
+
+        return redirect()->route('accounts.home');
+    }
+
+    public function emailToXMPP(Request $request)
+    {
+        return view('accounts.email_to_xmpp', [
+            'account' => $request->user()
+        ]);
+    }
+
+    public function setEmailToXMPP(Request $request, $enabled)
+    {
+        $account = $request->user();
+        $account->email_notification = (bool)$enabled;
+        $account->save();
+
+        return redirect()->route('accounts.emailToXMPP');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        return redirect()->route('accounts.home');
+    }
 
     public function create(Request $request)
     {
@@ -18,9 +102,9 @@ class AccountsController extends Controller
         }
 
         return view('accounts.create', [
-                'referer' => $request->header('referer'),
-                'registration' => config('app.xmpp_registration')
-            ]);
+            'referer' => $request->header('referer'),
+            'registration' => config('app.xmpp_registration')
+        ]);
     }
 
     public function legals(Request $request)

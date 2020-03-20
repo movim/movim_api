@@ -3,10 +3,10 @@
 namespace App\Console\Commands;
 
 use PhpImap\Mailbox;
-use GuzzleHttp\Client;
-
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
+
+use App\Libraries\EjabberdAPI;
+use App\Account;
 
 class ImapToXMPP extends Command
 {
@@ -51,16 +51,20 @@ class ImapToXMPP extends Command
             'UTF-8'
         );
 
+        $enabledAccountsJids = [];
+        foreach (Account::where('email_notification', true)->get() as $account) {
+            array_push($enabledAccountsJids, $account->jid);
+        }
+
         try {
             $mailsIds = $mailbox->searchMailbox('UNSEEN');
 
-            $client = new Client([
-                'base_uri' => config('imaptoxmpp.ejabberd_api'),
-                'timeout'  => 2.0,
-            ]);
+            $api = new EjabberdAPI;
 
             foreach ($mailsIds as $mailsId) {
-                $mail = $mailbox->getMail($mailsId, true);
+                $mail = $mailbox->getMailHeader($mailsId);
+                $mail->textPlain = $mailbox->getRawMail($mailsId);
+
                 $tos = array_merge(array_keys($mail->to), array_keys($mail->cc), array_keys($mail->bcc));
                 $extractedTo = false;
                 foreach($tos as $to) {
@@ -71,23 +75,16 @@ class ImapToXMPP extends Command
                         break;
                     }
                 }
+                $this->info('Process: '.$mail->subject . ' to '.$extractedTo );
 
                 if ($extractedTo) {
-                    $client->request('POST', 'send_message', [
-                        'json' => [
-                            'type' => 'chat',
-                            'from' => config('imaptoxmpp.xmpp_from'),
-                            'to' => $extractedTo,
-                            'subject' => $mail->subject,
-                            'body' => '📥 '.$mail->subject.'
-✍️ '.$mail->fromName.' <'.$mail->fromAddress.'>
-'.Str::words($mail->textPlain, 250,'…')
-                        ]
-                    ]);
+                    if (in_array($extractedTo, $enabledAccountsJids)) {
+                        $api->sendMail($extractedTo, $mail);
+                        $this->info('Mail delivered to '.$extractedTo.', subject: '.$mail->subject);
+                    }
 
+                    $this->error('Feature not exabled for '.$extractedTo.', email not delivered, subject: '.$mail->subject);
                     $mailbox->markMailAsRead($mailsId);
-
-                    $this->info('Mail sent to '.array_keys($mail->to)[0].', subject: '.$mail->subject);
                 }
             }
         } catch(\PhpImap\Exceptions\ConnectionException $ex) {

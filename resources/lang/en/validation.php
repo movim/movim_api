@@ -85,6 +85,7 @@ return [
     'url'                  => 'The :attribute format is invalid.',
 
     'captcha'              => 'The captcha is invalid',
+    'ends_with'            => 'The :attribute must end with :values',
 
     /*
     |--------------------------------------------------------------------------

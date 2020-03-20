@@ -1,0 +1,8 @@
+main section {
+    width: 100%;
+    max-width: 800px;
+}
+
+.top_padding {
+    padding-top: 7rem;
+}

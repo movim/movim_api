@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }} @isset($title) · {{ $title }} @endisset</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://nl.movim.eu/theme/css/style.css" type="text/css" />
@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="https://nl.movim.eu/theme/css/title.css" type="text/css" />
     <link rel="stylesheet" href="https://nl.movim.eu/theme/css/typo.css" type="text/css" />
     <link rel="stylesheet" href="https://nl.movim.eu/theme/css/material-design-iconic-font.min.css" type="text/css" />
+
+    <link rel="stylesheet" href="/css/movim.css" type="text/css" />
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -47,6 +49,6 @@
     </main>
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="/js/scripts.js"></script>
 </body>
 </html>

@@ -23,8 +23,17 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 /* Accounts */
-Route::get('/accounts/register', 'AccountsController@create');
-Route::get('/accounts', function() { return redirect('/accounts/register'); });
+Route::get('/accounts', 'AccountsController@home')->name('accounts.home');
+Route::post('/accounts/authenticate', 'AccountsController@requestAuthentication')->name('accounts.requestAuthentication');
+Route::get('/accounts/authenticate/{key}', 'AccountsController@authenticate')->name('accounts.authenticate');
+
+Route::group(['middleware' => 'auth.account'], function () {
+    Route::get('/accounts/logout', 'AccountsController@logout')->name('accounts.logout');
+    Route::get('/accounts/emailtoxmpp', 'AccountsController@emailToXMPP')->name('accounts.emailToXMPP');
+    Route::get('/accounts/emailtoxmpp/{enabled}', 'AccountsController@setEmailToXMPP')->name('accounts.setEmailToXMPP');
+});
+
+Route::get('/accounts/register', 'AccountsController@create')->name('accounts.register');
 Route::post('/accounts/', 'AccountsController@store');
 Route::get('/accounts/legals', 'AccountsController@legals');
 
