@@ -20,16 +20,8 @@
             <i class="material-icons">info</i>
         </span>
         <p>Informations</p>
-        <p>Browse all the files your uploaded using your XMPP account</p>
+        <p>Browse all the files you uploaded using your XMPP account</p>
     </li>
-    <!--<li>
-        <span class="primary icon gray">
-            <i class="material-icons">drafts</i>
-        </span>
-        <p>Textual content only</p>
-        <p>There is no SPAM filter or any checkup made on the emails when they are received.<br />
-            Miho will only send the textual content (without any formatting) and without the attached files.</p>
-    </li>-->
 </ul>
 <br />
 <hr />
