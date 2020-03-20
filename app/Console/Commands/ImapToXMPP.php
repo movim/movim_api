@@ -59,34 +59,39 @@ class ImapToXMPP extends Command
         }
 
         try {
-            $mailsIds = $mailbox->searchMailbox('UNSEEN');
+            // We parse indefinitly
+            while (1) {
+                $mailsIds = $mailbox->searchMailbox('UNSEEN');
 
-            $api = new EjabberdAPI;
+                $api = new EjabberdAPI;
 
-            foreach ($mailsIds as $mailsId) {
-                $mail = $mailbox->getMail($mailsId);
-                $tos = array_merge(array_keys($mail->to), array_keys($mail->cc), array_keys($mail->bcc));
-                $extractedTo = false;
+                foreach ($mailsIds as $mailsId) {
+                    $mail = $mailbox->getMail($mailsId);
+                    $tos = array_merge(array_keys($mail->to), array_keys($mail->cc), array_keys($mail->bcc));
+                    $extractedTo = false;
 
-                foreach($tos as $to) {
-                    $var = explode('@', $to);
-                    $domain = array_pop($var);
-                    if ($domain == config('imaptoxmpp.xmpp_domain')) {
-                        $extractedTo = $to;
-                        break;
+                    foreach($tos as $to) {
+                        $var = explode('@', $to);
+                        $domain = array_pop($var);
+                        if ($domain == config('imaptoxmpp.xmpp_domain')) {
+                            $extractedTo = $to;
+                            break;
+                        }
+                    }
+                    $this->info('Process: '.$mail->subject . ' to '.$extractedTo );
+
+                    if ($extractedTo) {
+                        if (in_array($extractedTo, $enabledAccountsJids)) {
+                            $api->sendMail($extractedTo, $mail);
+                            $this->info('Mail delivered to '.$extractedTo.', subject: '.$mail->subject);
+                        }
+
+                        $this->error('Feature not enabled for '.$extractedTo.', email not delivered, subject: '.$mail->subject);
+                        $mailbox->markMailAsRead($mailsId);
                     }
                 }
-                $this->info('Process: '.$mail->subject . ' to '.$extractedTo );
 
-                if ($extractedTo) {
-                    if (in_array($extractedTo, $enabledAccountsJids)) {
-                        $api->sendMail($extractedTo, $mail);
-                        $this->info('Mail delivered to '.$extractedTo.', subject: '.$mail->subject);
-                    }
-
-                    $this->error('Feature not enabled for '.$extractedTo.', email not delivered, subject: '.$mail->subject);
-                    $mailbox->markMailAsRead($mailsId);
-                }
+                sleep (5);
             }
         } catch(\Exception $ex) {
             echo "IMAP connection failed: " . $ex;
