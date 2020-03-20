@@ -19,11 +19,10 @@ class EjabberdAPI
 
     public function checkAccount(string $username, string $domain): bool
     {
-        return false;
         return ((int)$this->client->request('POST', 'check_account', [
             'json' => [
-                'username' => $username,
-                'domain' => $domain,
+                'user' => $username,
+                'host' => $domain,
             ]
         ]) == 1);
     }
