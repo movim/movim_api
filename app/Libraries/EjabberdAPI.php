@@ -50,7 +50,7 @@ class EjabberdAPI
                 'subject' => $mail->subject,
                 'body' => '📥 '.$mail->subject.'
 ✍️ '.$mail->fromName.' <'.$mail->fromAddress.'>
-'.Str::words($mail->textPlain, 250,'…')
+'.$mail->textPlain
             ]
         ]);
     }

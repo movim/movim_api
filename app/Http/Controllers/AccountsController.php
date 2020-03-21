@@ -74,6 +74,13 @@ class AccountsController extends Controller
         $account->auth_key = null;
         $account->save();
 
+        $api = new EjabberdAPI;
+        $api->sendMessage(
+            $account->jid,
+            'Authentication authorized',
+            'You are now authentified on the Movim Account Panel'
+        );
+
         return redirect()->route('accounts.panel');
     }
 
@@ -89,6 +96,15 @@ class AccountsController extends Controller
         $account = $request->user();
         $account->email_notification = (bool)$enabled;
         $account->save();
+
+        $api = new EjabberdAPI;
+        $api->sendMessage(
+            $account->jid,
+            'Email To XMPP',
+            $account->email_notification
+                ? 'The Email To XMPP feature is now enabled for your account, you can try to send an email to "'.$account->jid.'" to try it'
+                : 'The Email To XMPP feature has been disabled for your account'
+        );
 
         return redirect()->route('accounts.emailToXMPP');
     }
