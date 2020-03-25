@@ -53,14 +53,14 @@ class ImapToXMPP extends Command
 
         $mailbox->setAttachmentsIgnore(true);
 
-        $enabledAccountsJids = [];
-        foreach (Account::where('email_notification', true)->get() as $account) {
-            array_push($enabledAccountsJids, $account->jid);
-        }
-
         try {
             // We parse indefinitly
             while (1) {
+                $enabledAccountsJids = [];
+                foreach (Account::where('email_notification', true)->get() as $account) {
+                    array_push($enabledAccountsJids, $account->jid);
+                }
+
                 $mailsIds = $mailbox->searchMailbox('UNSEEN');
 
                 $api = new EjabberdAPI;
