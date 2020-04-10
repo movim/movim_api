@@ -5,7 +5,9 @@
 <header>
     <ul class="list middle">
         <li>
-            <p class="center">Account Creation</p>
+            <div>
+                <p class="center">Account Creation</p>
+            </div>
         </li>
     </ul>
 </header>
