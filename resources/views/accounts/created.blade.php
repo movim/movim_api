@@ -30,8 +30,10 @@
             <span class="control icon gray">
                 <i class="material-icons">chevron_right</i>
             </span>
-            <p>{{ parse_url($pod->url)['host'] }}</p>
-            <p>{{ $pod->description }}</p>
+            <div>
+                <p>{{ parse_url($pod->url)['host'] }}</p>
+                <p>{{ $pod->description }}</p>
+            </div>
         </li>
     </a>
     @endforeach

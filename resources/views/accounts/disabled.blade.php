@@ -5,7 +5,9 @@
 <header>
     <ul class="list middle">
         <li>
-            <p class="center">Account Creation currently disabled</p>
+            <div>
+                <p class="center">Account Creation currently disabled</p>
+            </div>
         </li>
     </ul>
 </header>

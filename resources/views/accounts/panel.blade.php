@@ -8,8 +8,10 @@
             <span onclick="redirect('{{ route('accounts.logout') }}')" class="active control icon gray">
                 <i class="material-icons">exit_to_app</i>
             </span>
-            <p class="center">Account Panel</p>
-            <p class="center">{{ $account->jid }}</p>
+            <div>
+                <p class="center">Account Panel</p>
+                <p class="center">{{ $account->jid }}</p>
+            </div>
         </li>
     </ul>
 </header>
@@ -19,8 +21,10 @@
         <span class="primary icon gray">
             <i class="material-icons">info</i>
         </span>
-        <p></p>
-        <p>Welcome on your account configuration panel, here you will be able to manage your account related data and configure a few available features</p>
+        <div>
+            <p></p>
+            <p>Welcome on your account configuration panel, here you will be able to manage your account related data and configure a few available features</p>
+        </div>
     </li>
 
     <li class="active" onclick="redirect('{{ route('accounts.emailToXMPP') }}')">
@@ -36,14 +40,16 @@
         <span class="control icon gray">
             <i class="material-icons">chevron_right</i>
         </span>
-        <p>Email to XMPP notifications</p>
-        <p>
-            @if ($account->email_notification)
-                Enabled
-            @else
-                Disabled
-            @endif
-        </p>
+        <div>
+            <p>Email to XMPP notifications</p>
+            <p>
+                @if ($account->email_notification)
+                    Enabled
+                @else
+                    Disabled
+                @endif
+            </p>
+        </div>
     </li>
 
     <li class="active" onclick="redirect('{{ route('accounts.uploaded') }}')">
@@ -53,8 +59,10 @@
         <span class="control icon gray">
             <i class="material-icons">chevron_right</i>
         </span>
-        <p>Uploaded files</p>
-        <p>Browser and manage your uploaded files</p>
+        <div>
+            <p>Uploaded files</p>
+            <p>Browser and manage your uploaded files</p>
+        </div>
     </li>
 </ul>
 

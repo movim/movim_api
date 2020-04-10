@@ -8,7 +8,9 @@
             <span onclick="window.history.back();" class="primary active control icon gray">
                 <i class="material-icons">chevron_left</i>
             </span>
-            <p class="center">Authentication request</p>
+            <div>
+                <p class="center">Authentication request</p>
+            </div>
         </li>
     </ul>
 </header>
@@ -19,8 +21,10 @@
             <span class="primary icon bubble color green">
                 <i class="material-icons">vpn_key</i>
             </span>
-            <p>Authentication request sent</p>
-            <p>An authentication link was sent to your XMPP account,<br /> please open it to finish the authentication</p>
+            <div>
+                <p>Authentication request sent</p>
+                <p>An authentication link was sent to your XMPP account,<br /> please open it to finish the authentication</p>
+            </div>
         </li>
     </ul>
 </div>

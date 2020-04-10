@@ -8,8 +8,10 @@
             <span onclick="redirect('{{ route('accounts.panel') }}')" class="active primary icon gray">
                 <i class="material-icons">chevron_left</i>
             </span>
-            <p class="center">Account Panel</p>
-            <p class="center">Uploaded files</p>
+            <div>
+                <p class="center">Account Panel</p>
+                <p class="center">Uploaded files</p>
+            </div>
         </li>
     </ul>
 </header>
@@ -19,8 +21,10 @@
         <span class="primary icon gray bubble">
             <i class="material-icons">info</i>
         </span>
-        <p>Informations</p>
-        <p>Browse all the files you uploaded using your XMPP account</p>
+        <div>
+            <p>Informations</p>
+            <p>Browse all the files you uploaded using your XMPP account</p>
+        </div>
     </li>
 </ul>
 <br />
@@ -36,11 +40,13 @@
                     <i class="material-icons">insert_drive_file</i>
                 </a>
             </span>
-            <p class="normal line">
-                <span class="info">{{ $file->formatedSize }}</span>
-                {{ $file->name }}
-            </p>
-            <p>{{ $file->mtime->toDateTimeString() }}</p>
+            <div>
+                <p class="normal line">
+                    <span class="info">{{ $file->formatedSize }}</span>
+                    {{ $file->name }}
+                </p>
+                <p>{{ $file->mtime->toDateTimeString() }}</p>
+            </div>
         </li>
     @endforeach
 </ul>

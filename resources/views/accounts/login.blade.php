@@ -5,8 +5,10 @@
 <header>
     <ul class="list middle">
         <li>
-            <p class="center">My Account</p>
-            <p class="center">Manage my account settings and data</p>
+            <div>
+                <p class="center">My Account</p>
+                <p class="center">Manage my account settings and data</p>
+            </div>
         </li>
     </ul>
 </header>
@@ -37,8 +39,10 @@
             </li>
             <li class="clear">
                 <span class="primary icon gray"><i class="material-icons">person_add</i></span>
-                <p>No account yet?</p>
-                <p><a href="{{ route('accounts.register') }}">Create one in a few clicks…</a></p>
+                <div>
+                    <p>No account yet?</p>
+                    <p><a href="{{ route('accounts.register') }}">Create one in a few clicks…</a></p>
+                </div>
             </li>
         </ul>
     </div>

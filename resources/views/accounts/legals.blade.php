@@ -5,8 +5,10 @@
 <header>
     <ul class="list middle">
         <li>
-            <p class="center">Legal disclaimer</p>
-            <p>Updated on Wednesday 21th of December 2016</p>
+            <div>
+                <p class="center">Legal disclaimer</p>
+                <p>Updated on Wednesday 21th of December 2016</p>
+            </div>
         </li>
     </ul>
 </header>
@@ -127,8 +129,10 @@
 
 <ul class="list thick">
     <li>
-        <p class="center">The Movim team</p>
-        <p class="center">Contact us on <a href="xmpp:movim@conference.movim.eu">our conference room</a></p>
+        <div>
+            <p class="center">The Movim team</p>
+            <p class="center">Contact us on <a href="xmpp:movim@conference.movim.eu">our conference room</a></p>
+        </div>
     </li>
 </ul>
 

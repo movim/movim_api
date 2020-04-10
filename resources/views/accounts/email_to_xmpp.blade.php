@@ -8,8 +8,10 @@
             <span onclick="redirect('{{ route('accounts.panel') }}')" class="active primary icon gray">
                 <i class="material-icons">chevron_left</i>
             </span>
-            <p class="center">Account Panel</p>
-            <p class="center">Email to XMPP</p>
+            <div>
+                <p class="center">Account Panel</p>
+                <p class="center">Email to XMPP</p>
+            </div>
         </li>
     </ul>
 </header>
@@ -19,31 +21,39 @@
         <span class="primary icon gray bubble">
             <img src="/img/miho.jpg">
         </span>
-        <p>Informations</p>
-        <p>The email to XMPP feature will allow you to receive (and only receive!) emails on your XMPP account.<br />
-            Our postwoman Miho will then take care of delivering them.</p>
+        <div>
+            <p>Informations</p>
+            <p>The email to XMPP feature will allow you to receive (and only receive!) emails on your XMPP account.<br />
+                Our postwoman Miho will then take care of delivering them.</p>
+        </div>
     </li>
     <li>
         <span class="primary icon gray">
             <i class="material-icons">drafts</i>
         </span>
-        <p>Textual content only</p>
-        <p>There is no SPAM filter or any checkup made on the emails when they are received.<br />
-            Miho will only send the textual content (without any formatting) and without the attached files.</p>
+        <div>
+            <p>Textual content only</p>
+            <p>There is no SPAM filter or any checkup made on the emails when they are received.<br />
+                Miho will only send the textual content (without any formatting) and without the attached files.</p>
+        </div>
     </li>
     <li>
         <span class="primary icon gray">
             <i class="material-icons">reply</i>
         </span>
-        <p>No reply</p>
-        <p>This is a one way only system, you will not be able to reply to Miho or use your XMPP account in an email client.</p>
+        <div>
+            <p>No reply</p>
+            <p>This is a one way only system, you will not be able to reply to Miho or use your XMPP account in an email client.</p>
+        </div>
     </li>
 </ul>
 <br />
 <hr />
 <ul class="list middle">
     <li class="subheader">
-        <p>Configure</p>
+        <div>
+            <p>Configure</p>
+        </div>
     </li>
     @if ($account->email_notification)
         <li class="active" onclick="redirect('{{ route('accounts.setEmailToXMPP', 0) }}')">
@@ -53,8 +63,10 @@
             <span class="control icon gray">
                 <i class="material-icons">chevron_right</i>
             </span>
-            <p>Feature currently enabled</p>
-            <p>Disable the feature</p>
+            <div>
+                <p>Feature currently enabled</p>
+                <p>Disable the feature</p>
+            </div>
         </li>
     @else
         <li class="active" onclick="redirect('{{ route('accounts.setEmailToXMPP', 1) }}')">
@@ -64,8 +76,10 @@
             <span class="control icon gray">
                 <i class="material-icons">chevron_right</i>
             </span>
-            <p>Feature currently disabled</p>
-            <p>Enable the feature</p>
+            <div>
+                <p>Feature currently disabled</p>
+                <p>Enable the feature</p>
+            </div>
         </li>
     @endif
 </ul>

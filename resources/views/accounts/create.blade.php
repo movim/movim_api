@@ -30,12 +30,14 @@
                         <span class="primary icon color bubble red">
                             <i class="material-icons">warning</i>
                         </span>
-                        <p>Invalid form</p>
-                        <p>
-                            @foreach ($errors->all() as $error)
-                                {{$error}}<br />
-                            @endforeach
-                        </p>
+                        <div>
+                            <p>Invalid form</p>
+                            <p>
+                                @foreach ($errors->all() as $error)
+                                    {{$error}}<br />
+                                @endforeach
+                            </p>
+                        </div>
                     </li>
                 </ul>
             @endif
@@ -79,10 +81,12 @@
                                     </div>
                                 </div>
                             </span>
-                            <p class="line normal">Movim services Terms and Conditions</p>
-                            <p>I agree that my IP and detected location (<a href="https://www.php.net/manual/en/intro.geoip.php">using GeoIP</a>) will be logued during the registration process.</p>
-                            <p>I agree with the <a href="{{ action('AccountsController@legals') }}" target="_blank">Terms and Conditions</a></p>
-                            <!--<p class="all">The usage of movim.eu accounts for money transfer using tools such as OtomaX or TigerEngine are <b>STRICLY PROHIBITED</b></p>-->
+                            <div>
+                                <p class="line normal">Movim services Terms and Conditions</p>
+                                <p>I agree that my IP and detected location (<a href="https://www.php.net/manual/en/intro.geoip.php">using GeoIP</a>) will be logued during the registration process.</p>
+                                <p>I agree with the <a href="{{ action('AccountsController@legals') }}" target="_blank">Terms and Conditions</a></p>
+                                <!--<p class="all">The usage of movim.eu accounts for money transfer using tools such as OtomaX or TigerEngine are <b>STRICLY PROHIBITED</b></p>-->
+                            </div>
                         </li>
                     </ul>
                 </div>
