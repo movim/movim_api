@@ -183,9 +183,9 @@ class AccountsController extends Controller
             ]);
         }
 
-        /*if(preg_match('/Error: conflict/i', $line)) {
+        if($result->getStatusCode() == '409') {
             return redirect()->back()->withInput()->withErrors(['user' => 'User already exists']);
-        }*/
+        }
 
         return redirect()->back()->withInput()->withErrors(['user' => 'Unknown error']);
     }
