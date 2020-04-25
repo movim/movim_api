@@ -3,7 +3,6 @@
 namespace App\Libraries;
 
 use GuzzleHttp\Client;
-use Illuminate\Support\Str;
 
 class EjabberdAPI
 {
@@ -36,6 +35,17 @@ class EjabberdAPI
                 'to' => $to,
                 'subject' => $subject,
                 'body' => $body
+            ]
+        ]);
+    }
+
+    public function register(string $user, string $host, string $password)
+    {
+        return $this->client->request('POST', 'register', [
+            'json' => [
+                'user' => $user,
+                'host' => $host,
+                'password' => $password
             ]
         ]);
     }

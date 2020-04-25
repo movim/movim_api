@@ -150,47 +150,42 @@ class AccountsController extends Controller
             'password'              => 'required|confirmed|min:8'
         ]);
 
-        $command = 'sudo -u ejabberd ' . config('app.ejabberd_path') . ' --no-timeout --config-dir /etc/ejabberd/ register '.
-            escapeshellarg($request->get('username')).
-            ' '.
-            $this->domain.
-            ' '.
-            escapeshellarg($request->get('password'));
-
-        $output = [];
-        exec($command, $output);
+        $api = new EjabberdAPI;
+        $result = $api->register(
+            $request->get('username'),
+            $this->domain,
+            $request->get('password')
+        );
 
         // Check if user could be registered
-        foreach($output as $line) {
-            if(preg_match('/User '.$request->get('username').'@'.$this->domain.' successfully registered/i', $line)) {
+        if($result->getStatusCode() == '200') {
 
-                $account = new Account;
-                $account->username = $request->get('username');
-                $account->ip = $_SERVER['REMOTE_ADDR'];
+            $account = new Account;
+            $account->username = $request->get('username');
+            $account->ip = $_SERVER['REMOTE_ADDR'];
 
-                if($geo) {
-                    $account->country_code = $geo['country_code'];
-                    $account->region = $geo['region'];
-                    $account->city = utf8_encode($geo['city']);
-                    $account->latitude = $geo['latitude'];
-                    $account->longitude = $geo['longitude'];
-                }
-
-                $account->save();
-
-                return view('accounts.created', [
-                    'jid'       => $request->get('username').'@'.$this->domain,
-                    'referer'   => $request->get('referer'),
-                    'pods'      => Pod::where('activated','=', 1)
-                        ->where('favorite','=',1)
-                        ->get()
-                ]);
+            if($geo) {
+                $account->country_code = $geo['country_code'];
+                $account->region = $geo['region'];
+                $account->city = utf8_encode($geo['city']);
+                $account->latitude = $geo['latitude'];
+                $account->longitude = $geo['longitude'];
             }
 
-            if(preg_match('/Error: conflict/i', $line)) {
-                return redirect()->back()->withInput()->withErrors(['user' => 'User already exists']);
-            }
+            $account->save();
+
+            return view('accounts.created', [
+                'jid'       => $request->get('username').'@'.$this->domain,
+                'referer'   => $request->get('referer'),
+                'pods'      => Pod::where('activated','=', 1)
+                    ->where('favorite','=',1)
+                    ->get()
+            ]);
         }
+
+        /*if(preg_match('/Error: conflict/i', $line)) {
+            return redirect()->back()->withInput()->withErrors(['user' => 'User already exists']);
+        }*/
 
         return redirect()->back()->withInput()->withErrors(['user' => 'Unknown error']);
     }
