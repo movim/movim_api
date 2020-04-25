@@ -41,7 +41,7 @@ class EjabberdAPI
 
     public function register(string $user, string $host, string $password)
     {
-        return $this->client->request('POST', 'register', [
+        $this->client->request('POST', 'register', [
             'json' => [
                 'user' => $user,
                 'host' => $host,

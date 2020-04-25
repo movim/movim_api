@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
+use GuzzleHttp\Exception\RequestException;
+
 use App\Pod;
 use App\Account;
 use App\Libraries\EjabberdAPI;
@@ -150,21 +152,20 @@ class AccountsController extends Controller
             'password'              => 'required|confirmed|min:8'
         ]);
 
-        $api = new EjabberdAPI;
-        $result = $api->register(
-            $request->get('username'),
-            $this->domain,
-            $request->get('password')
-        );
 
-        // Check if user could be registered
-        if($result->getStatusCode() == '200') {
+        try {
+            $api = new EjabberdAPI;
+            $api->register(
+                $request->get('username'),
+                $this->domain,
+                $request->get('password')
+            );
 
             $account = new Account;
             $account->username = $request->get('username');
             $account->ip = $_SERVER['REMOTE_ADDR'];
 
-            if($geo) {
+            if ($geo) {
                 $account->country_code = $geo['country_code'];
                 $account->region = $geo['region'];
                 $account->city = utf8_encode($geo['city']);
@@ -181,13 +182,13 @@ class AccountsController extends Controller
                     ->where('favorite','=',1)
                     ->get()
             ]);
-        }
+        } catch (RequestException $exception) {
+            if ($exception->getCode() == 409) {
+                return redirect()->back()->withInput()->withErrors(['user' => 'User already exists']);
+            }
 
-        if($result->getStatusCode() == '409') {
-            return redirect()->back()->withInput()->withErrors(['user' => 'User already exists']);
+            return redirect()->back()->withInput()->withErrors(['user' => 'Unknown error']);
         }
-
-        return redirect()->back()->withInput()->withErrors(['user' => 'Unknown error']);
     }
 
     private function checkRestricted($geo)
