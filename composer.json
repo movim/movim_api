@@ -10,7 +10,7 @@
     "require": {
         "php": ">=7.2",
         "laravel/framework": "^6.2.0",
-        "movim/feedcleaner": "dev-master#fc7d917",
+        "movim/feedcleaner": "dev-master#80b900",
         "laravelcollective/html": "^6.0",
         "kozz/laravel-guzzle-provider": "~6.0",
         "ezyang/htmlpurifier": "^4.12",
