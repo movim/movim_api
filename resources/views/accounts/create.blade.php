@@ -44,25 +44,37 @@
                 </ul>
             @endif
 
-            {{ Form::open(['method' => 'POST', 'action' => ['AccountsController@store'], 'class' => 'padded_top_bottom']) }}
-
+            {{ Form::open([
+                'method' => 'POST',
+                'action' => ['AccountsController@store'],
+                'class' => 'padded_top_bottom',
+                'id' => 'registration_form'
+            ]) }}
                 {{ Form::hidden('referer', $referer) }}
-                <div>
+                <div class="domain">
+                    <div class="select">
+                        <select name="domain">
+                            @foreach($domains as $domain)
+                                <option value="{{ $domain }}">{{ $domain }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <label for="domain">Domain</label>
+                </div>
+
+
+                <div class="at">
                     <span style="color: gray;
                         font-weight: bold;
-                        text-align: left;
                         font-size: 2rem;
-                        top: 4rem;
-                        float: right;
-                        position: relative;
-                        line-height: 2rem;
-                        padding: 1rem;
-                        width: 15rem;
                         box-sizing: border-box;">
-                        @movim.eu
+                        @
                     </span>
+                </div>
+
+                <div class="username">
                     {{ Form::label('username', 'Username') }}
-                    {{ Form::text('username', null, ['placeholder'=>'username', 'style' => 'width: calc(100% - 15rem); text-align: right;', 'pattern' => '^[^\u0000-\u001f\u0020\u0022\u0026\u0027\u002f\u003a\u003c\u003e\u0040\u007f\u0080-\u009f\u00a0]+$']) }}
+                    {{ Form::text('username', null, ['placeholder'=>'username', 'style' => 'text-align: right;', 'pattern' => '^[^\u0000-\u001f\u0020\u0022\u0026\u0027\u002f\u003a\u003c\u003e\u0040\u007f\u0080-\u009f\u00a0]+$']) }}
                 </div>
                 <div>
                     {{ Form::label('password', 'Password') }}
@@ -87,7 +99,6 @@
                                 <p class="line normal">Movim services Terms and Conditions</p>
                                 <p>I agree that my IP and detected location (<a href="https://www.php.net/manual/en/intro.geoip.php">using GeoIP</a>) will be logued during the registration process.</p>
                                 <p>I agree with the <a href="{{ action('AccountsController@legals') }}" target="_blank">Terms and Conditions</a></p>
-                                <!--<p class="all">The usage of movim.eu accounts for money transfer using tools such as OtomaX or TigerEngine are <b>STRICLY PROHIBITED</b></p>-->
                             </div>
                         </li>
                     </ul>

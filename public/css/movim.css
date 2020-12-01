@@ -6,3 +6,23 @@ main section {
 .top_padding {
     padding-top: 7rem;
 }
+
+#registration_form {
+    position: relative;
+}
+
+#registration_form .domain {
+    position: absolute;
+    right: 0;
+    width: 17rem;
+}
+
+#registration_form .at {
+    position: absolute;
+    right: 17.5rem;
+    top: 4.25rem;
+}
+
+#registration_form .username {
+    width: calc(100% - 20rem);
+}

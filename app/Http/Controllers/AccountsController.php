@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 use GuzzleHttp\Exception\RequestException;
 
@@ -14,7 +15,7 @@ use App\Libraries\EjabberdAPI;
 
 class AccountsController extends Controller
 {
-    private $domain = 'movim.eu';
+    private $domains = ['movim.eu', 'jappix.com'];
 
     public function login(Request $request)
     {
@@ -126,7 +127,8 @@ class AccountsController extends Controller
 
         return view('accounts.create', [
             'referer' => $request->header('referer'),
-            'registration' => config('app.xmpp_registration')
+            'registration' => config('app.xmpp_registration'),
+            'domains' => $this->domains,
         ]);
     }
 
@@ -148,16 +150,15 @@ class AccountsController extends Controller
         $this->validate($request, [
             'username'              => 'required|alpha_dash|between:4,20',
             'legals'                => 'required',
+            'domain'                => ['required', Rule::in($this->domains)],
             'g-recaptcha-response'  => 'required|captcha',
             'password'              => 'required|confirmed|min:8'
         ]);
-
-
         try {
             $api = new EjabberdAPI;
             $api->register(
                 $request->get('username'),
-                $this->domain,
+                $request->get('domain'),
                 $request->get('password')
             );
 
@@ -176,11 +177,11 @@ class AccountsController extends Controller
             $account->save();
 
             return view('accounts.created', [
-                'jid'       => $request->get('username').'@'.$this->domain,
+                'jid'       => $request->get('username').'@'.$request->get('domain'),
                 'referer'   => $request->get('referer'),
                 'pods'      => Pod::where('activated','=', 1)
-                    ->where('favorite','=',1)
-                    ->get()
+                                  ->where('favorite','=',1)
+                                  ->get()
             ]);
         } catch (RequestException $exception) {
             if ($exception->getCode() == 409) {

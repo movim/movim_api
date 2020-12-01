@@ -11,27 +11,27 @@
     <title>{{ config('app.name', 'Laravel') }} @isset($title) · {{ $title }} @endisset</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/style.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/notification.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/header.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/listn.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/grid.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/article.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/form.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/icon.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/dialog.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/drawer.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/card.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/table.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/color.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/block.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/menu.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/fonts.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/title.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/typo.css" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/material-design-iconic-font.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/style.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/notification.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/header.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/listn.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/grid.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/article.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/form.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/icon.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/dialog.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/drawer.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/card.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/table.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/color.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/block.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/menu.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/fonts.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/title.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/typo.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/material-design-iconic-font.min.css?1" type="text/css" />
 
-    <link rel="stylesheet" href="/css/movim.css" type="text/css" />
+    <link rel="stylesheet" href="/css/movim.css?1" type="text/css" />
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
