@@ -197,6 +197,10 @@ class AccountsController extends Controller
                 return redirect()->back()->withInput()->withErrors(['user' => 'User already exists']);
             }
 
+            if ($exception->getCode() == 400) {
+                return redirect()->back()->withInput()->withErrors(['user' => 'Bad request']);
+            }
+
             return redirect()->back()->withInput()->withErrors(['user' => 'Unknown error']);
         }
     }
