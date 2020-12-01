@@ -11,13 +11,12 @@
     <p>You can now login on your favorite client</p>
 
     @if (!empty($referer))
-    <br />
-    <a class="button color" href="{{ parse_url($referer)['scheme'] }}://{{ parse_url($referer)['host'] }}">
-        Go back to {{ parse_url($referer)['host'] }}
-    </a>
-
+        <br />
+        <a class="button color" href="{{ parse_url($referer)['scheme'] }}://{{ parse_url($referer)['host'] }}">
+            Go back to {{ parse_url($referer)['host'] }}
+        </a>
     @else
-    <p class="center">or one of the following pods of your choice</p>
+        <p class="center">or one of the following pods of your choice</p>
     @endif
 </div>
 

@@ -13,15 +13,6 @@
 </header>
 
 <div class="flex">
-
-    <div class="block on_desktop">
-        <div class="placeholder">
-            <i class="material-icons">person_add</i>
-            <h4>Create a new account</h4>
-            <h4>…and start playing</h4>
-        </div>
-    </div>
-
     <div class="block">
         @if (!$registration)
             <h2>Registrations currently closed</h2>
@@ -134,6 +125,14 @@
             {{ Form::close() }}
         @endif
 
+    </div>
+
+    <div class="block on_desktop">
+        <div class="placeholder">
+            <i class="material-icons">person_add</i>
+            <h4>Create a new account</h4>
+            <h4>…and start playing</h4>
+        </div>
     </div>
 
 </div>
