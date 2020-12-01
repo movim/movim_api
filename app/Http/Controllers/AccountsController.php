@@ -148,6 +148,7 @@ class AccountsController extends Controller
         if(!config('app.xmpp_registration')) return;
 
         $this->validate($request, [
+            'email'                 => 'email|nullable',
             'username'              => 'required|alpha_dash|between:4,20',
             'legals'                => 'required',
             'domain'                => ['required', Rule::in($this->domains)],
@@ -161,6 +162,14 @@ class AccountsController extends Controller
                 $request->get('domain'),
                 $request->get('password')
             );
+
+            if ($request->filled('email')) {
+                $api->setEmail(
+                    $request->get('username'),
+                    $request->get('domain'),
+                    $request->get('email')
+                );
+            }
 
             $account = new Account;
             $account->username = $request->get('username');

@@ -85,6 +85,22 @@
                 </div>
 
                 <div>
+                    {{ Form::label('email', 'Email (optional)') }}
+                    {{ Form::password('email', ['placeholder'=>'username@server.com']) }}
+                </div>
+
+                <div class="email_info">
+                    <ul class="list thin">
+                        <li>
+                            <div>
+                                <p></p>
+                                <p>Setting your email address could allow you to recover your password. It can also be set later.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
                     <ul class="list">
                         <li>
                             <span class="primary">
@@ -96,7 +112,7 @@
                                 </div>
                             </span>
                             <div>
-                                <p class="line normal">Movim services Terms and Conditions</p>
+                                <p class="line normal">Terms and Conditions</p>
                                 <p>I agree that my IP and detected location (<a href="https://www.php.net/manual/en/intro.geoip.php">using GeoIP</a>) will be logued during the registration process.</p>
                                 <p>I agree with the <a href="{{ action('AccountsController@legals') }}" target="_blank">Terms and Conditions</a></p>
                             </div>

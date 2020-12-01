@@ -26,3 +26,7 @@ main section {
 #registration_form .username {
     width: calc(100% - 20rem);
 }
+
+#registration_form .email_info {
+    min-height: 7rem;
+}
