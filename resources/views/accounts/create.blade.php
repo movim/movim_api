@@ -86,7 +86,7 @@
 
                 <div>
                     {{ Form::label('email', 'Email (optional)') }}
-                    {{ Form::password('email', ['placeholder'=>'username@server.com']) }}
+                    {{ Form::text('email', ['placeholder'=>'username@server.com']) }}
                 </div>
 
                 <div class="email_info">
