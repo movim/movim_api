@@ -55,7 +55,11 @@
                     <div class="select">
                         <select name="domain">
                             @foreach($domains as $domain)
-                                <option value="{{ $domain }}">{{ $domain }}</option>
+                                <option value="{{ $domain }}"
+                                {{ old('domain') == $domain ? 'selected' : '' }}
+                                >
+                                    {{ $domain }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
