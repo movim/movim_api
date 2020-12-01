@@ -52,19 +52,13 @@ class EjabberdAPI
 
     public function setEmail(string $user, string $host, string $email)
     {
-        $this->client->request('POST', 'set_vcard', [
-            'json' => [
-                'user' => $user,
-                'host' => $host,
-                'email' => $email
-            ]
-        ]);
-
         $this->client->request('POST', 'set_vcard2', [
             'json' => [
                 'user' => $user,
                 'host' => $host,
-                'email' => $email
+                'name' => 'EMAIL',
+                'subname' => 'USERID',
+                'content' => $email
             ]
         ]);
     }
