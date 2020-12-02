@@ -1,4 +1,4 @@
-@extends('layouts.movim')
+@extends('layouts.movim', ['title' => 'Account management'])
 
 @section('content')
 
@@ -23,7 +23,9 @@
     </div>
 
     <div class="block top_padding">
+
         @include('parts.errors')
+
         <ul class="list thick divided" >
             <li>
                 <span class="primary icon gray"><i class="material-icons">security</i></span>
@@ -31,10 +33,10 @@
 
                     <div>
                         {{ Form::label('username', 'Movim account') }}
-                        {{ Form::text('username', null, ['placeholder' => 'username@movim.eu or @jappix.com']) }}
+                        {{ Form::text('username', null, ['placeholder' => 'username@movim.eu or @jappix.com', 'required']) }}
                     </div>
 
-                {{ Form::submit('Authenticate', ['class' => 'button color', 'style' => 'margin-top: 0;'])}}
+                {{ Form::submit('Authenticate', ['class' => 'button color oppose', 'style' => 'margin-top: 0;'])}}
                 {{ Form::close() }}
             </li>
             <li class="clear">
@@ -45,6 +47,22 @@
                 </div>
             </li>
         </ul>
+
+        <ul class="list">
+            <li>
+                <span class="primary icon bubble blue">
+                    <i class="material-icons">info</i>
+                </span>
+                <div>
+                    <p></p>
+                    <p class="all">
+                        The account management panel is only there to manage your Movim XMPP account.
+                        If you actually want to use your account, please login with your standard credentials using <a target="_blank" href="https://movim.eu/">Movim</a> or <a target="_blank" href="https://xmpp.org/software/clients.html">any other XMPP client</a>.
+                    </p>
+                </div>
+            </li>
+        </ul>
+
     </div>
 </div>
 

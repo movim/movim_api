@@ -1,4 +1,4 @@
-@extends('layouts.movim')
+@extends('layouts.movim', ['title' => 'Create an account'])
 
 @section('content')
 
@@ -17,23 +17,7 @@
         @if (!$registration)
             <h2>Registrations currently closed</h2>
         @else
-            @if ($errors->any())
-                <ul class="list middle">
-                    <li>
-                        <span class="primary icon color bubble red">
-                            <i class="material-icons">warning</i>
-                        </span>
-                        <div>
-                            <p>Invalid form</p>
-                            <p>
-                                @foreach ($errors->all() as $error)
-                                    {{$error}}<br />
-                                @endforeach
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            @endif
+            @include('parts.errors')
 
             {{ Form::open([
                 'method' => 'POST',
@@ -69,14 +53,14 @@
 
                 <div class="username">
                     {{ Form::label('username', 'Username') }}
-                    {{ Form::text('username', null, ['placeholder'=>'username', 'style' => 'text-align: right;', 'pattern' => '^[^\u0000-\u001f\u0020\u0022\u0026\u0027\u002f\u003a\u003c\u003e\u0040\u007f\u0080-\u009f\u00a0]+$']) }}
+                    {{ Form::text('username', null, ['placeholder'=>'username', 'required', 'pattern' => '^[^\u0000-\u001f\u0020\u0022\u0026\u0027\u002f\u003a\u003c\u003e\u0040\u007f\u0080-\u009f\u00a0]+$']) }}
                 </div>
                 <div>
                     {{ Form::label('password', 'Password') }}
-                    {{ Form::password('password', ['placeholder'=>'Your password']) }}
+                    {{ Form::password('password', ['required', 'placeholder'=>'Your password']) }}
                 </div>
                 <div>
-                    {{ Form::password('password_confirmation', ['placeholder'=>'Retype your password', 'style' => 'padding-top: 2rem']) }}
+                    {{ Form::password('password_confirmation', ['required', 'placeholder'=>'Retype your password', 'style' => 'padding-top: 2rem']) }}
                 </div>
 
                 <div>

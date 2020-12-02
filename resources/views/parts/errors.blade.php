@@ -4,12 +4,14 @@
         <span class="primary icon color bubble red">
             <i class="material-icons">warning</i>
         </span>
-        <p>Invalid form</p>
-        <p>
-            @foreach ($errors->all() as $error)
-                {{$error}}<br />
-            @endforeach
-        </p>
+        <div>
+            <p>Invalid form</p>
+            <p>
+                @foreach ($errors->all() as $error)
+                    {{$error}}<br />
+                @endforeach
+            </p>
+        </div>
     </li>
 </ul>
 @endif

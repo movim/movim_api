@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="https://nl.movim.eu/theme/css/typo.css?1" type="text/css" />
     <link rel="stylesheet" href="https://nl.movim.eu/theme/css/material-design-iconic-font.min.css?1" type="text/css" />
 
-    <link rel="stylesheet" href="/css/movim.css?1" type="text/css" />
+    <link rel="stylesheet" href="/css/movim.css?2" type="text/css" />
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -43,7 +43,7 @@
     <main>
         <section>
             <div>
-            @yield('content')
+                @yield('content')
             </div>
         </section>
     </main>
