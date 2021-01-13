@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="https://nl.movim.eu/theme/css/typo.css?1" type="text/css" />
     <link rel="stylesheet" href="https://nl.movim.eu/theme/css/material-design-iconic-font.min.css?1" type="text/css" />
 
-    <link rel="stylesheet" href="/css/movim.css?3" type="text/css" />
+    <link rel="stylesheet" href="/css/movim.css?4" type="text/css" />
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
