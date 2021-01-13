@@ -194,6 +194,20 @@ class AccountsController extends Controller
                 $account->longitude = $geo['longitude'];
             }
 
+            if (config('app.xmpp_admin_notify')) {
+                $notify = $username.'@'.$request->get('domain').' registered';
+
+                if ($request->filled('email')) {
+                    $notify .= ' with an email address';
+                }
+
+                $api->sendMessage(
+                    config('app.xmpp_admin_notify'),
+                    'Account registered',
+                    $notify
+                );
+            }
+
             $account->save();
 
             return view('accounts.created', [

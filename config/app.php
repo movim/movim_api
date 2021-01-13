@@ -33,6 +33,7 @@ return [
     'ejabberd_upload_path' => env('EJABBERD_UPLOAD_PATH', '/upload'),
     'ejabberd_upload_base' => env('EJABBERD_UPLOAD_BASE', 'https://upload/'),
     'restricted_countries' => env('RESTRICTED_COUNTRIES', ''),
+    'xmpp_admin_notify' => env('XMPP_ADMIN_NOTIFY', null),
 
     /*
     |--------------------------------------------------------------------------
