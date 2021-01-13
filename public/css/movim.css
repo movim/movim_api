@@ -18,6 +18,7 @@ main::before {
 main section {
     width: 100%;
     max-width: 460px;
+    z-index: 1;
 }
 
 .container {

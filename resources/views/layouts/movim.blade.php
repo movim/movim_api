@@ -50,7 +50,7 @@
                             <p></p>
                             <p class="center">
                                 <a href="{{ route('accounts.login') }}">Account Panel</a>
-                                - <a href="https://movim.eu/">Movim</a>
+                                - <a href="https://movim.eu/">movim.eu</a>
                             </p>
                         </div>
                     </li>
