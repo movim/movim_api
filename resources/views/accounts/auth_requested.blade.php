@@ -5,7 +5,7 @@
 <header>
     <ul class="list middle">
         <li>
-            <span onclick="window.history.back();" class="primary active control icon gray">
+            <span onclick="window.history.back();" class="primary active icon gray">
                 <i class="material-icons">chevron_left</i>
             </span>
             <div>

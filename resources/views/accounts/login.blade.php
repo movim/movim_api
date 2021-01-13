@@ -13,7 +13,6 @@
     </ul>
 </header>
 
-
 <div class="card shadow">
     <div class="block container">
         @include('parts.errors')

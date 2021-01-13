@@ -13,6 +13,9 @@
     </ul>
 </header>
 
+<div class="card shadow">
+    <div class="block container">
+
 <article>
     <section>
         <content>
@@ -131,9 +134,11 @@
     <li>
         <div>
             <p class="center">The Movim team</p>
-            <p class="center">Contact us on <a href="xmpp:movim@conference.movim.eu">our conference room</a></p>
+            <p class="center">Contact us on <a href="xmpp:movim@conference.movim.eu?join">our conference room</a></p>
         </div>
     </li>
 </ul>
+
+</div>
 
 @endsection

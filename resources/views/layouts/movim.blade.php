@@ -42,9 +42,20 @@
 <body>
     <main>
         <section>
-            <div>
-                @yield('content')
-            </div>
+            @yield('content')
+            <footer>
+                <ul class="list thin">
+                    <li>
+                        <div>
+                            <p></p>
+                            <p class="center">
+                                <a href="{{ route('accounts.login') }}">Account Panel</a>
+                                - <a href="https://movim.eu/">Movim</a>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </footer>
         </section>
     </main>
 
