@@ -1,6 +1,45 @@
+main {
+    background-color: #EEE;
+}
+
+main::before {
+    content: "";
+    background-image: url(../img/network.svg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 main section {
     width: 100%;
-    max-width: 800px;
+    max-width: 460px;
+}
+
+.container {
+    padding: 1.5rem 2rem;
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+header {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 1rem 1rem;
+    }
+
+    header {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
 }
 
 .top_padding {

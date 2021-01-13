@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth:panel'/*, 'auth.account'*/]], function () {
 });
 
 Route::get('/accounts/register', 'AccountsController@create')->name('accounts.register');
+Route::get('/accounts/resolve/{nickname}', 'AccountsController@resolveNickname')->name('accounts.resolve');
 Route::post('/accounts/', 'AccountsController@store');
 Route::get('/accounts/legals', 'AccountsController@legals');
 

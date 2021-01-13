@@ -14,19 +14,17 @@
 </header>
 
 
-<div class="flex">
-    <div class="block on_desktop">
-        <div class="placeholder">
-            <i class="material-icons">vpn_key</i>
-            <h4>Enter your Movim account to receive a chat message containing a unique link to authenticate you</h4>
-        </div>
-    </div>
-
-    <div class="block top_padding">
-
+<div class="card shadow">
+    <div class="block container">
         @include('parts.errors')
 
-        <ul class="list thick divided" >
+        <ul class="list middle">
+            <li>
+                <div>
+                    <p></p>
+                    <p class="all">Enter your Movim account to receive a chat message containing a unique link to authenticate you</p>
+                </div>
+            </li>
             <li>
                 <span class="primary icon gray"><i class="material-icons">security</i></span>
                 {{ Form::open(['method' => 'POST', 'action' => ['AccountsController@requestAuthentication'], 'style' => 'padding-right: 0;']) }}
@@ -36,9 +34,12 @@
                         {{ Form::text('username', null, ['placeholder' => 'username@movim.eu or @jappix.com', 'required']) }}
                     </div>
 
-                {{ Form::submit('Authenticate', ['class' => 'button color oppose', 'style' => 'margin-top: 0;'])}}
+                {{ Form::submit('Authenticate', ['class' => 'button color green oppose', 'style' => 'margin-top: 0; margin: 0 auto;'])}}
                 {{ Form::close() }}
             </li>
+            <br />
+            <hr />
+            <br />
             <li class="clear">
                 <span class="primary icon gray"><i class="material-icons">person_add</i></span>
                 <div>
@@ -62,7 +63,6 @@
                 </div>
             </li>
         </ul>
-
     </div>
 </div>
 

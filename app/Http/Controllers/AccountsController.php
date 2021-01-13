@@ -12,6 +12,7 @@ use GuzzleHttp\Exception\RequestException;
 use App\Pod;
 use App\Account;
 use App\Libraries\EjabberdAPI;
+use App\Libraries\StringPrep;
 
 class AccountsController extends Controller
 {
@@ -24,6 +25,13 @@ class AccountsController extends Controller
         }
 
         return view('accounts.login');
+    }
+
+    public function resolveNickname(Request $request, string $nickname)
+    {
+        return response()->json([
+            'username' => StringPrep::resolve($nickname)
+        ]);
     }
 
     public function panel(Request $request)
@@ -155,24 +163,27 @@ class AccountsController extends Controller
             'g-recaptcha-response'  => 'required|captcha',
             'password'              => 'required|confirmed|min:8'
         ]);
+
+        $username = StringPrep::resolve($request->get('username'));
+
         try {
             $api = new EjabberdAPI;
             $api->register(
-                $request->get('username'),
+                $username,
                 $request->get('domain'),
                 $request->get('password')
             );
 
             if ($request->filled('email')) {
                 $api->setEmail(
-                    $request->get('username'),
+                    $username,
                     $request->get('domain'),
                     $request->get('email')
                 );
             }
 
             $account = new Account;
-            $account->username = $request->get('username');
+            $account->username = $username;
             $account->ip = $_SERVER['REMOTE_ADDR'];
 
             if ($geo) {
@@ -186,7 +197,7 @@ class AccountsController extends Controller
             $account->save();
 
             return view('accounts.created', [
-                'jid'       => $request->get('username').'@'.$request->get('domain'),
+                'jid'       => $username.'@'.$request->get('domain'),
                 'referer'   => $request->get('referer'),
                 'pods'      => Pod::where('activated','=', 1)
                                   ->where('favorite','=',1)
