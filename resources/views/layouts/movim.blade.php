@@ -44,7 +44,7 @@
         <section>
             @yield('content')
             <footer>
-                <ul class="list thin">
+                <ul class="list middle">
                     <li>
                         <div>
                             <p></p>

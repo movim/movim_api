@@ -33,7 +33,7 @@
                         {{ Form::text('username', null, ['placeholder' => 'username@movim.eu or @jappix.com', 'required']) }}
                     </div>
 
-                {{ Form::submit('Authenticate', ['class' => 'button color green oppose', 'style' => 'margin-top: 0; margin: 0 auto;'])}}
+                {{ Form::submit('Authenticate', ['class' => 'button color oppose', 'style' => 'margin-top: 0; margin: 0 auto;'])}}
                 {{ Form::close() }}
             </li>
             <br />
