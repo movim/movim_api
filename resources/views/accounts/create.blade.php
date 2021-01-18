@@ -104,7 +104,7 @@
                             </span>
                             <div>
                                 <p class="line normal">Terms and Conditions</p>
-                                <p>I agree that my IP and detected location will be logued during the registration process.</p>
+                                <p>I agree that my IP and detected location will be logged during the registration process.</p>
                                 <p>I agree with the <a href="{{ action('AccountsController@legals') }}" target="_blank">Terms and Conditions</a></p>
                             </div>
                         </li>
