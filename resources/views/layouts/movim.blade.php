@@ -11,25 +11,25 @@
     <title>{{ config('app.name', 'Laravel') }} @isset($title) · {{ $title }} @endisset</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/style.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/notification.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/header.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/listn.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/grid.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/article.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/form.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/icon.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/dialog.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/drawer.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/card.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/table.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/color.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/block.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/menu.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/fonts.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/title.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/typo.css?1" type="text/css" />
-    <link rel="stylesheet" href="https://nl.movim.eu/theme/css/material-design-iconic-font.min.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/style.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/notification.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/header.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/listn.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/grid.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/article.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/form.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/icon.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/dialog.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/drawer.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/card.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/table.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/color.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/block.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/menu.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/fonts.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/title.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/typo.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/material-design-iconic-font.min.css?1" type="text/css" />
 
     <link rel="stylesheet" href="/css/movim.css?4" type="text/css" />
     <!-- Scripts -->

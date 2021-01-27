@@ -24,16 +24,10 @@
     <p>This document defines the end-user responsibilities and our obligations about your data.</p>
     <p><em>Our services</em> is used to designate the following services:</p>
 
-    <h4>Hosted by TransIP in Amsterdam - The Netherlands</h4>
+    <h4>Hosted in Germany</h4>
     <ul>
         <li>The movim.eu XMPP service</li>
-        <li>The nl.movim.eu Movim instance</li>
-    </ul>
-
-    <h4>Hosted by OVH in Roubaix - France</h4>
-    <ul>
-        <li>The jappix.com XMPP service</li>
-        <li>The it.movim.eu Movim instance</li>
+        <li>The mov.im Movim instance</li>
     </ul>
 
     <h2 id="terms">1. Our terms</h2>
