@@ -76,21 +76,25 @@ class EjabberdAPI
 
     public function getEmail(string $user, string $host): ?string
     {
-        $json = (string)$this->client->request('POST', 'get_vcard2', [
-            'json' => [
-                'user' => $user,
-                'host' => $host,
-                'name' => 'EMAIL',
-                'subname' => 'USERID'
-            ]
-        ])->getBody();
+        try {
+            $json = (string)$this->client->request('POST', 'get_vcard2', [
+                'json' => [
+                    'user' => $user,
+                    'host' => $host,
+                    'name' => 'EMAIL',
+                    'subname' => 'USERID'
+                ]
+            ])->getBody();
 
-        if (!empty($json)) {
-            $json = \json_decode($json);
-            return (string)$json->content;
+            if (!empty($json)) {
+                $json = \json_decode($json);
+                return (string)$json->content;
+            }
+
+            return null;
+        } catch (\Exception $e) {
+            return null;
         }
-
-        return null;
     }
 
     public function sendMail(string $to, $mail)
