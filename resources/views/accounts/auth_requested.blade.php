@@ -22,10 +22,22 @@
                 <i class="material-icons">vpn_key</i>
             </span>
             <div>
-                <p>Authentication request sent</p>
+                <p>Authentication request sent by message</p>
                 <p>An authentication link was sent to your XMPP account,<br /> please open it to finish the authentication</p>
             </div>
         </li>
+
+        @if ($email)
+            <li>
+                <span class="primary icon bubble color blue">
+                    <i class="material-icons">email</i>
+                </span>
+                <div>
+                    <p>…and also by email</p>
+                    <p>We also found an attached email address to your account,<br /> the authentication link was also sent there (please check your SPAM messages)</p>
+                </div>
+            </li>
+        @endif
     </ul>
 </div>
 

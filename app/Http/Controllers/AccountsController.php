@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 
 use GuzzleHttp\Exception\RequestException;
@@ -13,6 +14,7 @@ use App\Pod;
 use App\Account;
 use App\Libraries\EjabberdAPI;
 use App\Libraries\StringPrep;
+use App\Mail\AuthenticationLink;
 
 class AccountsController extends Controller
 {
@@ -73,7 +75,18 @@ class AccountsController extends Controller
             'You are trying to authenticate to the Movim Account Panel, here is the unique link to confirm your authentication: '.route('accounts.authenticate', $account->auth_key)
         );
 
-        return view('accounts.auth_requested');
+        // And if the account has an attached email address, send the link by email
+        $email = $api->getEmail($username, $domain);
+
+        if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            Mail::to($email)->send(new AuthenticationLink($account));
+        } else {
+            $email = null;
+        }
+
+        return view('accounts.auth_requested', [
+            'email' => $email
+        ]);
     }
 
     public function authenticate(Request $request, string $key)

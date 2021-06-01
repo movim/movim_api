@@ -63,6 +63,18 @@ class EjabberdAPI
         ]);
     }
 
+    public function getEmail(string $user, string $host): string
+    {
+        return (string)$this->client->request('POST', 'get_vcard2', [
+            'json' => [
+                'user' => $user,
+                'host' => $host,
+                'name' => 'EMAIL',
+                'subname' => 'USERID'
+            ]
+        ])->getBody();
+    }
+
     public function sendMail(string $to, $mail)
     {
         $this->client->request('POST', 'send_message', [
