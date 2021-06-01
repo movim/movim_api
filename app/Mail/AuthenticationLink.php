@@ -32,7 +32,7 @@ class AuthenticationLink extends Mailable
     {
         return $this
             ->subject('Movim Account Panel authentication request')
-            ->text('emails.authentication_link')->with([
+            ->text('mails.authentication_link')->with([
                 'account' => $this->account,
             ]);
     }

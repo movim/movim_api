@@ -21,7 +21,7 @@
             <li>
                 <div>
                     <p></p>
-                    <p class="all">Enter your Movim account to receive a chat message containing a unique link to authenticate you</p>
+                    <p class="all">Enter your Movim account to receive a chat message (and an email if configured) containing a unique link to authenticate you</p>
                 </div>
             </li>
             <li>

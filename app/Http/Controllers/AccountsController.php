@@ -78,10 +78,8 @@ class AccountsController extends Controller
         // And if the account has an attached email address, send the link by email
         $email = $api->getEmail($username, $domain);
 
-        if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if ($email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
             Mail::to($email)->send(new AuthenticationLink($account));
-        } else {
-            $email = null;
         }
 
         return view('accounts.auth_requested', [
