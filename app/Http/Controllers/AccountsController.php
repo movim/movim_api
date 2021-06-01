@@ -160,7 +160,7 @@ class AccountsController extends Controller
             'Your account password was successfully updated'
         );
 
-        return redirect()->route('accounts.emailToXMPP');
+        return redirect()->route('accounts.panel');
     }
 
     public function logout(Request $request)
