@@ -63,6 +63,17 @@ class EjabberdAPI
         ]);
     }
 
+    public function changePassword(string $user, string $host, string $password)
+    {
+        $this->client->request('POST', 'change_password', [
+            'json' => [
+                'user' => $user,
+                'host' => $host,
+                'newpass' => $password,
+            ]
+        ]);
+    }
+
     public function getEmail(string $user, string $host): ?string
     {
         $json = (string)$this->client->request('POST', 'get_vcard2', [

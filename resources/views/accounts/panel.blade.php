@@ -66,6 +66,19 @@
                     <p>Browser and manage your uploaded files</p>
                 </div>
             </li>
+
+            <li class="active" onclick="redirect('{{ route('accounts.changePassword') }}')">
+                <span class="primary icon gray">
+                    <i class="material-icons">lock</i>
+                </span>
+                <span class="control icon gray">
+                    <i class="material-icons">chevron_right</i>
+                </span>
+                <div>
+                    <p>Password change</p>
+                    <p>Change your account password</p>
+                </div>
+            </li>
         </ul>
     </div>
 </div>

@@ -131,6 +131,38 @@ class AccountsController extends Controller
         return redirect()->route('accounts.emailToXMPP');
     }
 
+    public function changePassword(Request $request)
+    {
+        return view('accounts.change_password', [
+            'account' => $request->user()
+        ]);
+    }
+
+    public function setChangePassword(Request $request)
+    {
+        $this->validate($request, [
+            'g-recaptcha-response'  => 'required|captcha',
+            'password'              => 'required|confirmed|min:8'
+        ]);
+
+        $account = $request->user();
+
+        $api = new EjabberdAPI;
+        $api->changePassword(
+            $account->username,
+            $account->domain,
+            $request->get('password')
+        );
+
+        $api->sendMessage(
+            $account->jid,
+            'Password changed',
+            'Your account password was successfully updated'
+        );
+
+        return redirect()->route('accounts.emailToXMPP');
+    }
+
     public function logout(Request $request)
     {
         Auth::logout();

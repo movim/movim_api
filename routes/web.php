@@ -30,6 +30,8 @@ Route::get('/accounts/authenticate/{key}', 'AccountsController@authenticate')->n
 Route::group(['middleware' => ['auth:panel'/*, 'auth.account'*/]], function () {
     Route::get('/accounts/panel', 'AccountsController@panel')->name('accounts.panel');
     Route::get('/accounts/logout', 'AccountsController@logout')->name('accounts.logout');
+    Route::get('/accounts/password', 'AccountsController@changePassword')->name('accounts.changePassword');
+    Route::post('/accounts/password', 'AccountsController@setChangePassword')->name('accounts.setChangePassword');
     Route::get('/accounts/emailtoxmpp', 'AccountsController@emailToXMPP')->name('accounts.emailToXMPP');
     Route::get('/accounts/emailtoxmpp/{enabled}', 'AccountsController@setEmailToXMPP')->name('accounts.setEmailToXMPP');
     Route::get('/accounts/uploaded/', 'AccountsUploadedController@index')->name('accounts.uploaded');
