@@ -98,5 +98,7 @@ class ImapToXMPP extends Command
             echo "IMAP connection failed: " . $ex;
             die();
         }
+
+        return 0;
     }
 }
