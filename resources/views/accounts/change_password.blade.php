@@ -41,7 +41,7 @@
                 {!! NoCaptcha::display() !!}
             </div>
 
-            {{ Form::submit('Create', ['class'=>'button color oppose', 'style' => 'margin-top: 3rem;'])}}
+            {{ Form::submit('Change', ['class'=>'button color oppose', 'style' => 'margin-top: 3rem;'])}}
         {{ Form::close() }}
     </div>
 </div>
