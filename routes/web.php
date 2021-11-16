@@ -11,56 +11,31 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/api', function () {
+    return view('api');
 });
 
 Route::get('/feed/{feed}', 'FeedController@show');
 Route::post('/parse', 'FeedController@parse');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
+//Auth::routes();
 
 /* Accounts */
-Route::get('/accounts', 'AccountsController@login')->name('accounts.login');
-Route::post('/accounts/authenticate', 'AccountsController@requestAuthentication')->name('accounts.requestAuthentication');
-Route::get('/accounts/authenticate/{key}', 'AccountsController@authenticate')->name('accounts.authenticate');
+Route::get('/', 'AccountsController@login')->name('accounts.login');
+Route::post('/authenticate', 'AccountsController@requestAuthentication')->name('accounts.requestAuthentication');
+Route::get('/authenticate/{key}', 'AccountsController@authenticate')->name('accounts.authenticate');
 
 Route::group(['middleware' => ['auth:panel'/*, 'auth.account'*/]], function () {
-    Route::get('/accounts/panel', 'AccountsController@panel')->name('accounts.panel');
-    Route::get('/accounts/logout', 'AccountsController@logout')->name('accounts.logout');
-    Route::get('/accounts/password', 'AccountsController@changePassword')->name('accounts.changePassword');
-    Route::post('/accounts/password', 'AccountsController@setChangePassword')->name('accounts.setChangePassword');
-    Route::get('/accounts/emailtoxmpp', 'AccountsController@emailToXMPP')->name('accounts.emailToXMPP');
-    Route::get('/accounts/emailtoxmpp/{enabled}', 'AccountsController@setEmailToXMPP')->name('accounts.setEmailToXMPP');
-    Route::get('/accounts/uploaded/', 'AccountsUploadedController@index')->name('accounts.uploaded');
+    Route::get('/panel', 'AccountsController@panel')->name('accounts.panel');
+    Route::get('/logout', 'AccountsController@logout')->name('accounts.logout');
+    Route::get('/password', 'AccountsController@changePassword')->name('accounts.changePassword');
+    Route::post('/password', 'AccountsController@setChangePassword')->name('accounts.setChangePassword');
+    Route::get('/emailtoxmpp', 'AccountsController@emailToXMPP')->name('accounts.emailToXMPP');
+    Route::get('/emailtoxmpp/{enabled}', 'AccountsController@setEmailToXMPP')->name('accounts.setEmailToXMPP');
+    Route::get('/uploaded/', 'AccountsUploadedController@index')->name('accounts.uploaded');
 });
 
-Route::get('/accounts/register', 'AccountsController@create')->name('accounts.register');
-Route::get('/accounts/resolve/{nickname}', 'AccountsController@resolveNickname')->name('accounts.resolve');
+Route::get('/register', 'AccountsController@create')->name('accounts.register');
+Route::get('/resolve/{nickname}', 'AccountsController@resolveNickname')->name('accounts.resolve');
 Route::post('/accounts/', 'AccountsController@store');
-Route::get('/accounts/legals', 'AccountsController@legals');
-
-/* Pods */
-Route::get('/pods/favorite',    'PodsController@favorite');
-
-Route::post('/pods/status',     'PodsController@status');
-Route::post('/pods/register',   'PodsController@store');
-
-Route::get('/pods',             'PodsController@index');
-Route::get('/servers',          'ServersController@index');
-
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/pods/{id}',        'PodsController@show');
-    Route::get('/pods/{id}/edit',   'PodsController@edit');
-    Route::put('/pods/{id}',        'PodsController@update')->name('pods.update');
-    Route::get('/pods/{id}/refresh','PodsController@refresh');
-    Route::delete('/pods/{id}',     'PodsController@destroy');
-
-    Route::get('/servers/{id}/edit','ServersController@edit');
-    Route::put('/servers/{id}',     'ServersController@update')->name('servers.update');
-    Route::get('/servers/create',   'ServersController@create');
-    Route::post('/servers',         'ServersController@store')->name('servers.store');
-    Route::delete('/servers/{id}',  'ServersController@destroy');
-});
+Route::get('/legals', 'AccountsController@legals');

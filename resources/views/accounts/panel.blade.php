@@ -29,7 +29,7 @@
                 </div>
             </li>
 
-            <li class="active" onclick="redirect('{{ route('accounts.emailToXMPP') }}')">
+            <!--<li class="active" onclick="redirect('{{ route('accounts.emailToXMPP') }}')">
                 <span class="primary icon gray">
                     <i class="material-icons">
                         @if ($account->email_notification)
@@ -52,7 +52,7 @@
                         @endif
                     </p>
                 </div>
-            </li>
+            </li>-->
 
             <li class="active" onclick="redirect('{{ route('accounts.uploaded') }}')">
                 <span class="primary icon gray">

@@ -41,7 +41,7 @@
 </head>
 <body>
     <main>
-        <section>
+        <section @if(isset($section_class)) class="{{ $section_class }}"@endif>
             @yield('content')
             <footer>
                 <ul class="list middle">
@@ -50,6 +50,7 @@
                             <p></p>
                             <p class="center">
                                 <a href="{{ route('accounts.login') }}">Account Panel</a>
+                                - <a href="/api">API & Tools</a>
                                 - <a href="https://movim.eu/">movim.eu</a>
                             </p>
                         </div>

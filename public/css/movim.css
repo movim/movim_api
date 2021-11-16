@@ -21,6 +21,14 @@ main section {
     z-index: 1;
 }
 
+article section {
+    padding: 0;
+}
+
+main section.large {
+    max-width: 800px;
+}
+
 .container {
     padding: 1.5rem 2rem;
     margin-top: 1rem;

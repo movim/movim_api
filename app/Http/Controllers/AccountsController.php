@@ -87,7 +87,7 @@ class AccountsController extends Controller
         ]);
     }
 
-    public function authenticate(Request $request, string $key)
+    public function authenticate(string $key)
     {
         $account = Account::where('auth_key', $key)->firstOrFail();
 
@@ -115,7 +115,7 @@ class AccountsController extends Controller
 
     public function setEmailToXMPP(Request $request, $enabled)
     {
-        $account = $request->user();
+        /*$account = $request->user();
         $account->email_notification = (bool)$enabled;
         $account->save();
 
@@ -128,7 +128,7 @@ class AccountsController extends Controller
                 : 'The Email To XMPP feature has been disabled for your account'
         );
 
-        return redirect()->route('accounts.emailToXMPP');
+        return redirect()->route('accounts.emailToXMPP');*/
     }
 
     public function changePassword(Request $request)
