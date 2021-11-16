@@ -37,8 +37,8 @@
 
             <div>
                 <br />
-                {!! NoCaptcha::renderJs() !!}
-                {!! NoCaptcha::display() !!}
+                {!! HCaptcha::renderJs() !!}
+                {!! HCaptcha::display() !!}
             </div>
 
             {{ Form::submit('Change', ['class'=>'button color oppose', 'style' => 'margin-top: 3rem;'])}}

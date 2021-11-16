@@ -188,7 +188,7 @@ return [
 
         Kozz\Laravel\Providers\Guzzle::class,
         Collective\Html\HtmlServiceProvider::class,
-        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Scyllaly\HCaptcha\HCaptchaServiceProvider::class,
     ],
 
     /*
@@ -240,6 +240,7 @@ return [
         'Guzzle' => Kozz\Laravel\Facades\Guzzle::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'HCaptcha' => Scyllaly\HCaptcha\Facades\HCaptcha::class,
     ],
 
 ];

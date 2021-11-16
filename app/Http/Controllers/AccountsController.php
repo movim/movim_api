@@ -141,7 +141,7 @@ class AccountsController extends Controller
     public function setChangePassword(Request $request)
     {
         $this->validate($request, [
-            'g-recaptcha-response'  => 'required|captcha',
+            'h-captcha-response'    => 'required|HCaptcha',
             'password'              => 'required|confirmed|min:8'
         ]);
 
@@ -203,7 +203,7 @@ class AccountsController extends Controller
             'username'              => 'required|alpha_dash|between:4,20',
             'legals'                => 'required',
             'domain'                => ['required', Rule::in($this->domains)],
-            'g-recaptcha-response'  => 'required|captcha',
+            'h-captcha-response'    => 'required|HCaptcha',
             'password'              => 'required|confirmed|min:8'
         ]);
 
