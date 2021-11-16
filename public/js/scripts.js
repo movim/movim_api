@@ -11,7 +11,7 @@ function checkUsername() {
         var resolved = document.querySelector('#resolved_username_block');
         var username = document.querySelector('input[name=username]');
 
-        fetch('/accounts/resolve/' + username.value)
+        fetch('/resolve/' + username.value)
             .then(response => response.json())
             .then(data => {
                 if (data.username !== '') {
