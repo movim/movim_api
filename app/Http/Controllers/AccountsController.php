@@ -10,7 +10,6 @@ use Illuminate\Validation\Rule;
 
 use GuzzleHttp\Exception\RequestException;
 
-use App\Pod;
 use App\Account;
 use App\Libraries\EjabberdAPI;
 use App\Libraries\StringPrep;
@@ -255,10 +254,7 @@ class AccountsController extends Controller
 
             return view('accounts.created', [
                 'jid'       => $username.'@'.$request->get('domain'),
-                'referer'   => $request->get('referer'),
-                'pods'      => Pod::where('activated','=', 1)
-                                  ->where('favorite','=',1)
-                                  ->get()
+                'referer'   => $request->get('referer')
             ]);
         } catch (RequestException $exception) {
             if ($exception->getCode() == 409) {

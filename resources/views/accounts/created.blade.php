@@ -56,19 +56,17 @@
         @if(empty($referer))
 
         <ul class="list active">
-            @foreach ($pods as $pod)
-                <a class="block" href="{{ $pod->url }}">
-                    <li>
-                        <span class="control icon gray">
-                            <i class="material-icons">chevron_right</i>
-                        </span>
-                        <div>
-                            <p>{{ parse_url($pod->url)['host'] }}</p>
-                            <p>{{ $pod->description }}</p>
-                        </div>
-                    </li>
-                </a>
-            @endforeach
+            <a class="block" href="https://mov.im/">
+                <li>
+                    <span class="control icon gray">
+                        <i class="material-icons">chevron_right</i>
+                    </span>
+                    <div>
+                        <p>mov.im</p>
+                        <p>Official Movim Pod</p>
+                    </div>
+                </li>
+            </a>
         </ul>
 
         @endif
