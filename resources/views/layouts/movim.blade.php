@@ -61,6 +61,6 @@
     </main>
 
     <!-- Scripts -->
-    <script src="/js/scripts.js?1"></script>
+    <script src="/js/scripts.js?2"></script>
 </body>
 </html>
