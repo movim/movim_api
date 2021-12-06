@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecbf3dd8929ff97baa35ae14c2ee91ab",
+    "content-hash": "a4f6ae31d0d2bd0800c2bb8630b35628",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -1684,12 +1684,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/edhelas/feedcleaner.git",
-                "reference": "80b900"
+                "reference": "188496"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/edhelas/feedcleaner/zipball/80b900",
-                "reference": "80b900",
+                "url": "https://api.github.com/repos/edhelas/feedcleaner/zipball/188496",
+                "reference": "188496",
                 "shasum": ""
             },
             "require": {
