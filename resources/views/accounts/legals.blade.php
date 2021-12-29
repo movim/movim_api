@@ -7,7 +7,7 @@
         <li>
             <div>
                 <p class="center">Legal disclaimer</p>
-                <p class="center">Updated on Wednesday 21th of December 2016</p>
+                <p class="center">Updated on Thursday 30th of December 2021</p>
             </div>
         </li>
     </ul>
