@@ -30,7 +30,7 @@
         <li>The mov.im Movim instance</li>
     </ul>
 
-    <h4>Hosted in France in a personnal self-hosted server</h4>
+    <h4>Hosted in France on a personnal self-hosted server</h4>
     <ul>
         <li>The XMPP services and Movim instance database backups</li>
     </ul>
@@ -132,6 +132,8 @@
     <h2>2. Your rights</h2>
 
     <p>Our services are hosted in the European Union, therefore the GDPR applies to all the data we manage linked to your account or activities.</p>
+
+    <p>You can therefore ask us to:</p>
 
     <h3>2.1. Remove content concerning you</h3>
     <p>This includes your account and related contents and your files stored on our system.</p>
