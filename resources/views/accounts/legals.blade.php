@@ -30,7 +30,7 @@
         <li>The mov.im Movim instance</li>
     </ul>
 
-    <h4>Hosted in France on a personnal self-hosted server</h4>
+    <h4>Hosted in France on a personal self-hosted server</h4>
     <ul>
         <li>The XMPP services and Movim instance database backups</li>
     </ul>
@@ -59,8 +59,8 @@
         <li><b>Contacts</b> Your contact list (XMPP Roster)</li>
         <li>All the data published by Movim or other XMPP clients you are using on your XMPP account (OMEMO public keys, bookmarks.)</li>
     </ul>
+    <p>All the data above are stored indefinitely on our services until you destroy your account, see <a href="#withdrawal">Withdrawal</a>.</p>
 
-    <p>All the data above are store indefinitely on our services until you destroy your account, see <a href="#withdrawal">Withdrawal</a>.</p>
 
     <p>For XMPP accounts using our mov.im public Movim instance:</p>
     <ul>
@@ -87,7 +87,7 @@
     <p>Some limits are also applied to our services:</p>
 
     <ul>
-        <li><b>File Upload</b> are limited to 10Mo per file. There is no other limit (total volume or time) regarding the storage of those files</li>
+        <li><b>File Upload</b> are limited to 10MB per file. There is no other limit (total volume or time) regarding the storage of those files</li>
         <li><b>XMPP and HTTP connections</b> we have some connections limitations in place, both on our XMPP services and web services to limit the bandwith and amount of requests per user</li>
     </ul>
 
