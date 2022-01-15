@@ -35,6 +35,14 @@
         <li>The XMPP services and Movim instance database backups</li>
     </ul>
 
+    <p>Both services are operated by us since the 16 August 2017.</p>
+
+    <p><em>We</em>, <em>us</em> or <em>The Movim team</em> is designating:</p>
+
+    <ul>
+        <li>Timothée Jaussoin - Administrator of the services and maintainer of Movim</li>
+    </ul>
+
     <h1>About</h1>
 
     <p>All our services are offered for free.</p>
@@ -60,7 +68,6 @@
         <li>All the data published by Movim or other XMPP clients you are using on your XMPP account (OMEMO public keys, bookmarks.)</li>
     </ul>
     <p>All the data above are stored as long as we can on our services until you destroy your account, see <a href="#withdrawal">Withdrawal</a>.</p>
-
 
     <p>For XMPP accounts using our mov.im public Movim instance:</p>
     <ul>
@@ -89,6 +96,7 @@
     <ul>
         <li><b>File Upload</b> is limited to 10MB per file. There is no other limit (total volume or time) regarding the storage of those files</li>
         <li><b>XMPP and HTTP connections</b> we have some connection limitations in place, both on our XMPP services and web services to limit the bandwidth and amount of requests per user</li>
+        <li><b>XMPP registration</b> also known as "In-band registration" is disabled on our services. To register an account you must use our <a href="{{ route('accounts.register') }}">Registration page</a></li>
     </ul>
 
     <h1 id="terms_conditions">Terms and Conditions</h2>
