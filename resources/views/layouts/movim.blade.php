@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://mov.im/theme/css/style.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/elevation.css?1" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/notification.css?1" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/header.css?1" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/listn.css?1" type="text/css" />

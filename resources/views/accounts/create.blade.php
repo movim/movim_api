@@ -94,7 +94,7 @@
                 <div>
                     <ul class="list">
                         <li>
-                            <span class="primary">
+                            <span class="control">
                                 <div class="action">
                                     <div class="checkbox">
                                     {{ Form::checkbox('legals', 'agreed', false, ['id' => 'legals']) }}
