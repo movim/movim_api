@@ -14,7 +14,6 @@
         "laravelcollective/html": "^6.0",
         "kozz/laravel-guzzle-provider": "~6.0",
         "ezyang/htmlpurifier": "^4.12",
-        "php-imap/php-imap": "^3.0",
         "guzzlehttp/guzzle": "^6.5",
         "doctrine/dbal": "^2.10",
         "laravel/ui": "^2.0",
