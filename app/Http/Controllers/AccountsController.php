@@ -228,13 +228,13 @@ class AccountsController extends Controller
             $account->username = $username;
             $account->ip = $_SERVER['REMOTE_ADDR'];
 
-            if ($geo) {
+            /*if ($geo) {
                 $account->country_code = $geo['country_code'];
                 $account->region = $geo['region'];
                 $account->city = utf8_encode($geo['city']);
                 $account->latitude = $geo['latitude'];
                 $account->longitude = $geo['longitude'];
-            }
+            }*/
 
             if (config('app.xmpp_admin_notify')) {
                 $notify = $username.'@'.$request->get('domain').' registered';
@@ -269,9 +269,9 @@ class AccountsController extends Controller
         }
     }
 
-    private function checkRestricted($geo)
+    /*private function checkRestricted($geo)
     {
         $restrictedCountries = explode(',', config('app.restricted_countries'));
         return (is_array($geo) && in_array($geo['country_code'], $restrictedCountries));
-    }
+    }*/
 }
