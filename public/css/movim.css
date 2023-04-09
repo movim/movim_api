@@ -17,8 +17,9 @@ main::before {
 
 main section {
     width: 100%;
-    max-width: 460px;
+    max-width: 640px;
     z-index: 1;
+    box-sizing: border-box;
 }
 
 article section {
@@ -26,7 +27,10 @@ article section {
 }
 
 main section.large {
-    max-width: 800px;
+    max-width: 1024px;
+    background-color: white;
+    box-shadow: var(--elevation-1);
+    padding: 1rem;
 }
 
 .container {
@@ -81,4 +85,29 @@ header {
 
 #registration_form .email_info {
     min-height: 7rem;
+}
+
+ul.list.servers li:not(.subheader) {
+    flex-direction: column;
+    align-items: baseline;
+}
+
+ul.list.servers li:not(.subheader) > div {
+    width: 100%;
+    flex: 0;
+}
+
+ul.list.servers li:not(.subheader) a.chip {
+    float: right;
+    margin-top: -7rem;
+}
+
+ul.list.servers li:not(.subheader) > img:not(.primary):not(.control):not(.bubble):not(.main) {
+    margin-top: -1rem;
+    margin-bottom: -0.5rem;
+    max-height: 20rem;
+    object-fit: cover;
+    margin-left: -2rem;
+    max-width: calc(100% + 4rem);
+    width: calc(100% + 4rem);
 }

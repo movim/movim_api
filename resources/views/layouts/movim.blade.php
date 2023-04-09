@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,6 +31,8 @@
     <link rel="stylesheet" href="https://mov.im/theme/css/fonts.css?1" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/title.css?1" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/typo.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/elevation.css?1" type="text/css" />
+    <link rel="stylesheet" href="https://mov.im/theme/css/chip.css?1" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/material-design-iconic-font.min.css?1" type="text/css" />
 
     <link rel="stylesheet" href="/css/movim.css?4" type="text/css" />
@@ -40,9 +43,23 @@
         ]); ?>
     </script>
 </head>
+
 <body>
     <main>
-        <section @if(isset($section_class)) class="{{ $section_class }}"@endif>
+        <section @if(isset($section_class)) class="{{ $section_class }}" @endif>
+            <ul class="list thick">
+                <li>
+                    <span class="primary icon gray">
+                        <img src="https://movim.eu/img/vectorial.svg">
+                    </span>
+                    <span class="control icon active gray" onclick="redirect('{{ route('accounts.panel') }}')">
+                        <i class="material-icons">person</i>
+                    </span>
+                    <div>
+                        <p>Movim Network</p>
+                    </div>
+                </li>
+            </ul>
             @yield('content')
             <footer>
                 <ul class="list middle">
@@ -64,4 +81,5 @@
     <!-- Scripts -->
     <script src="/js/scripts.js?2"></script>
 </body>
+
 </html>

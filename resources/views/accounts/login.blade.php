@@ -57,7 +57,7 @@
                     <p></p>
                     <p class="all">
                         The account management panel is only there to manage your Movim XMPP account.
-                        If you actually want to use your account, please login with your standard credentials using <a target="_blank" href="https://movim.eu/">Movim</a> or <a target="_blank" href="https://xmpp.org/software/clients.html">any other XMPP client</a>.
+                        If you actually want to use your account, please login with your standard credentials using <a target="_blank" href="https://movim.eu/">Movim</a> or <a target="_blank" href="https://xmpp.org/software/">any other XMPP client</a>.
                     </p>
                 </div>
             </li>

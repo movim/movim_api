@@ -13,7 +13,7 @@
         "laravelcollective/html": "^6.0",
         "kozz/laravel-guzzle-provider": "~7.0",
         "ezyang/htmlpurifier": "^4.12",
-        "guzzlehttp/guzzle": "^7.0.1",
+        "guzzlehttp/guzzle": "^7.5",
         "doctrine/dbal": "^3.0",
         "laravel/ui": "^4.2",
         "scyllaly/hcaptcha": "^4.4",
