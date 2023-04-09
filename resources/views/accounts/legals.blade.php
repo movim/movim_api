@@ -13,8 +13,7 @@
     </ul>
 </header>
 
-<div class="card shadow">
-    <div class="block container">
+<div class="block container">
 
 <article>
     <section class="large">

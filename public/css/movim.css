@@ -1,42 +1,31 @@
-main {
-    background-color: #EEE;
-}
-
-main::before {
-    content: "";
-    background-image: url(../img/network.svg);
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.5;
-    pointer-events: none;
-}
-
-main section {
-    width: 100%;
-    max-width: 640px;
-    z-index: 1;
-    box-sizing: border-box;
+body {
+    background-color: rgb(var(--movim-background));
+    overflow-y: scroll;
+    height: auto;
 }
 
 article section {
     padding: 0;
 }
 
-main section.large {
+section.large {
+    max-width: 1024px;
+    background-color: rgb(var(--movim-background-main));
+    box-shadow: var(--elevation-2);
+
+    margin: 0 auto;
+    display: block;
     max-width: 1024px;
     background-color: white;
-    box-shadow: var(--elevation-1);
-    padding: 1rem;
+
+    box-sizing: border-box;
+
+    min-height: 100vh;
 }
 
-.container {
-    padding: 1.5rem 2rem;
-    margin-top: 1rem;
-    padding-bottom: 2rem;
+section .container {
+    max-width: 640px;
+    margin: 0 auto;
 }
 
 header {

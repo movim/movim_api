@@ -16,34 +16,32 @@
     </ul>
 </header>
 
-<div class="card shadow">
-    <div class="block container">
-        {{ Form::open([
-            'method' => 'POST',
-            'action' => ['AccountsController@setChangePassword'],
-            'class' => 'padded_top_bottom',
-            'id' => 'registration_form'
-        ]) }}
-            @include('parts.errors')
+<div class="block container">
+    {{ Form::open([
+        'method' => 'POST',
+        'action' => ['AccountsController@setChangePassword'],
+        'class' => 'padded_top_bottom',
+        'id' => 'registration_form'
+    ]) }}
+        @include('parts.errors')
 
-            <div>
-                {{ Form::label('password', 'Password') }}
-                {{ Form::password('password', ['required', 'placeholder'=>'Your new password']) }}
-            </div>
-            <div>
-                {{ Form::label('password_confirmation', 'Confirm your password') }}
-                {{ Form::password('password_confirmation', ['required', 'placeholder'=>'Confirm your password', 'style' => 'margin-top: -1rem']) }}
-            </div>
+        <div>
+            {{ Form::label('password', 'Password') }}
+            {{ Form::password('password', ['required', 'placeholder'=>'Your new password']) }}
+        </div>
+        <div>
+            {{ Form::label('password_confirmation', 'Confirm your password') }}
+            {{ Form::password('password_confirmation', ['required', 'placeholder'=>'Confirm your password', 'style' => 'margin-top: -1rem']) }}
+        </div>
 
-            <div>
-                <br />
-                {!! HCaptcha::renderJs() !!}
-                {!! HCaptcha::display() !!}
-            </div>
+        <div>
+            <br />
+            {!! HCaptcha::renderJs() !!}
+            {!! HCaptcha::display() !!}
+        </div>
 
-            {{ Form::submit('Change', ['class'=>'button color oppose', 'style' => 'margin-top: 3rem;'])}}
-        {{ Form::close() }}
-    </div>
+        {{ Form::submit('Change', ['class'=>'button color oppose', 'style' => 'margin-top: 3rem;'])}}
+    {{ Form::close() }}
 </div>
 
 @endsection

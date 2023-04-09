@@ -14,7 +14,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Movim Network'),
+    'name' => env('APP_NAME', 'Join Movim'),
 
     /*
     |--------------------------------------------------------------------------

@@ -44,9 +44,8 @@
     </script>
 </head>
 
-<body>
-    <main>
-        <section @if(isset($section_class)) class="{{ $section_class }}" @endif>
+<body class="">
+        <section class="large" @if(isset($section_class)) class="{{ $section_class }}" @endif>
             <ul class="list thick">
                 <li>
                     <span class="primary icon gray">
@@ -56,7 +55,7 @@
                         <i class="material-icons">person</i>
                     </span>
                     <div>
-                        <p>Movim Network</p>
+                        <p><a href="{{ route('servers.index') }}">{{ config('app.name') }}</a></p>
                     </div>
                 </li>
             </ul>
@@ -76,7 +75,6 @@
                 </ul>
             </footer>
         </section>
-    </main>
 
     <!-- Scripts -->
     <script src="/js/scripts.js?2"></script>

@@ -22,14 +22,14 @@
         <div>
             <p></p>
             <p>
-                <a class="chip outline"><i class="material-icons icon green">check</i> Open</a> servers can be joined using any XMPP account,
-                <a class="chip outline"><i class="material-icons icon red">check</i> Private</a> servers requires a specific XMPP account to join
+                <a href="#" class="chip outline"><i class="material-icons icon green">check</i> Open</a> servers can be joined using any XMPP account,
+                <a href="#" class="chip outline"><i class="material-icons icon red">check</i> Private</a> servers requires a specific XMPP account to join
             </p>
         </div>
     </li>
 </ul>
 
-<ul class="list card middle flex third large servers">
+<ul class="list card middle flex third servers">
     <li class="subheader block large">
         <div>
             <p>

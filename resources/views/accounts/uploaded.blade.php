@@ -16,45 +16,43 @@
     </ul>
 </header>
 
-<div class="card shadow">
-    <div class="block container">
-        <ul class="list middle">
+<div class="block container">
+    <ul class="list middle">
+        <li>
+            <span class="primary icon gray bubble">
+                <i class="material-icons">info</i>
+            </span>
+            <div>
+                <p>Informations</p>
+                <p>Browse all the files you uploaded using your XMPP account</p>
+            </div>
+        </li>
+    </ul>
+    <br />
+    <hr />
+    <ul class="list middle">
+        <li class="subheader">
+            <div>
+                <p>Files</p>
+            </div>
+        </li>
+        @foreach ($account->getFiles() as $file)
             <li>
-                <span class="primary icon gray bubble">
-                    <i class="material-icons">info</i>
+                <span class="control icon gray active">
+                    <a href="{{ $file->uri }}" target="_blank">
+                        <i class="material-icons">insert_drive_file</i>
+                    </a>
                 </span>
                 <div>
-                    <p>Informations</p>
-                    <p>Browse all the files you uploaded using your XMPP account</p>
+                    <p class="normal line">
+                        <span class="info">{{ $file->formatedSize }}</span>
+                        {{ $file->name }}
+                    </p>
+                    <p>{{ $file->mtime->toDateTimeString() }}</p>
                 </div>
             </li>
-        </ul>
-        <br />
-        <hr />
-        <ul class="list middle">
-            <li class="subheader">
-                <div>
-                    <p>Files</p>
-                </div>
-            </li>
-            @foreach ($account->getFiles() as $file)
-                <li>
-                    <span class="control icon gray active">
-                        <a href="{{ $file->uri }}" target="_blank">
-                            <i class="material-icons">insert_drive_file</i>
-                        </a>
-                    </span>
-                    <div>
-                        <p class="normal line">
-                            <span class="info">{{ $file->formatedSize }}</span>
-                            {{ $file->name }}
-                        </p>
-                        <p>{{ $file->mtime->toDateTimeString() }}</p>
-                    </div>
-                </li>
-            @endforeach
-        </ul>
-    </div>
+        @endforeach
+    </ul>
 </div>
 
 @endsection
