@@ -15,7 +15,7 @@
     </ul>
 </header>
 
-<div class="top_padding">
+<div class="block container">
     <ul class="list thick">
         <li>
             <span class="primary icon bubble color green">
