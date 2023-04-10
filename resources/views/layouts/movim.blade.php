@@ -36,6 +36,11 @@
     <link rel="stylesheet" href="https://mov.im/theme/css/material-design-iconic-font.min.css?2" type="text/css" />
 
     <link rel="stylesheet" href="/css/movim.css?5" type="text/css" />
+
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="icon" type="image/png" href="img/48.png" sizes="48x48">
+    <link rel="icon" type="image/png" href="img/96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/128.png" sizes="128x128">
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
