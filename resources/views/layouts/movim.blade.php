@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://movim.eu/css/fonts.css?1" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/material-design-iconic-font.min.css?2" type="text/css" />
 
-    <link rel="stylesheet" href="/css/movim.css?6" type="text/css" />
+    <link rel="stylesheet" href="/css/movim.css?7" type="text/css" />
 
     <link rel="shortcut icon" href="img/favicon.ico" />
     <link rel="icon" type="image/png" href="img/48.png" sizes="48x48">
