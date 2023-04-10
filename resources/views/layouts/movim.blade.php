@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }} @isset($title) · {{ $title }} @endisset</title>
+    <title>{{ config('app.name', 'Laravel') }}@isset($title) · {{ $title }} @endisset</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://mov.im/theme/css/style.css?2" type="text/css" />
@@ -37,6 +37,25 @@
     <link rel="stylesheet" href="https://mov.im/theme/css/material-design-iconic-font.min.css?2" type="text/css" />
 
     <link rel="stylesheet" href="/css/movim.css?7" type="text/css" />
+
+    <meta name="description" property="description" content="Explore and join the Movim network">
+
+    <meta property="og:url" content="https://join.movim.eu">
+    <meta property="og:title" content="{{ config('app.name', 'Laravel') }} @isset($title)· {{ $title }} @endisset">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ config('app.name', 'Laravel') }}">
+    <meta property="og:description" content="Explore and join the Movim network">
+    <meta property="og:image" content="/img/banner.png"/>
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@Movim_Network">
+    <meta name="twitter:title" content="{{ config('app.name', 'Laravel') }} @isset($title)· {{ $title }} @endisset">
+    <meta name="twitter:creator" content="@edhelas">
+    <meta name="twitter:domain" content="join.movim.eu">
+    <meta name="twitter:description" content="Explore and join the Movim network">
+    <meta name="twitter:image" content="/img/banner.png"/>
+
+    <meta name="image" property="image" content="/img/banner.png">
 
     <link rel="shortcut icon" href="img/favicon.ico" />
     <link rel="icon" type="image/png" href="img/48.png" sizes="48x48">
