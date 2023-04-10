@@ -4,12 +4,39 @@ body {
     height: auto;
 }
 
+body::before {
+    background-image: url('https://movim.eu/img/network.svg'), radial-gradient(circle farthest-corner at right bottom, rgb(255, 87, 34) 0, rgb(65, 63, 181) 90%), url('https://movim.eu/img/network.svg');
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+
 article section {
     padding: 0;
 }
 
-section.large {
+header section {
     max-width: 1024px;
+    margin: 0 auto;
+    display: block;
+    max-width: 1024px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+header section #app_title {
+    font-weight: 300;
+font-size: 4rem;
+margin-left: 2rem;
+}
+
+header section a:link,
+header section a:visited {
+    color: white;
+}
+
+section.large {
     background-color: rgb(var(--movim-background-main));
     box-shadow: var(--elevation-2);
 
@@ -19,7 +46,8 @@ section.large {
     background-color: white;
 
     box-sizing: border-box;
-
+    padding: 1rem;
+    border-radius: 1rem 1rem 0 0;
     min-height: 100vh;
 }
 

@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="https://mov.im/theme/css/typo.css?2" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/elevation.css?2" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/chip.css?2" type="text/css" />
+    <link rel="stylesheet" href="https://movim.eu/css/fonts.css?1" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/material-design-iconic-font.min.css?2" type="text/css" />
 
     <link rel="stylesheet" href="/css/movim.css?6" type="text/css" />
@@ -50,39 +51,43 @@
 </head>
 
 <body class="">
-        <section class="large" @if(isset($section_class)) class="{{ $section_class }}" @endif>
+    <header>
+        <section>
             <ul class="list thick">
+            <li>
+                <span class="primary icon gray">
+                    <img src="https://movim.eu/img/vectorial.svg">
+                </span>
+                <span class="control icon active color blue bubble" onclick="redirect('{{ route('accounts.panel') }}')">
+                    <i class="material-icons">person</i>
+                </span>
+                <div>
+                    <p><a id="app_title" href="{{ route('servers.index') }}">{{ config('app.name') }}</a></p>
+                </div>
+            </li>
+        </ul>
+        </section>
+    </header>
+    <section class="large" @if(isset($section_class)) class="{{ $section_class }}" @endif>
+        @yield('content')
+
+        <footer>
+            <hr />
+            <ul class="list middle">
                 <li>
-                    <span class="primary icon gray">
-                        <img src="https://movim.eu/img/vectorial.svg">
-                    </span>
-                    <span class="control icon active gray" onclick="redirect('{{ route('accounts.panel') }}')">
-                        <i class="material-icons">person</i>
-                    </span>
                     <div>
-                        <p><a href="{{ route('servers.index') }}">{{ config('app.name') }}</a></p>
+                        <p class="center">Copyright 2008 - 2023 – <a href="https://edhelas.movim.eu">Timothée Jaussoin</a></p>
+                        <p class="center">
+                            <a href="{{ route('accounts.login') }}">Account Panel</a>
+                            - <a href="/api">API & Tools</a>
+                            - <a href="https://github.com/movim/movim_api">Github sources</a>
+                            - <a href="https://movim.eu/">movim.eu</a>
+                        </p>
                     </div>
                 </li>
             </ul>
-            @yield('content')
-
-            <footer>
-                <hr />
-                <ul class="list middle">
-                    <li>
-                        <div>
-                            <p class="center">Copyright 2008 - 2023 – <a href="https://edhelas.movim.eu">Timothée Jaussoin</a></p>
-                            <p class="center">
-                                <a href="{{ route('accounts.login') }}">Account Panel</a>
-                                - <a href="/api">API & Tools</a>
-                                - <a href="https://github.com/movim/movim_api">Github sources</a>
-                                - <a href="https://movim.eu/">movim.eu</a>
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </footer>
-        </section>
+        </footer>
+    </section>
 
     <!-- Scripts -->
     <script src="/js/scripts.js?2"></script>
