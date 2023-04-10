@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\RefreshServers;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +14,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //\App\Console\Commands\ImapToXMPP::class
+        \App\Console\Commands\RefreshServers::class
     ];
 
     /**
@@ -24,8 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command(RefreshServers::class)->hourly();
     }
 
     /**

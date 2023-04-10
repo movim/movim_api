@@ -1,4 +1,4 @@
-@extends('layouts.movim', ['section_class' => 'large'])
+@extends('layouts.movim', ['title' => 'Servers list'])
 
 @section('content')
 
@@ -10,7 +10,7 @@
                 Add your server
             </a>
             <p>Servers</p>
-            <p>Movim is federated, the network is composed by many <b>servers</b>.<br />You can choose to join the one you prefer and still share with the users of all the others.</p>
+            <p class="all">Movim is federated, the network is composed by many <b>servers</b>.<br />You can choose to join the one you prefer and still share with the users of all the others.</p>
         </div>
     </li>
 </ul>
@@ -21,9 +21,9 @@
     <li>
         <div>
             <p></p>
-            <p>
+            <p class="all">
                 <a href="#" class="chip outline"><i class="material-icons icon green">check</i> Open</a> servers can be joined using any XMPP account,
-                <a href="#" class="chip outline"><i class="material-icons icon red">check</i> Private</a> servers requires a specific XMPP account to join
+                <a href="#" class="chip outline"><i class="material-icons icon red">check</i> Restricted</a> servers requires a specific XMPP account to join
             </p>
         </div>
     </li>
@@ -43,7 +43,7 @@
             <img src="{{ $server->banner }}"/>
             <div>
                 @if ($server->whitelist()->count() > 0)
-                    <a class="chip outline"><i class="material-icons icon red">check</i> Private</a>
+                    <a class="chip outline"><i class="material-icons icon red">check</i> Restricted</a>
                 @else
                     <a class="chip outline"><i class="material-icons icon green">check</i> Open</a>
                 @endif
@@ -57,6 +57,15 @@
             </div>
         </li>
     @endforeach
+</ul>
+
+<ul class="list">
+    <li>
+        <div>
+            <p></p>
+            <p>The servers list is refreshed every hour</p>
+        </div>
+    </li>
 </ul>
 
 @endsection

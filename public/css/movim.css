@@ -23,6 +23,14 @@ section.large {
     min-height: 100vh;
 }
 
+footer {
+    margin-top: 3rem;
+}
+
+footer hr {
+    margin-bottom: 2rem;
+}
+
 section .container {
     max-width: 640px;
     margin: 0 auto;

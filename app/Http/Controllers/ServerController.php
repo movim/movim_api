@@ -69,44 +69,16 @@ class ServerController extends Controller
         ]);
     }
 
-    public function createConfirmation(Request $request, string $token)
+    public function createConfirmation(string $token)
     {
         $addServerToken = AddServerToken::where('token', $token)->firstOrFail();
-
-        try {
-            $response = Http::timeout(5)->get($addServerToken->domain . '/?infos');
-        } catch (\Throwable $th) {
-            return abort(404, 'Invalid server');
-        }
-
-        $json = $response->json();
 
         if (Server::where('domain', $addServerToken->domain)->first()) {
             return abort(404, 'The server already exists');
         }
 
         $server = new Server;
-        $server->domain = $addServerToken->domain;
-        $server->description = $json['description'];
-        $server->population = $json['population'];
-        $server->connected = $json['connected'];
-        $server->banner = $json['banner'];
-        $server->version = $json['version'];
-        $server->save();
-
-        foreach ($json['admins'] as $admin) {
-            $serverAdmin = new ServerAdmin;
-            $serverAdmin->jid = $admin;
-            $serverAdmin->server_id = $server->id;
-            $serverAdmin->save();
-        }
-
-        foreach ($json['whitelist'] as $whitelist) {
-            $serverWhitelist = new ServerWhitelist;
-            $serverWhitelist->xmpp_domain = $whitelist;
-            $serverWhitelist->server_id = $server->id;
-            $serverWhitelist->save();
-        }
+        $server->requestRefresh($addServerToken->domain);
 
         $addServerToken->used = true;
         $addServerToken->save();

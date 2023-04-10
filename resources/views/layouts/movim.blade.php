@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="https://mov.im/theme/css/chip.css?2" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/material-design-iconic-font.min.css?2" type="text/css" />
 
-    <link rel="stylesheet" href="/css/movim.css?5" type="text/css" />
+    <link rel="stylesheet" href="/css/movim.css?6" type="text/css" />
 
     <link rel="shortcut icon" href="img/favicon.ico" />
     <link rel="icon" type="image/png" href="img/48.png" sizes="48x48">
@@ -65,14 +65,17 @@
                 </li>
             </ul>
             @yield('content')
+
             <footer>
+                <hr />
                 <ul class="list middle">
                     <li>
                         <div>
-                            <p></p>
+                            <p class="center">Copyright 2008 - 2023 – <a href="https://edhelas.movim.eu">Timothée Jaussoin</a></p>
                             <p class="center">
                                 <a href="{{ route('accounts.login') }}">Account Panel</a>
                                 - <a href="/api">API & Tools</a>
+                                - <a href="https://github.com/movim/movim_api">Github sources</a>
                                 - <a href="https://movim.eu/">movim.eu</a>
                             </p>
                         </div>
