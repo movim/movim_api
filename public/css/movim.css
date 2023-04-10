@@ -27,8 +27,8 @@ header section {
 
 header section #app_title {
     font-weight: 300;
-font-size: 4rem;
-margin-left: 2rem;
+    font-size: 4rem;
+    padding-left: 2rem;
 }
 
 header section a:link,

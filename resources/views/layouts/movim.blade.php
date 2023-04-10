@@ -56,7 +56,7 @@
             <ul class="list thick">
             <li>
                 <span class="primary icon gray">
-                    <img src="https://movim.eu/img/vectorial.svg">
+                    <a href="{{ route('servers.index') }}"><img src="https://movim.eu/img/vectorial.svg"></a>
                 </span>
                 <span class="control icon active color blue bubble" onclick="redirect('{{ route('accounts.panel') }}')">
                     <i class="material-icons">person</i>
