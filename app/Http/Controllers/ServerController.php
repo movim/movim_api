@@ -45,6 +45,10 @@ class ServerController extends Controller
 
         $json = $response->json();
 
+        if (!version_compare(substr($json['version'], 1), '0.21.1', '>=')) {
+            return redirect()->back()->withErrors(['bad_version' => 'You need to have Movim v0.21.1 minimum']);
+        }
+
         if (!is_array($json)) {
             return redirect()->back()->withErrors(['not_a_server' => 'The domain doesn\'t host a valid Movim server']);
         }
