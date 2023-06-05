@@ -12,6 +12,7 @@
     <title>{{ config('app.name', 'Laravel') }}@isset($title) · {{ $title }} @endisset</title>
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://mov.im/colors?t=1685554603" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/style.css?2" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/elevation.css?2" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/notification.css?2" type="text/css" />
