@@ -18,8 +18,9 @@
                     <ol>
                         <li>Ensure that the entered domain or subdomain is publicly available and that Movim is setup at the root of it (sub-directories are not supported).</li>
                         <li>Ensure that you have at least one administrator enabled on your instance, we will send a unique token as a XMPP message to them to validate the registration.</li>
+                        <li>Ensure that your domain is configured with HTTPS.</li>
                         <li>Ensure that your server details are properly filled in the admin panel (description, banner, authorized XMPP servers...).</li>
-                        <li>Movim 0.21.1 minimum is required.</li>
+                        <li>Movim 0.22.1 minimum is required.</li>
                     </ol>
                 </p>
             </div>

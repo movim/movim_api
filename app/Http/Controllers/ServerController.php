@@ -38,14 +38,14 @@ class ServerController extends Controller
 
         // Validation
         try {
-            $response = Http::timeout(5)->get($request->get('domain') . '/?infos');
+            $response = Http::timeout(5)->get('https://' . $request->get('domain') . '/infos');
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors(['server_unreachable' => 'The server cannot be reached']);
         }
 
         $json = $response->json();
 
-        if (!version_compare(substr($json['version'], 1), '0.21.1', '>=')) {
+        if (!version_compare(substr($json['version'], 1), '0.22.1', '>=')) {
             return redirect()->back()->withErrors(['bad_version' => 'You need to have Movim v0.21.1 minimum']);
         }
 

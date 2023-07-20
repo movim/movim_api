@@ -22,7 +22,7 @@ class Server extends Model
     public function requestRefresh(string $domain)
     {
         try {
-            $response = Http::timeout(5)->get($domain . '/?infos');
+            $response = Http::timeout(5)->get('https://' . $domain . '/infos');
         } catch (\Throwable $th) {
             return abort(404, 'Invalid server');
         }
