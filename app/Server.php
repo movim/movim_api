@@ -24,10 +24,14 @@ class Server extends Model
         try {
             $response = Http::timeout(5)->get('https://' . $domain . '/infos');
         } catch (\Throwable $th) {
-            return abort(404, 'Invalid server');
+            return abort(404, 'Invalid server ' . $domain);
         }
 
         $json = $response->json();
+
+        if (!is_array($json)) {
+            return abort(404, 'Invalid JSON ' . $domain);
+        }
 
         $this->domain = $domain;
         $this->description = $json['description'];
