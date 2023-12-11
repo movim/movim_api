@@ -125,6 +125,7 @@ ul.list.servers li:not(.subheader) > div {
 ul.list.servers li:not(.subheader) a.chip {
     float: right;
     margin-top: -7rem;
+    position: relative;
 }
 
 ul.list.servers li:not(.subheader) > img:not(.primary):not(.control):not(.bubble):not(.main) {
