@@ -132,7 +132,7 @@ ul.list.servers li:not(.subheader) > img:not(.primary):not(.control):not(.bubble
     margin-bottom: -0.5rem;
     max-height: 20rem;
     object-fit: cover;
-    margin-left: -2rem;
+    transform: translateX(-2rem);
     max-width: calc(100% + 4rem);
     width: calc(100% + 4rem);
 }
