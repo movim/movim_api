@@ -140,8 +140,8 @@ ul#servers li > img {
     margin-top: -1px;
 }
 
-ul#servers li.block div p:first-child,
-ul#servers li.block div p:nth-child(2) {
+ul#servers li.block div p:first-of-type,
+ul#servers li.block div p:nth-of-type(2) {
     max-width: 75%;
     overflow: hidden;
     text-overflow: ellipsis;
