@@ -139,10 +139,3 @@ ul#servers li > img {
     padding: 0;
     margin-top: -1px;
 }
-
-ul#servers li.block div p:first-of-type,
-ul#servers li.block div p:nth-of-type(2) {
-    max-width: 75%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}

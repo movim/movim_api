@@ -22,8 +22,8 @@
         <div>
             <p></p>
             <p class="all">
-                <a href="#" class="chip outline"><i class="material-icons icon green">check</i> Open</a> servers can be joined using any XMPP account,
-                <a href="#" class="chip outline"><i class="material-icons icon red">check</i> Restricted</a> servers requires a specific XMPP account to join
+                <i class="material-icons icon-text icon green">check</i> Open servers can be joined using any XMPP account,
+                <i class="material-icons icon-text icon red">check</i> Restricted servers requires a specific XMPP account to join
             </p>
         </div>
     </li>
@@ -42,18 +42,23 @@
         <li class="block">
             <img src="{{ $server->banner }}"/>
             <div>
-                @if ($server->whitelist()->count() > 0)
-                    <a class="chip outline"><i class="material-icons icon red">check</i> Restricted</a>
-                @else
-                    <a class="chip outline"><i class="material-icons icon green">check</i> Open</a>
-                @endif
-                <a href="https://{{ $server->domain }}" target="_blank" class="button flat oppose color green tiny">Join</a>
-                <p>{{ $server->domain }}</p>
-                <p>{{ $server->description}}</p>
+                <a href="https://{{ $server->domain }}" target="_blank" class="chip outline color green">
+                    <i class="material-icons">login</i>
+                    Join
+                </a>
+
+                <p class="line">{{ $server->domain }}</p>
+                <p class="line two">{{ $server->description}}</p>
 
                 <p title="Connected / Total population">
                     <i class="material-icons icon-text icon green">people</i> {{ $server->connected }} / {{ $server->population }}
+                    |
 
+                    @if ($server->whitelist()->count() > 0)
+                        <i class="material-icons icon-text icon red">check</i> Restricted
+                    @else
+                        <i class="material-icons icon-text icon green">check</i> Open
+                    @endif
                     <span class="info">{{ $server->version }}</span>
                 </p>
             </div>
