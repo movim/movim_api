@@ -29,7 +29,7 @@
     </li>
 </ul>
 
-<ul class="list card middle flex third servers">
+<ul id="servers" class="list card middle flex third servers">
     <li class="subheader block large">
         <div>
             <p>
@@ -51,8 +51,10 @@
                 <p>{{ $server->domain }}</p>
                 <p>{{ $server->description}}</p>
 
-                <p>
-                    <i class="material-icons icon-text icon gray">people</i> Pop. {{ $server->population }} · <i class="material-icons icon-text icon green">people</i> Connected {{ $server->connected }}
+                <p title="Connected / Total population">
+                    <i class="material-icons icon-text icon green">people</i> {{ $server->connected }} / {{ $server->population }}
+
+                    <span class="info">{{ $server->version }}</span>
                 </p>
             </div>
         </li>
