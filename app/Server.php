@@ -19,18 +19,18 @@ class Server extends Model
         return $this->hasMany(ServerWhitelist::class);
     }
 
-    public function requestRefresh(string $domain)
+    public function requestRefresh(string $domain): ?string
     {
         try {
             $response = Http::timeout(5)->get('https://' . $domain . '/infos');
         } catch (\Throwable $th) {
-            return abort(404, 'Invalid server ' . $domain);
+            return 'Invalid server ' . $domain;
         }
 
         $json = $response->json();
 
         if (!is_array($json)) {
-            return abort(404, 'Invalid JSON ' . $domain);
+            return 'Invalid JSON ' . $domain;
         }
 
         $this->domain = $domain;
@@ -57,5 +57,7 @@ class Server extends Model
             $serverWhitelist->server_id = $this->id;
             $serverWhitelist->save();
         }
+
+        return null;
     }
 }

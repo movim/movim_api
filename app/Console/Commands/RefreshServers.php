@@ -13,8 +13,13 @@ class RefreshServers extends Command
     public function handle()
     {
         foreach (Server::all() as $server) {
-            $server->requestRefresh($server->domain);
-            $this->info($server->domain . ' refreshed');
+            $result = $server->requestRefresh($server->domain);
+
+            if ($result == null) {
+                $this->info($server->domain . ' refreshed');
+            } else {
+                $this->error($server->domain . ' ' . $result);
+            }
         }
     }
 }

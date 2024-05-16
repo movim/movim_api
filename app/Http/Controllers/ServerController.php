@@ -82,7 +82,11 @@ class ServerController extends Controller
         }
 
         $server = new Server;
-        $server->requestRefresh($addServerToken->domain);
+        $result = $server->requestRefresh($addServerToken->domain);
+
+        if ($result != null) {
+            abort(404, $result);
+        }
 
         $addServerToken->used = true;
         $addServerToken->save();
