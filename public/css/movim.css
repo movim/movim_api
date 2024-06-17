@@ -64,8 +64,7 @@ section .container {
 }
 
 header {
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+    margin: 2rem 0;
 }
 
 @media screen and (max-width: 600px) {
