@@ -43,7 +43,6 @@ section.large {
     margin: 0 auto;
     display: block;
     max-width: 1024px;
-    background-color: white;
 
     box-sizing: border-box;
     padding: 1rem;
