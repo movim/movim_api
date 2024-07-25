@@ -6,8 +6,6 @@ use App\AddServerToken;
 use App\Libraries\EjabberdAPI;
 use App\Rules\Domain;
 use App\Server;
-use App\ServerAdmin;
-use App\ServerWhitelist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
