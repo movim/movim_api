@@ -53,6 +53,10 @@ class ServerController extends Controller
             return redirect()->back()->withErrors(['not_a_server' => 'The domain doesn\'t host a valid Movim server']);
         }
 
+        if (empty($json['description'])) {
+            return redirect()->back()->withErrors(['empty_description' => 'You must fill the description field of your server']);
+        }
+
         $addServerToken = new AddServerToken;
         $addServerToken->domain = $request->get('domain');
         $addServerToken->token = Str::random(10);
