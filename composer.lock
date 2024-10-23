@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5daebe31e010df0bd65af00caf8f8cf6",
+    "content-hash": "95ae7351eebeda675d57f08eebe07479",
     "packages": [
         {
             "name": "brick/math",
@@ -2470,12 +2470,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/edhelas/feedcleaner.git",
-                "reference": "c1bc0c2"
+                "reference": "e34e0e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/edhelas/feedcleaner/zipball/c1bc0c2",
-                "reference": "c1bc0c2",
+                "url": "https://api.github.com/repos/edhelas/feedcleaner/zipball/e34e0e8",
+                "reference": "e34e0e8",
                 "shasum": ""
             },
             "require": {
@@ -6221,6 +6221,6 @@
     "platform": {
         "php": ">=8.1"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

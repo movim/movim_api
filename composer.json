@@ -17,7 +17,7 @@
         "doctrine/dbal": "^3.0",
         "laravel/ui": "^4.2",
         "scyllaly/hcaptcha": "^4.4",
-        "movim/feedcleaner": "dev-master#c1bc0c2"
+        "movim/feedcleaner": "dev-master#e34e0e8"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
