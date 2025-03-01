@@ -50,6 +50,20 @@
                 </div>
             </li>
         </a>
+        <a class="block" target="_blank" href="https://gajim.org/">
+            <li>
+                <span class="primary icon blue">
+                    <i class="material-icons">computer</i>
+                </span>
+                <span class="control icon gray">
+                    <i class="material-icons">chevron_right</i>
+                </span>
+                <div>
+                    <p>Gajim for your laptop or desktop</p>
+                    <p>A fully-featured XMPP client</p>
+                </div>
+            </li>
+        </a>
     </ul>
 
     @if(empty($referer))
