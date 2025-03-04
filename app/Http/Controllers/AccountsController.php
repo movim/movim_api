@@ -203,7 +203,7 @@ class AccountsController extends Controller
             'legals'                => 'required',
             'domain'                => ['required', Rule::in($this->domains)],
             'h-captcha-response'    => 'required|HCaptcha',
-            'password'              => 'required|confirmed|min:8'
+            'password'              => 'required|confirmed|between:8,100'
         ]);
 
         $username = StringPrep::resolve($request->get('username'));
