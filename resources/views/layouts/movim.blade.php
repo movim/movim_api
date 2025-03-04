@@ -95,7 +95,7 @@
             <ul class="list middle">
                 <li>
                     <div>
-                        <p class="center">Copyright 2008 - 2023 – <a href="https://edhelas.movim.eu">Timothée Jaussoin</a></p>
+                        <p class="center">Copyright 2008 - 2025 – <a href="https://edhelas.movim.eu">Timothée Jaussoin</a></p>
                         <p class="center">
                             <a href="{{ route('accounts.login') }}">Account Panel</a>
                             - <a href="/api">API & Tools</a>
