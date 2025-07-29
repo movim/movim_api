@@ -34,9 +34,9 @@ class Server extends Model
         }
 
         $this->domain = $domain;
-        $this->description = $json['description'];
-        $this->population = $json['population'];
-        $this->connected = $json['connected'];
+        $this->description = (string)$json['description'];
+        $this->population = (int)$json['population'];
+        $this->connected = (int)$json['connected'];
         $this->banner = $json['banner'];
         $this->version = $json['version'];
         $this->save();
