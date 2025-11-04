@@ -6,7 +6,7 @@
     <ul class="list middle">
         <li>
             <span onclick="redirect('{{ route('accounts.panel') }}')" class="active primary icon gray">
-                <i class="material-icons">chevron_left</i>
+                <i class="material-symbols">chevron_left</i>
             </span>
             <div>
                 <p class="center">Account Panel</p>

@@ -4,13 +4,13 @@
 
 <div class="block container">
     <div class="placeholder">
-        <i class="material-icons">dns</i>
+        <i class="material-symbols">dns</i>
         <h4>Register a new Movim server</h4>
     </div>
     <ul class="list">
         <li>
             <span class="primary icon gray">
-                <i class="material-icons">info</i>
+                <i class="material-symbols">info</i>
             </span>
             <div>
                 <p>Register your Movim server in a few easy steps.</p>

@@ -6,7 +6,7 @@
     <ul class="list middle">
         <li>
             <span onclick="window.history.back();" class="primary active icon gray">
-                <i class="material-icons">chevron_left</i>
+                <i class="material-symbols">chevron_left</i>
             </span>
             <div>
                 <p class="center">Authentication request</p>
@@ -19,7 +19,7 @@
     <ul class="list thick">
         <li>
             <span class="primary icon bubble color green">
-                <i class="material-icons">vpn_key</i>
+                <i class="material-symbols">vpn_key</i>
             </span>
             <div>
                 <p>Authentication request sent by message</p>
@@ -30,7 +30,7 @@
         @if ($email)
             <li>
                 <span class="primary icon bubble color blue">
-                    <i class="material-icons">email</i>
+                    <i class="material-symbols">email</i>
                 </span>
                 <div>
                     <p>…and also by email</p>

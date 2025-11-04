@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="placeholder">
-    <i class="material-icons">done</i>
+    <i class="material-symbols">done</i>
 
     <h4>Account successfully created</h4>
 
@@ -25,10 +25,10 @@
         <a class="block" target="_blank" href="https://dino.im/">
             <li>
                 <span class="primary icon purple">
-                    <i class="material-icons">laptop</i>
+                    <i class="material-symbols">laptop</i>
                 </span>
                 <span class="control icon gray">
-                    <i class="material-icons">chevron_right</i>
+                    <i class="material-symbols">chevron_right</i>
                 </span>
                 <div>
                     <p>Dino for your laptop or desktop</p>
@@ -39,10 +39,10 @@
         <a class="block" target="_blank" href="https://play.google.com/store/apps/details?id=eu.siacs.conversations">
             <li>
                 <span class="primary icon green">
-                    <i class="material-icons">android</i>
+                    <i class="material-symbols">android</i>
                 </span>
                 <span class="control icon gray">
-                    <i class="material-icons">chevron_right</i>
+                    <i class="material-symbols">chevron_right</i>
                 </span>
                 <div>
                     <p>Conversations for Android</p>
@@ -53,10 +53,10 @@
         <a class="block" target="_blank" href="https://gajim.org/">
             <li>
                 <span class="primary icon blue">
-                    <i class="material-icons">computer</i>
+                    <i class="material-symbols">computer</i>
                 </span>
                 <span class="control icon gray">
-                    <i class="material-icons">chevron_right</i>
+                    <i class="material-symbols">chevron_right</i>
                 </span>
                 <div>
                     <p>Gajim for your laptop or desktop</p>
@@ -72,7 +72,7 @@
         <a class="block" href="https://mov.im/">
             <li>
                 <span class="control icon gray">
-                    <i class="material-icons">chevron_right</i>
+                    <i class="material-symbols">chevron_right</i>
                 </span>
                 <div>
                     <p>mov.im</p>

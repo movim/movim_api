@@ -41,7 +41,7 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return redirect()->route('accounts.login');
+        return redirect()->route('accounts.recover');
     }
 
     public function register()

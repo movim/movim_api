@@ -6,7 +6,7 @@
     <ul class="list middle">
         <li>
             <span onclick="redirect('{{ route('accounts.panel') }}')" class="active primary icon gray">
-                <i class="material-icons">chevron_left</i>
+                <i class="material-symbols">chevron_left</i>
             </span>
             <div>
                 <p class="center">Account Panel</p>
@@ -30,7 +30,7 @@
         </li>
         <li>
             <span class="primary icon gray">
-                <i class="material-icons">drafts</i>
+                <i class="material-symbols">drafts</i>
             </span>
             <div>
                 <p>Textual content only</p>
@@ -40,7 +40,7 @@
         </li>
         <li>
             <span class="primary icon gray">
-                <i class="material-icons">reply</i>
+                <i class="material-symbols">reply</i>
             </span>
             <div>
                 <p>No reply</p>
@@ -59,10 +59,10 @@
         @if ($account->email_notification)
             <li class="active" onclick="redirect('{{ route('accounts.setEmailToXMPP', 0) }}')">
                 <span class="primary icon gray">
-                    <i class="material-icons">notifications_active</i>
+                    <i class="material-symbols">notifications_active</i>
                 </span>
                 <span class="control icon gray">
-                    <i class="material-icons">chevron_right</i>
+                    <i class="material-symbols">chevron_right</i>
                 </span>
                 <div>
                     <p>Feature currently enabled</p>
@@ -72,10 +72,10 @@
         @else
             <li class="active" onclick="redirect('{{ route('accounts.setEmailToXMPP', 1) }}')">
                 <span class="primary icon gray">
-                    <i class="material-icons">notifications_none</i>
+                    <i class="material-symbols">notifications_none</i>
                 </span>
                 <span class="control icon gray">
-                    <i class="material-icons">chevron_right</i>
+                    <i class="material-symbols">chevron_right</i>
                 </span>
                 <div>
                     <p>Feature currently disabled</p>

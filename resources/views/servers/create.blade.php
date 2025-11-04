@@ -4,13 +4,13 @@
 
 <div class="block container">
     <div class="placeholder">
-        <i class="material-icons">mark_chat_unread</i>
+        <i class="material-symbols">mark_chat_unread</i>
         <h4>Confirm your registration</h4>
     </div>
     <ul class="list">
         <li>
             <span class="primary icon gray">
-                <i class="material-icons">info</i>
+                <i class="material-symbols">info</i>
             </span>
             <div>
                 <p>Please confirm your registration</p>

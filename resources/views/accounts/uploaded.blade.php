@@ -6,7 +6,7 @@
     <ul class="list middle">
         <li>
             <span onclick="redirect('{{ route('accounts.panel') }}')" class="active primary icon gray">
-                <i class="material-icons">chevron_left</i>
+                <i class="material-symbols">chevron_left</i>
             </span>
             <div>
                 <p class="center">Account Panel</p>
@@ -20,7 +20,7 @@
     <ul class="list middle">
         <li>
             <span class="primary icon gray bubble">
-                <i class="material-icons">info</i>
+                <i class="material-symbols">info</i>
             </span>
             <div>
                 <p>Informations</p>
@@ -40,7 +40,7 @@
             <li>
                 <span class="control icon gray active">
                     <a href="{{ $file->uri }}" target="_blank">
-                        <i class="material-icons">insert_drive_file</i>
+                        <i class="material-symbols">insert_drive_file</i>
                     </a>
                 </span>
                 <div>

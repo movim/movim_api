@@ -6,7 +6,7 @@
     <ul class="list middle">
         <li>
             <span onclick="redirect('{{ route('accounts.logout') }}')" class="active control icon gray">
-                <i class="material-icons">exit_to_app</i>
+                <i class="material-symbols">exit_to_app</i>
             </span>
             <div>
                 <p class="center">Account Panel</p>
@@ -20,7 +20,7 @@
     <ul class="list thick">
         <li>
             <span class="primary icon gray">
-                <i class="material-icons">info</i>
+                <i class="material-symbols">info</i>
             </span>
             <div>
                 <p></p>
@@ -30,7 +30,7 @@
 
         <!--<li class="active" onclick="redirect('{{ route('accounts.emailToXMPP') }}')">
             <span class="primary icon gray">
-                <i class="material-icons">
+                <i class="material-symbols">
                     @if ($account->email_notification)
                         notifications_active
                     @else
@@ -39,7 +39,7 @@
                 </i>
             </span>
             <span class="control icon gray">
-                <i class="material-icons">chevron_right</i>
+                <i class="material-symbols">chevron_right</i>
             </span>
             <div>
                 <p>Email to XMPP notifications</p>
@@ -55,10 +55,10 @@
 
         <li class="active" onclick="redirect('{{ route('accounts.uploaded') }}')">
             <span class="primary icon gray">
-                <i class="material-icons">folder_shared</i>
+                <i class="material-symbols">folder_shared</i>
             </span>
             <span class="control icon gray">
-                <i class="material-icons">chevron_right</i>
+                <i class="material-symbols">chevron_right</i>
             </span>
             <div>
                 <p>Uploaded files</p>
@@ -68,10 +68,10 @@
 
         <li class="active" onclick="redirect('{{ route('accounts.changePassword') }}')">
             <span class="primary icon gray">
-                <i class="material-icons">lock</i>
+                <i class="material-symbols">lock</i>
             </span>
             <span class="control icon gray">
-                <i class="material-icons">chevron_right</i>
+                <i class="material-symbols">chevron_right</i>
             </span>
             <div>
                 <p>Password change</p>

@@ -35,7 +35,6 @@
     <link rel="stylesheet" href="https://mov.im/theme/css/elevation.css?2" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/chip.css?2" type="text/css" />
 
-    <link rel="stylesheet" href="/css/fonts.css?2" type="text/css" />
     <link rel="stylesheet" href="/css/movim.css?7" type="text/css" />
 
     <meta name="description" property="description" content="Explore and join the Movim network">
@@ -77,10 +76,10 @@
                 <span class="primary icon gray">
                     <a href="{{ route('servers.index') }}"><img src="https://movim.eu/img/vectorial.svg"></a>
                 </span>
-                <span class="control icon active color blue bubble" onclick="redirect('{{ route('accounts.panel') }}')">
-                    <i class="material-icons">person</i>
-                </span>
                 <div>
+                    <a class="button color oppose" href="{{ route('accounts.panel') }}">
+                        <i class="material-symbols">passkey</i> Account Recovery
+                    </a>
                     <p><a id="app_title" href="{{ route('servers.index') }}">{{ config('app.name') }}</a></p>
                 </div>
             </li>
@@ -97,7 +96,7 @@
                     <div>
                         <p class="center">Copyright 2008 - 2025 – <a href="https://edhelas.movim.eu">Timothée Jaussoin</a></p>
                         <p class="center">
-                            <a href="{{ route('accounts.login') }}">Account Panel</a>
+                            <a href="{{ route('accounts.recover') }}">Account Panel</a>
                             - <a href="/api">API & Tools</a>
                             - <a href="https://github.com/movim/movim_api">Github sources</a>
                             - <a href="https://movim.eu/">movim.eu</a>

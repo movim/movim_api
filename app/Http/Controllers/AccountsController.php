@@ -19,13 +19,13 @@ class AccountsController extends Controller
 {
     private $domains = ['movim.eu', 'jappix.com'];
 
-    public function login(Request $request)
+    public function recover(Request $request)
     {
         if (Auth::guard('panel')->check()) {
             return redirect()->route('accounts.panel');
         }
 
-        return view('accounts.login');
+        return view('accounts.recover');
     }
 
     public function resolveNickname(Request $request, string $nickname)
@@ -50,7 +50,7 @@ class AccountsController extends Controller
 
         $api = new EjabberdAPI;
         if (!$api->checkAccount($username, $domain)) {
-            return view('accounts.login')->withErrors(['username' => 'Invalid account']);
+            return view('accounts.recover')->withErrors(['username' => 'Invalid account']);
         }
 
         $account = Account::where([
@@ -166,7 +166,7 @@ class AccountsController extends Controller
     {
         Auth::logout();
 
-        return redirect()->route('accounts.login');
+        return redirect()->route('accounts.recover');
     }
 
     public function create(Request $request)

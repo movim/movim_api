@@ -31,7 +31,7 @@
             </div>
         </li>
         <li>
-            <span class="primary icon bubble color blue"><i class="material-icons">rss_feed</i></span>
+            <span class="primary icon bubble color blue"><i class="material-symbols">rss_feed</i></span>
 
             {{ Form::open(['method' => 'POST', 'action' => ['FeedController@parse'], 'style' => 'padding-right: 0;']) }}
             <div>

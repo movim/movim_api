@@ -31,7 +31,8 @@ Route::get('/servers/confirmation/{token}', 'ServerController@createConfirmation
 Route::post('/account/authenticate', 'AccountsController@requestAuthentication')->name('accounts.requestAuthentication');
 Route::get('/account/authenticate/{key}', 'AccountsController@authenticate')->name('accounts.authenticate');
 
-Route::get('/account/login', 'AccountsController@login')->name('accounts.login');
+Route::get('/account/recover', 'AccountsController@recover')->name('accounts.recover');
+Route::redirect('/account/login', '/account/recover');
 
 Route::prefix('account')->middleware(['auth:panel'/*, 'auth.account'*/])->group(function () {
     Route::get('/panel', 'AccountsController@panel')->name('accounts.panel');

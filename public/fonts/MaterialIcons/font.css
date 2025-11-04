@@ -9,7 +9,7 @@
        url(MaterialIcons-Regular.woff2?1) format('woff2');
 }
 
-.material-icons {
+.material-symbols {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -36,14 +36,14 @@
   font-feature-settings: 'liga';
 }
 
-.material-icons.flip-hor {
+.material-symbols.flip-hor {
   transform: scale(-1, 1);
 }
 
-.material-icons.flip-vert {
+.material-symbols.flip-vert {
   transform: scale(1, -1);
 }
 
-.material-icons.flip-hor.flip-vert {
+.material-symbols.flip-hor.flip-vert {
   transform: scale(-1, -1);
 }
