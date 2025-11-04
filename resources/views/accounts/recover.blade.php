@@ -1,4 +1,4 @@
-@extends('layouts.movim', ['title' => 'Account recover'])
+@extends('layouts.movim', ['title' => 'Account Recovery'])
 
 @section('content')
 
