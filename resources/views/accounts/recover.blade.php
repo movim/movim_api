@@ -34,7 +34,7 @@
     <ul class="list middle">
         <li>
             <div>
-                <p class="normal all">Enter your Movim account to receive by email (if configured) and chat message containing a unique link to authenticate you and allow you to change your password</p>
+                <p class="normal all">Enter your Movim account to receive by email (if configured) and chat message a unique link to authenticate you and allow you to reset your password</p>
             </div>
         </li>
         <li>
