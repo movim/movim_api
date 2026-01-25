@@ -15,9 +15,10 @@ class ServerController extends Controller
 {
     public function index(Request $request)
     {
-        $version = Server::pluck('version');
+        $versions = Server::pluck('version');
         $currentVersion = '0.1';
-        $version->each(function ($version) use (&$currentVersion) {
+        $versions->each(function ($version) use (&$currentVersion) {
+            $version = substr($version, 1);
             if (version_compare($version, $currentVersion, '>=')) {
                 $currentVersion = $version;
             }
@@ -26,7 +27,7 @@ class ServerController extends Controller
         $servers = Server::whereDate('updated_at' , '>=', Carbon::today()->subHours( 2 ))->get();
 
         $servers->each(function ($server) use ($currentVersion) {
-            $server->outdated = $server->version != $currentVersion;
+            $server->outdated = substr($server->version, 1) != $currentVersion;
         });
 
         return view('servers.index', ['servers' => $servers]);
