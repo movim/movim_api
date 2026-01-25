@@ -40,9 +40,9 @@
     </li>
 </ul>
 
-<ul id="servers" class="list card middle flex third servers @if ($server->outdated) outdated @endif">
+<ul id="servers" class="list card middle flex third servers">
     @foreach ($servers as $server)
-        <li class="block">
+        <li class="block @if ($server->outdated) outdated @endif">
             <img src="{{ $server->banner }}"/>
             <div>
                 <a href="https://{{ $server->domain }}" target="_blank" class="chip outline color green">
