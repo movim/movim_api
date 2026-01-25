@@ -44,7 +44,7 @@
                     </a>
                 </span>
                 <div>
-                    <p class="normal line">
+                    <p class="line">
                         <span class="info">{{ $file->formatedSize }}</span>
                         {{ $file->name }}
                     </p>
