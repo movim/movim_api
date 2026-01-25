@@ -80,7 +80,7 @@
                     <a class="button color oppose" href="{{ route('accounts.panel') }}">
                         <i class="material-symbols">passkey</i> Account Recovery
                     </a>
-                    <p><a id="app_title" href="{{ route('servers.index') }}">{{ config('app.name') }}</a></p>
+                    <h3><a id="app_title" href="{{ route('servers.index') }}">{{ config('app.name') }}</a></h3>
                 </div>
             </li>
         </ul>

@@ -6,6 +6,7 @@ use App\AddServerToken;
 use App\Libraries\EjabberdAPI;
 use App\Rules\Domain;
 use App\Server;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
@@ -14,7 +15,19 @@ class ServerController extends Controller
 {
     public function index(Request $request)
     {
-        $servers = Server::all();
+        $version = Server::pluck('version');
+        $currentVersion = '0.1';
+        $version->each(function ($version) use (&$currentVersion) {
+            if (version_compare($version, $currentVersion, '>=')) {
+                $currentVersion = $version;
+            }
+        });
+
+        $servers = Server::whereDate('updated_at' , '>=', Carbon::today()->subHours( 2 ))->get();
+
+        $servers->each(function ($server) use ($currentVersion) {
+            $server->outdated = $server->version != $currentVersion;
+        });
 
         return view('servers.index', ['servers' => $servers]);
     }

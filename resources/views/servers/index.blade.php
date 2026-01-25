@@ -29,7 +29,7 @@
     </li>
 </ul>
 
-<ul id="servers" class="list card middle flex third servers">
+<ul class="list">
     <li class="subheader block large">
         <div>
             <p>
@@ -38,6 +38,9 @@
             </p>
         </div>
     </li>
+</ul>
+
+<ul id="servers" class="list card middle flex third servers @if ($server->outdated) outdated @endif">
     @foreach ($servers as $server)
         <li class="block">
             <img src="{{ $server->banner }}"/>
@@ -47,19 +50,25 @@
                     Join
                 </a>
 
-                <p class="line">{{ $server->domain }}</p>
+                <p class="line">
+                    <span class="info">{{ $server->version }}</span>
+                    {{ $server->domain }}
+                </p>
                 <p class="line two">{{ $server->description}}</p>
 
                 <p title="Connected / Total population">
                     <i class="material-symbols icon-text icon green">people</i> {{ $server->connected }} / {{ $server->population }}
-                    |
+                    •
 
                     @if ($server->whitelist()->count() > 0)
                         <i class="material-symbols icon-text icon red">check</i> Restricted
                     @else
                         <i class="material-symbols icon-text icon green">check</i> Open
                     @endif
-                    <span class="info">{{ $server->version }}</span>
+
+                    @if ($server->outdated)
+                        • <i class="material-symbols icon-text icon blue">history</i> Outdated
+                    @endif
                 </p>
             </div>
         </li>
