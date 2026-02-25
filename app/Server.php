@@ -37,6 +37,15 @@ class Server extends Model
         $this->description = (string)$json['description'];
         $this->population = (int)$json['population'];
         $this->connected = (int)$json['connected'];
+
+        if (array_key_exists('maxsessions', $json)) {
+            $this->maxsessions = (int)$json['maxsessions'];
+        }
+
+        if (array_key_exists('detabase', $json)) {
+            $this->database = (string)$json['database'];
+        }
+
         $this->banner = $json['banner'];
         $this->version = $json['version'];
         $this->save();

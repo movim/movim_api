@@ -39,9 +39,18 @@
         </div>
     </li>
 </ul>
-
+@php($restrictedSection = false)
 <ul id="servers" class="list card middle flex third servers">
     @foreach ($servers as $server)
+        @if ($server->whitelist_count > 0 && $restrictedSection == false)
+            <br />
+            <li class="subheader">
+                <div>
+                    <p>Restricted</p>
+                </div>
+            </li>
+            @php($restrictedSection = true)
+        @endif
         <li class="block @if ($server->outdated) outdated @endif">
             <img src="{{ $server->banner }}"/>
             <div>
@@ -57,7 +66,7 @@
                 <p class="line two">{{ $server->description}}</p>
 
                 <p title="Connected / Total population">
-                    <i class="material-symbols icon-text icon green">people</i> {{ $server->connected }} / {{ $server->population }}
+                    <i class="material-symbols icon-text icon green">people</i> {{ $server->connected }} @if($server->maxsessions > 0)/{{ $server->maxsessions }}@endif • Pop: {{ $server->population }}
                     •
 
                     @if ($server->whitelist()->count() > 0)

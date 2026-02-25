@@ -115,7 +115,7 @@ ul.list.servers li:not(.subheader) {
     align-items: baseline;
 }
 
-ul.list.servers li:not(.subheader) > div {
+ul.list.servers li:not(.subheader)>div {
     width: 100%;
     flex: 0;
 }
@@ -126,7 +126,7 @@ ul.list.servers li:not(.subheader) a.chip {
     position: relative;
 }
 
-ul#servers li > img {
+ul#servers li>img {
     min-height: 20rem;
     max-height: 20rem;
     object-fit: cover;
@@ -139,7 +139,8 @@ ul#servers li > img {
 }
 
 ul#servers li.outdated {
-    filter: grayscale(0.5);
+    filter: grayscale(0.75);
+    opacity: 0.5;
 }
 
 ul#server p.line.two {

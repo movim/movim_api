@@ -24,13 +24,13 @@ class ServerController extends Controller
             }
         });
 
-        $servers = Server::whereDate('updated_at' , '>=', Carbon::today()->subHours( 2 ))->get();
+        $servers = Server::whereDate('updated_at' , '>=', Carbon::today()->subHours( 2 ))->withCount('whitelist')->get();
 
         $servers->each(function ($server) use ($currentVersion) {
             $server->outdated = substr($server->version, 1) != $currentVersion;
         });
 
-        return view('servers.index', ['servers' => $servers]);
+        return view('servers.index', ['servers' => $servers->sortBy('whitelist_count')->sortBy('outdated')]);
     }
 
     public function add(Request $request)
