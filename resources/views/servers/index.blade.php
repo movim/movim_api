@@ -56,7 +56,7 @@
             <br />
             <li class="subheader">
                 <div>
-                    <p>Restricted</p>
+                    <p>Oudated</p>
                 </div>
             </li>
             @php($outdatedSection = true)
