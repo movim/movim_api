@@ -40,6 +40,7 @@
     </li>
 </ul>
 @php($restrictedSection = false)
+@php($outdatedSection = false)
 <ul id="servers" class="list card middle flex third servers">
     @foreach ($servers as $server)
         @if ($server->whitelist_count > 0 && $restrictedSection == false)
@@ -50,6 +51,15 @@
                 </div>
             </li>
             @php($restrictedSection = true)
+        @endif
+        @if ($server->outdated && $outdatedSection == false)
+            <br />
+            <li class="subheader">
+                <div>
+                    <p>Restricted</p>
+                </div>
+            </li>
+            @php($outdatedSection = true)
         @endif
         <li class="block @if ($server->outdated) outdated @endif">
             <img src="{{ $server->banner }}"/>
