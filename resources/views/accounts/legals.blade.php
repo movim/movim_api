@@ -93,7 +93,7 @@
     <p>Some limits also apply to our services:</p>
 
     <ul>
-        <li><b>File Upload</b> is limited to 10MB per file. There is no other limit (total volume or time) regarding the storage of those files</li>
+        <li><b>File Upload</b> is limited to 50MB per file. There is no other limit (total volume or time) regarding the storage of those files</li>
         <li><b>XMPP and HTTP connections</b> we have some connection limitations in place, both on our XMPP services and web services to limit the bandwidth and amount of requests per user</li>
         <li><b>XMPP registration</b> also known as "In-band registration" is disabled on our services. To register an account you must use our <a href="{{ route('accounts.register') }}">Registration page</a></li>
     </ul>
