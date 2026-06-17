@@ -15,7 +15,7 @@ use App\Libraries\EjabberdAPI;
 use App\Libraries\StringPrep;
 use App\Mail\AuthenticationLink;
 
-class AccountsController extends Controller
+class AccountController extends Controller
 {
     private $domains = ['movim.eu', 'jappix.com'];
 

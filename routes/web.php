@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AccountsController;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\ServerController;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +22,7 @@ Route::name('servers.')->prefix('servers')->controller(ServerController::class)-
 
 Route::redirect('/account/login', '/account/recover')->name('login');
 Route::redirect('/register', '/account/register');
-Route::name('accounts.')->prefix('account')->controller(AccountsController::class)->group(function () {
+Route::name('accounts.')->prefix('account')->controller(AccountController::class)->group(function () {
     Route::post('authenticate', 'requestAuthentication')->name('requestAuthentication');
     Route::get('authenticate/{key}', 'authenticate')->name('authenticate');
     Route::get('recover', 'recover')->name('recover');
@@ -39,4 +39,4 @@ Route::name('accounts.')->prefix('account')->controller(AccountsController::clas
     Route::post('/', 'store')->name('store');
 });
 
-Route::get('/legals', [AccountsController::class, 'legals']);
+Route::get('/legals', [AccountController::class, 'legals'])->name('legals');
