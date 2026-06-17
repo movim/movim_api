@@ -50,7 +50,7 @@ class ServerController extends Controller
 
         // Validation
         try {
-            $response = Http::timeout(5)->get('https://' . $request->get('domain') . '/infos');
+            $response = Http::timeout(5)->get('https://' . $request->input('domain') . '/infos');
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors(['server_unreachable' => 'The server cannot be reached']);
         }
@@ -70,7 +70,7 @@ class ServerController extends Controller
         }
 
         $addServerToken = new AddServerToken;
-        $addServerToken->domain = $request->get('domain');
+        $addServerToken->domain = $request->input('domain');
         $addServerToken->token = Str::random(10);
         $addServerToken->save();
 
@@ -85,7 +85,7 @@ class ServerController extends Controller
 
         return view('servers.create', [
             'json' => $json,
-            'domain' => $request->get('domain')
+            'domain' => $request->input('domain')
         ]);
     }
 

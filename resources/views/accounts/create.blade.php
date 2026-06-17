@@ -19,13 +19,9 @@
     @else
         @include('parts.errors')
 
-        {{ Form::open([
-            'method' => 'POST',
-            'action' => ['AccountsController@store'],
-            'class' => 'padded_top_bottom',
-            'id' => 'registration_form'
-        ]) }}
-            {{ Form::hidden('referer', $referer) }}
+        <form method="POST" action="{{ route('accounts.store') }}" accept-charset="UTF-8" id="registration_form" class="padded_top_bottom">
+            @csrf
+            <input name="referer" type="hidden" value="{{ $referer }}">
             <div class="domain">
                 <div class="select">
                     <select name="domain" onchange="checkUsername()">
@@ -52,8 +48,8 @@
             </div>
 
             <div class="username">
-                {{ Form::label('username', 'Username') }}
-                {{ Form::text('username', null, ['placeholder'=>'username', 'oninput' => 'checkUsername()', 'required', 'pattern' => '^[^\u0000-\u001f\u0020\u0022\u0026\u0027\u002f\u003a\u003c\u003e\u0040\u007f\u0080-\u009f\u00a0]+$']) }}
+                <label for="username">Username</label>
+                <input placeholder="username" oninput="checkUsername()" required="" pattern="^[^\u0000-\u001f\u0020\u0022\u0026\u0027\u002f\u003a\u003c\u003e\u0040\u007f\u0080-\u009f\u00a0]+$" name="username" type="text" id="username">
             </div>
             <ul class="list hide" id="resolved_username_block">
                 <li>
@@ -64,17 +60,17 @@
                 </li>
             </ul>
             <div>
-                {{ Form::label('password', 'Password') }}
-                {{ Form::password('password', ['required', 'placeholder'=>'Your password']) }}
+                <label for="password">Password</label>
+                <input required="" placeholder="Your password" name="password" type="password" value="" id="password">
             </div>
             <div>
-                {{ Form::label('password_confirmation', 'Confirm your password') }}
-                {{ Form::password('password_confirmation', ['required', 'placeholder'=>'Confirm your password', 'style' => 'margin-top: -1rem']) }}
+                <label for="password_confirmation">Confirm your password</label>
+                <input required="" placeholder="Confirm your password" name="password_confirmation" type="password" value="" id="password_confirmation">
             </div>
 
             <div>
-                {{ Form::label('email', 'Email (optional)') }}
-                {{ Form::text('email', null, ['placeholder'=>'username@server.com']) }}
+                <label for="email">Email (optional)</label>
+                <input placeholder="username@server.com" name="email" type="text" id="email">
             </div>
 
             <div class="email_info">
@@ -96,8 +92,8 @@
                         <span class="control">
                             <div class="action">
                                 <div class="checkbox">
-                                {{ Form::checkbox('legals', 'agreed', false, ['id' => 'legals']) }}
-                                {{ Form::label('legals', ' ') }}
+                                    <input id="legals" name="legals" type="checkbox" value="agreed">
+                                    <label for="legals"></label>
                                 </div>
                             </div>
                         </span>
@@ -116,8 +112,8 @@
                 {!! HCaptcha::display() !!}
             </div>
 
-            {{ Form::submit('Create', ['class'=>'button color oppose', 'style' => 'margin-top: 3rem;'])}}
-        {{ Form::close() }}
+            <input class="button color oppose" style="margin-top: 3rem;" type="submit" value="Create">
+        </form>
     @endif
 </div>
 

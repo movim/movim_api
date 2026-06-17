@@ -11,12 +11,7 @@ class AuthenticationLink extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private $account;
-
-    public function __construct(Account $account)
-    {
-        $this->account = $account;
-    }
+    public function __construct(private Account $account) {}
 
     public function build()
     {

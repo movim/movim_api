@@ -71,7 +71,7 @@ class AccountsController extends Controller
         $api->sendMessage(
             $account->jid,
             'Authentication request',
-            'You are trying to authenticate to the Movim Account Panel, here is the unique link to confirm your authentication: '.route('accounts.authenticate', $account->auth_key)
+            'You are trying to authenticate to the Movim Account Panel, here is the unique link to confirm your authentication: ' . route('accounts.authenticate', $account->auth_key)
         );
 
         // And if the account has an attached email address, send the link by email
@@ -105,31 +105,6 @@ class AccountsController extends Controller
         return redirect()->route('accounts.panel');
     }
 
-    public function emailToXMPP(Request $request)
-    {
-        return view('accounts.email_to_xmpp', [
-            'account' => $request->user()
-        ]);
-    }
-
-    public function setEmailToXMPP(Request $request, $enabled)
-    {
-        /*$account = $request->user();
-        $account->email_notification = (bool)$enabled;
-        $account->save();
-
-        $api = new EjabberdAPI;
-        $api->sendMessage(
-            $account->jid,
-            'Email To XMPP',
-            $account->email_notification
-                ? 'The Email To XMPP feature is now enabled for your account, you can try to send an email to "'.$account->jid.'" to try it'
-                : 'The Email To XMPP feature has been disabled for your account'
-        );
-
-        return redirect()->route('accounts.emailToXMPP');*/
-    }
-
     public function changePassword(Request $request)
     {
         return view('accounts.change_password', [
@@ -150,7 +125,7 @@ class AccountsController extends Controller
         $api->changePassword(
             $account->username,
             $account->domain,
-            $request->get('password')
+            $request->input('password')
         );
 
         $api->sendMessage(
@@ -195,7 +170,7 @@ class AccountsController extends Controller
             return view('accounts.disabled');
         }*/
 
-        if(!config('app.xmpp_registration')) return;
+        if (!config('app.xmpp_registration')) return;
 
         $this->validate($request, [
             'email'                 => 'email|nullable',
@@ -206,21 +181,21 @@ class AccountsController extends Controller
             'password'              => 'required|confirmed|between:8,100'
         ]);
 
-        $username = StringPrep::resolve($request->get('username'));
+        $username = StringPrep::resolve($request->input('username'));
 
         try {
             $api = new EjabberdAPI;
             $api->register(
                 $username,
-                $request->get('domain'),
-                $request->get('password')
+                $request->input('domain'),
+                $request->input('password')
             );
 
             if ($request->filled('email')) {
                 $api->setEmail(
                     $username,
-                    $request->get('domain'),
-                    $request->get('email')
+                    $request->input('domain'),
+                    $request->input('email')
                 );
             }
 
@@ -237,7 +212,7 @@ class AccountsController extends Controller
             }*/
 
             if (config('app.xmpp_admin_notify')) {
-                $notify = $username.'@'.$request->get('domain').' registered';
+                $notify = $username . '@' . $request->input('domain') . ' registered';
 
                 if ($request->filled('email')) {
                     $notify .= ' with an email address';
@@ -253,8 +228,8 @@ class AccountsController extends Controller
             $account->save();
 
             return view('accounts.created', [
-                'jid'       => $username.'@'.$request->get('domain'),
-                'referer'   => $request->get('referer')
+                'jid'       => $username . '@' . $request->input('domain'),
+                'referer'   => $request->input('referer')
             ]);
         } catch (RequestException $exception) {
             if ($exception->getCode() == 409) {
@@ -274,4 +249,11 @@ class AccountsController extends Controller
         $restrictedCountries = explode(',', config('app.restricted_countries'));
         return (is_array($geo) && in_array($geo['country_code'], $restrictedCountries));
     }*/
+
+    public function uploaded(Request $request)
+    {
+        return view('accounts.uploaded', [
+            'account' => $request->user()
+        ]);
+    }
 }

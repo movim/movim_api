@@ -33,14 +33,15 @@
         <li>
             <span class="primary icon bubble color blue"><i class="material-symbols">rss_feed</i></span>
 
-            {{ Form::open(['method' => 'POST', 'action' => ['FeedController@parse'], 'style' => 'padding-right: 0;']) }}
-            <div>
-                {{ Form::label('url', 'Your feed URL') }}
-                {{ Form::text('url', null, ['class'=>'form-control', 'placeholder' => 'https://feed.atom', 'required']) }}
-            </div>
+            <form method="POST" action="{{ route('parse') }}" accept-charset="UTF-8">
+                @csrf
+                <div>
+                    <label for="url">Your feed URL</label>
+                    <input class="form-control" placeholder="https://feed.atom" required="" name="url" type="text" id="url">
+                </div>
 
-            {{ Form::submit('Go', ['class' => 'button color oppose', 'style' => 'margin-top: 0; margin: 0 auto;']) }}
-            {{ Form::close() }}
+                <input class="button color oppose" type="submit" value="Go">
+            </form>
         </li>
     </ul>
 </div>

@@ -33,24 +33,20 @@
 
     <ul class="list">
         <li>
-            {{ Form::open([
-                'method' => 'POST',
-                'route' => 'servers.create'
-            ]) }}
+            <form method="POST" action="{{ route('servers.create') }}" accept-charset="UTF-8">
+                @csrf
+                <div>
+                    <label for="domain">Domain</label>
+                    <input placeholder="Your Movim domain, e.g. movim.domain.org, movim-community.net" name="domain" type="text" id="domain">
+                </div>
 
-            <div>
-                {{ Form::label('domain', 'Domain') }}
-                {{ Form::text('domain', null, ['placeholder'=>'Your Movim domain, e.g. movim.domain.org, movim-community.net']) }}
-            </div>
-
-            <div>
-                <br />
-                {!! HCaptcha::renderJs() !!}
-                {!! HCaptcha::display() !!}
-            </div>
-
-            {{ Form::submit('Register', ['class'=>'button color oppose'])}}
-            {{ Form::close() }}
+                <div>
+                    <br />
+                    {!! HCaptcha::renderJs() !!}
+                    {!! HCaptcha::display() !!}
+                </div>
+                <input class="button color oppose" type="submit" value="Register">
+            </form>
         </li>
     </ul>
 </div>

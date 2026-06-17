@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 
 class EjabberdAPI
 {
-    private $client;
+    private Client $client;
 
     public function __construct()
     {
@@ -95,20 +95,5 @@ class EjabberdAPI
         } catch (\Exception $e) {
             return null;
         }
-    }
-
-    public function sendMail(string $to, $mail)
-    {
-        $this->client->request('POST', 'send_message', [
-            'json' => [
-                'type' => 'chat',
-                'from' => config('imaptoxmpp.xmpp_from'),
-                'to' => $to,
-                'subject' => $mail->subject,
-                'body' => '📥 '.$mail->subject.'
-✍️ '.$mail->fromName.' <'.$mail->fromAddress.'>
-'.$mail->textPlain
-            ]
-        ]);
     }
 }

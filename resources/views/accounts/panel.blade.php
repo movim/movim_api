@@ -28,31 +28,6 @@
             </div>
         </li>
 
-        <!--<li class="active" onclick="redirect('{{ route('accounts.emailToXMPP') }}')">
-            <span class="primary icon gray">
-                <i class="material-symbols">
-                    @if ($account->email_notification)
-                        notifications_active
-                    @else
-                        notifications_none
-                    @endif
-                </i>
-            </span>
-            <span class="control icon gray">
-                <i class="material-symbols">chevron_right</i>
-            </span>
-            <div>
-                <p>Email to XMPP notifications</p>
-                <p>
-                    @if ($account->email_notification)
-                        Enabled
-                    @else
-                        Disabled
-                    @endif
-                </p>
-            </div>
-        </li>-->
-
         <li class="active" onclick="redirect('{{ route('accounts.uploaded') }}')">
             <span class="primary icon gray">
                 <i class="material-symbols">folder_shared</i>

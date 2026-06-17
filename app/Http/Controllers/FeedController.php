@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use FeedCleaner\Parser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class FeedController extends Controller
 {
@@ -11,7 +12,7 @@ class FeedController extends Controller
     {
         $all = $request->all();
 
-        return redirect('feed/'.str_replace('/', '_', base64_encode((string)$all['url'])));
+        return redirect('feed/' . str_replace('/', '_', base64_encode((string)$all['url'])));
     }
 
     public function show($url)
@@ -20,18 +21,16 @@ class FeedController extends Controller
 
         $parser = new Parser;
 
-        $response = \Guzzle::get($url, [
-            'headers' => [
-                'User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0',
-                'Accept'     => 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-            ]
-        ]);
+        $response = Http::withHeaders([
+            'User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0',
+            'Accept'     => 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+        ])->get($url);
 
         $parser->setXML($response->getBody()->getContents());
         $parser->parse();
 
         // Reddit hack
-        if(strpos($url, 'reddit.com') !== false) {
+        if (strpos($url, 'reddit.com') !== false) {
             $parser->transform('reddit');
         }
 

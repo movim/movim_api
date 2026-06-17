@@ -17,21 +17,17 @@
 </header>
 
 <div class="block container">
-    {{ Form::open([
-        'method' => 'POST',
-        'action' => ['AccountsController@setChangePassword'],
-        'class' => 'padded_top_bottom',
-        'id' => 'registration_form'
-    ]) }}
+    <form method="POST" action="{{ route('accounts.setChangePassword') }}" accept-charset="UTF-8" id="registration_form" class="padded_top_bottom">
+        @csrf
         @include('parts.errors')
 
         <div>
-            {{ Form::label('password', 'Password') }}
-            {{ Form::password('password', ['required', 'placeholder'=>'Your new password']) }}
+            <label for="password">Password</label>
+            <input required="" placeholder="Your new password" name="password" type="password" value="" id="password">
         </div>
         <div>
-            {{ Form::label('password_confirmation', 'Confirm your password') }}
-            {{ Form::password('password_confirmation', ['required', 'placeholder'=>'Confirm your password', 'style' => 'margin-top: -1rem']) }}
+            <label for="password_confirmation">Confirm your password</label>
+            <input required="" placeholder="Confirm your password" name="password_confirmation" type="password" value="" id="password_confirmation">
         </div>
 
         <div>
@@ -40,8 +36,8 @@
             {!! HCaptcha::display() !!}
         </div>
 
-        {{ Form::submit('Change', ['class'=>'button color oppose', 'style' => 'margin-top: 3rem;'])}}
-    {{ Form::close() }}
+        <input class="button color oppose" style="margin-top: 3rem;" type="submit" value="Change">
+    </form>
 </div>
 
 @endsection

@@ -40,15 +40,14 @@
         </li>
         <li>
             <span class="primary icon gray"><i class="material-symbols">security</i></span>
-            {{ Form::open(['method' => 'POST', 'action' => ['AccountsController@requestAuthentication'], 'style' => 'padding-right: 0;']) }}
-
+            <form method="POST" action="{{ route('accounts.requestAuthentication') }}" accept-charset="UTF-8">
+                @csrf
                 <div>
-                    {{ Form::label('username', 'Movim account') }}
-                    {{ Form::text('username', null, ['placeholder' => 'username@movim.eu or @jappix.com', 'required']) }}
+                    <label for="username">Movim account</label>
+                    <input placeholder="username@movim.eu or @jappix.com" required="" name="username" type="text" id="username">
                 </div>
-
-            {{ Form::submit('Recover', ['class' => 'button color oppose', 'style' => 'margin-top: 0; margin: 0 auto;'])}}
-            {{ Form::close() }}
+                <input class="button color oppose" type="submit" value="Recover">
+            </form>
         </li>
         <br />
         <hr />
