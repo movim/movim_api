@@ -25,7 +25,7 @@
             <div>
                 <p></p>
                 <p class="all">
-                    This is an account recovery form. Go directly to <a href="https://mov.im/" target="_blank">mov.im</a> or <a href="{$c->route('server.index')}">pick a Movim server</a> to authenticate with your current account.
+                    This is an account recovery form. Go directly to <a href="https://mov.im/" target="_blank">mov.im</a> or <a href="{{ route('servers.index') }}">pick a Movim server</a> to authenticate with your current account.
                 </p>
             </div>
         </li>
