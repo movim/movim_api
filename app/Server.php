@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Http;
 
@@ -48,6 +49,8 @@ class Server extends Model
 
         $this->banner = $json['banner'];
         $this->version = $json['version'];
+        $this->updated_at = Carbon::now();
+
         $this->save();
 
         $this->admins()->delete();
