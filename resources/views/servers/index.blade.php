@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div class="container large">
+
 <ul class="list thick">
     <li>
         <div>
@@ -29,7 +31,7 @@
     </li>
 </ul>
 
-<ul class="list">
+<!--<ul class="list">
     <li class="subheader block large">
         <div>
             <p>
@@ -38,7 +40,7 @@
             </p>
         </div>
     </li>
-</ul>
+</ul>-->
 @php($restrictedSection = false)
 @php($outdatedSection = false)
 <ul id="servers" class="list card middle flex third servers">
@@ -47,7 +49,7 @@
             <br />
             <li class="subheader">
                 <div>
-                    <p>Restricted</p>
+                    <h3><i class="material-symbols icon-text icon red">check</i> Restricted</h3>
                 </div>
             </li>
             @php($restrictedSection = true)
@@ -56,7 +58,7 @@
             <br />
             <li class="subheader">
                 <div>
-                    <p>Oudated</p>
+                    <h3><i class="material-symbols icon-text icon blue">history</i> Oudated</h3>
                 </div>
             </li>
             @php($outdatedSection = true)
@@ -104,5 +106,7 @@
         </div>
     </li>
 </ul>
+
+</div>
 
 @endsection

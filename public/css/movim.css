@@ -36,13 +36,12 @@ header section a:visited {
     color: white;
 }
 
-section.large {
+body>section {
     background-color: rgb(var(--movim-background-main));
     box-shadow: var(--elevation-2);
 
     margin: 0 auto;
     display: block;
-    max-width: 1024px;
 
     box-sizing: border-box;
     padding: 1rem;
@@ -58,9 +57,13 @@ footer hr {
     margin-bottom: 2rem;
 }
 
-section .container {
+body>section .container {
     max-width: 640px;
     margin: 0 auto;
+}
+
+body>section .container.large {
+    max-width: 1024px;
 }
 
 header {
@@ -159,4 +162,10 @@ ul#servers li.outdated {
 
 ul#server p.line.two {
     min-height: 5rem;
+}
+
+ul#servers h3 {
+    line-height: 7rem;
+    margin-top: 2rem;
+    font-size: 3rem;
 }
