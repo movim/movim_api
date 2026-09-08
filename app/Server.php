@@ -5,6 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Number;
 
 class Server extends Model
 {
@@ -71,5 +72,10 @@ class Server extends Model
         }
 
         return null;
+    }
+
+    public function getAbbreviatedPopulationAttribute(): string
+    {
+        return Number::abbreviate($this->attributes['population']);
     }
 }

@@ -64,7 +64,7 @@
         <li class="block @if ($server->outdated) outdated @endif">
             <img src="{{ $server->banner }}"/>
             <div>
-                <a href="https://{{ $server->domain }}" target="_blank" class="chip outline color green">
+                <a href="https://{{ $server->domain }}" target="_blank" class="button color green">
                     <i class="material-symbols">login</i>
                     Join
                 </a>
@@ -76,18 +76,20 @@
                 <p class="line two">{{ $server->description}}</p>
 
                 <p title="Connected / Total population">
-                    <i class="material-symbols icon-text icon green">people</i> {{ $server->connected }} @if($server->maxsessions > 0)/{{ $server->maxsessions }}@endif • Pop: {{ $server->population }}
-                    •
+                    <i class="material-symbols icon-text icon green">people</i> {{ $server->connected }} @if($server->maxsessions > 0)/{{ $server->maxsessions }}@endif • Pop: {{ $server->abbreviatedPopulation }}
 
-                    @if ($server->whitelist()->count() > 0)
-                        <i class="material-symbols icon-text icon red">check</i> Restricted
-                    @else
-                        <i class="material-symbols icon-text icon green">check</i> Open
-                    @endif
+                    <span class="status">
+                        @if ($server->whitelist()->count() > 0)
+                            <i class="material-symbols icon-text icon red">check</i> Restricted
+                        @else
+                            <i class="material-symbols icon-text icon green">check</i> Open
+                        @endif
 
-                    @if ($server->outdated)
-                        • <i class="material-symbols icon-text icon blue">history</i> Outdated
-                    @endif
+                        @if ($server->outdated)
+                            • <i class="material-symbols icon-text icon blue">history</i> Outdated
+                        @endif
+                    </span>
+
                 </p>
             </div>
         </li>
