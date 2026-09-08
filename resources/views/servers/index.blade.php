@@ -58,7 +58,7 @@
             <br />
             <li class="subheader">
                 <div>
-                    <h3><i class="material-symbols icon-text icon blue">history</i> Oudated</h3>
+                    <h3><i class="material-symbols icon-text icon blue">history</i> Outdated</h3>
                 </div>
             </li>
             @php($outdatedSection = true)
