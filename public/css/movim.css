@@ -28,7 +28,6 @@ header section {
 header section #app_title {
     font-weight: 300;
     font-size: 4rem;
-    padding-left: 2rem;
 }
 
 header section a:link,
@@ -68,17 +67,6 @@ body>section .container.large {
 
 header {
     margin: 2rem 0;
-}
-
-@media screen and (max-width: 600px) {
-    .container {
-        padding: 1rem 1rem;
-    }
-
-    header {
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-    }
 }
 
 .top_padding {

@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="https://mov.im/theme/css/elevation.css?2" type="text/css" />
     <link rel="stylesheet" href="https://mov.im/theme/css/chip.css?2" type="text/css" />
 
-    <link rel="stylesheet" href="/css/movim.css?10" type="text/css" />
+    <link rel="stylesheet" href="/css/movim.css?11" type="text/css" />
 
     <meta name="description" property="description" content="Explore and join the Movim network">
 
